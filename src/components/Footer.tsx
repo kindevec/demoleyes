@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import { MapPin, Phone, Mail, ShieldCheck, ArrowUp, Linkedin, Instagram, ArrowUpRight } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 interface FooterProps {
   onNavigateToBooking: () => void;
@@ -61,7 +62,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateToBooking }) => {
                 className="w-8 h-8 rounded-lg bg-[#0B1D3A] hover:bg-[#25D366] hover:text-white text-slate-300 flex items-center justify-center transition-all duration-200 border border-slate-700/60"
                 aria-label="WhatsApp"
               >
-                <Phone className="w-4 h-4" />
+                <WhatsAppIcon className="w-4 h-4" />
               </a>
             </div>
 

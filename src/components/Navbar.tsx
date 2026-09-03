@@ -1,7 +1,8 @@
 ﻿import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Phone, ArrowUpRight, MessageSquare } from 'lucide-react';
+import { Phone, ArrowUpRight } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 interface NavbarProps {
   onNavigateToBooking: () => void;
@@ -72,7 +73,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToBooking, activeSecti
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         
-        {/* Bespoke Heraldic Brand Logo (NO BOX IN BOX) */}
+        {/* Bespoke Heraldic Brand Logo */}
         <button
           onClick={() => scrollTo('inicio')}
           className="focus:outline-none cursor-pointer text-left group"
@@ -130,15 +131,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToBooking, activeSecti
             </div>
           </button>
 
-          {/* Direct WhatsApp on Mobile */}
+          {/* Official WhatsApp on Mobile */}
           <a
             href="https://wa.me/593999999999?text=Hola%2C%20deseo%20agendar%20una%20consulta%20jur%C3%ADdica%20privada%20con%20Valenzuela%20%26%20Asociados."
             target="_blank"
             rel="noopener noreferrer"
-            className="flex sm:hidden items-center justify-center p-2 rounded-full bg-[#25D366] text-white hover:bg-[#20bd5a] transition-colors"
+            className="flex sm:hidden items-center justify-center p-2 rounded-full bg-[#25D366] text-white hover:bg-[#20ba59] transition-colors shadow-md"
             aria-label="WhatsApp Directo"
           >
-            <MessageSquare className="w-4 h-4" />
+            <WhatsAppIcon className="w-4 h-4 text-white" />
           </a>
         </div>
 

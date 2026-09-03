@@ -1,7 +1,8 @@
 ﻿import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ShieldCheck, CheckCircle2, Lock, ArrowUpRight, MessageSquare, AlertCircle, Sparkles } from 'lucide-react';
+import { ShieldCheck, CheckCircle2, Lock, ArrowUpRight, AlertCircle, Sparkles } from 'lucide-react';
 import { PRACTICE_AREAS } from '../data/legalData';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 interface BookingFormProps {
   preselectedArea?: string;
@@ -99,7 +100,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
           </div>
         )}
 
-        {/* Form Container (Clean single card - No nested boxes!) */}
+        {/* Form Container (Clean single card) */}
         <div className="rounded-3xl bg-[#0B1D3A]/60 border border-slate-800 p-7 sm:p-10 shadow-xl backdrop-blur-xl">
           <AnimatePresence mode="wait">
             {!submitted ? (
@@ -236,7 +237,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                   />
                 </div>
 
-                {/* Direct Notice (No box-in-box!) */}
+                {/* Direct Notice */}
                 <div className="flex items-center gap-2 text-xs text-slate-400 pt-1">
                   <ShieldCheck className="w-4 h-4 text-[#D4AF37] shrink-0" />
                   <span>
@@ -303,7 +304,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                     rel="noopener noreferrer"
                     className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs tracking-wide transition-all shadow-md flex items-center justify-center gap-2"
                   >
-                    <MessageSquare className="w-4 h-4" />
+                    <WhatsAppIcon className="w-4 h-4 text-white" />
                     <span>Confirmar vía WhatsApp</span>
                   </a>
 

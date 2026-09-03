@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import { MessageSquare } from 'lucide-react';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 export const EmergencyWhatsAppButton: React.FC = () => {
   const whatsappUrl = `https://wa.me/593999999999?text=${encodeURIComponent(
@@ -24,9 +24,9 @@ export const EmergencyWhatsAppButton: React.FC = () => {
         <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-35 animate-ping duration-1000 pointer-events-none" />
         <span className="absolute -inset-1 rounded-full bg-gradient-to-tr from-[#25D366] to-[#128C7E] opacity-40 blur-md group-hover:opacity-75 transition-opacity pointer-events-none" />
 
-        {/* Main Floating Button Badge (Kindev Standard) */}
-        <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-[#20ba59] via-[#25D366] to-[#2be873] text-white flex items-center justify-center shadow-[0_8px_25px_rgba(37,211,102,0.45)] border-2 border-white/30 transition-all duration-300 group-hover:scale-110 group-active:scale-95">
-          <MessageSquare className="w-6 h-6 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.2)]" />
+        {/* Official WhatsApp Floating Button (Meta Standards) */}
+        <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white flex items-center justify-center shadow-[0_8px_25px_rgba(37,211,102,0.5)] border-2 border-white/30 transition-all duration-300 group-hover:scale-110 group-active:scale-95">
+          <WhatsAppIcon className="w-6.5 h-6.5 sm:w-7 sm:h-7 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.2)]" />
         </div>
 
         {/* Floating Tooltip Pill (Reveals on Desktop Hover Only) */}

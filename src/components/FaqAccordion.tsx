@@ -1,7 +1,8 @@
 ﻿import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronDown, HelpCircle, Search, MessageSquare } from 'lucide-react';
+import { ChevronDown, HelpCircle, Search } from 'lucide-react';
 import { FAQS } from '../data/legalData';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 export const FaqAccordion: React.FC = () => {
   const [openId, setOpenId] = useState<string | null>('faq-1');
@@ -140,7 +141,7 @@ export const FaqAccordion: React.FC = () => {
           )}
         </div>
 
-        {/* WhatsApp Help Footer */}
+        {/* WhatsApp Help Footer with Official Logo */}
         <div className="mt-10 p-5 rounded-3xl bg-[#0B1D3A]/70 border border-slate-700/80 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-left">
             <h4 className="text-sm font-bold text-white font-heading">¿Tiene una interrogante jurídica particular?</h4>
@@ -152,7 +153,7 @@ export const FaqAccordion: React.FC = () => {
             rel="noopener noreferrer"
             className="px-5 py-2.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs tracking-wide transition-all flex items-center gap-2 cursor-pointer shadow-md shrink-0"
           >
-            <MessageSquare className="w-4 h-4" />
+            <WhatsAppIcon className="w-4 h-4 text-white" />
             <span>Consultar por WhatsApp</span>
           </a>
         </div>
