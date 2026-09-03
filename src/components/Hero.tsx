@@ -26,13 +26,13 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
   return (
     <section
       id="inicio"
-      className="relative min-h-screen pt-28 pb-12 sm:pt-36 sm:pb-20 flex flex-col justify-between overflow-hidden bg-gradient-to-b from-[#051329] via-[#0A224A] to-[#071326] text-white"
+      className="relative min-h-screen pt-28 pb-14 sm:pt-36 sm:pb-20 flex flex-col justify-between overflow-hidden bg-gradient-to-b from-[#051329] via-[#0A224A] to-[#071326] text-white"
     >
       {/* Sky Blue Twilight Architectural Lighting */}
       <div className="absolute top-0 right-1/4 w-[750px] h-[550px] bg-[#0A66FF]/15 rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute top-1/3 -left-20 w-[550px] h-[550px] bg-[#D4AF37]/10 rounded-full blur-[170px] pointer-events-none" />
 
-      {/* Skyscraper Panoramic Architectural Backdrop (SkyStructure Style) */}
+      {/* Skyscraper Panoramic Architectural Backdrop */}
       <div className="absolute top-0 right-0 w-full lg:w-3/5 h-full opacity-40 lg:opacity-55 pointer-events-none mix-blend-luminosity overflow-hidden z-0">
         <img
           src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=85"
@@ -49,7 +49,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
       </div>
 
       {/* Top Content: Headline & Subtitle */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mb-10 sm:mb-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mb-10 sm:mb-14">
         <div className="max-w-3xl space-y-5">
           
           {/* Top Institutional Badge */}
@@ -126,212 +126,234 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
       </div>
 
       {/* ========================================================================= */}
-      {/* 3-CARD OVERLAPPING DECK (SKYSTRUCTURE ARCHITECTURAL DYNAMIC PATTERN) */}
+      {/* OPEN EDITORIAL ARCHITECTURAL SHOWCASE (ZERO BOX-IN-BOX) */}
       {/* ========================================================================= */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-5 lg:gap-6 pb-4 md:pb-0 px-4 md:px-0 -mx-4 md:mx-0 no-scrollbar md:grid-cols-3 items-stretch">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-8 border-t border-slate-800/60">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
           
-          {/* CARD 1: Sobre la Firma (About Us with Building Photography) */}
+          {/* COLUMN 1: Sobre la Firma (Open Editorial) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.35 }}
-            className="w-[86vw] sm:w-auto shrink-0 md:shrink snap-center rounded-3xl bg-[#091D3C]/85 border border-slate-700/70 p-6 sm:p-7 flex flex-col justify-between backdrop-blur-xl shadow-2xl hover:border-[#D4AF37]/50 transition-all group"
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-col justify-between"
           >
             <div>
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#D4AF37] font-heading">
-                  Sobre la Firma
+              <div className="flex items-center gap-2 mb-2 text-[#D4AF37]">
+                <Award className="w-4 h-4" />
+                <span className="text-[11px] font-extrabold uppercase tracking-widest font-heading">
+                  Tradición & Rigor
                 </span>
-                <Award className="w-4 h-4 text-[#D4AF37]" />
               </div>
-              <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-white mb-2.5 leading-snug">
-                Tradición & Rigor Procesal
+              <h3 className="font-heading font-extrabold text-xl lg:text-2xl text-white mb-2 leading-tight">
+                Abogacía de Máximo Prestigio
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify-clean mb-5">
-                Más de 18 años dedicados exclusivamente a la defensa patrimonial y litigios de alta
-                complejidad para corporaciones nacionales e internacionales.
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify-clean mb-4">
+                Más de 18 años dedicados con absoluta reserva fiduciaria a la litigación de alto impacto y la defensa patrimonial de corporaciones y familias empresariales.
               </p>
             </div>
 
-            {/* Architecture Building Image Frame */}
-            <div className="relative rounded-2xl overflow-hidden aspect-[16/10] border border-slate-700/60 shadow-inner group-hover:scale-[1.02] transition-transform duration-300">
-              <img
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
-                alt="Sede Central Valmont & Asociados"
-                className="w-full h-full object-cover object-center"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#071326] via-[#071326]/40 to-transparent" />
-              <div className="absolute bottom-3 left-3 right-3">
-                <p className="text-white text-xs font-bold tracking-wide">Sede Titanium Plaza</p>
-                <p className="text-[#D4AF37] text-[10.5px]">Quito • Guayaquil</p>
+            {/* Architecture Building Image (Natural bleed without nested card) */}
+            <div>
+              <div className="relative rounded-2xl overflow-hidden aspect-[16/9] shadow-lg group">
+                <img
+                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
+                  alt="Sede Central Valmont & Asociados"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#071326] via-[#071326]/30 to-transparent" />
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                  <p className="text-white text-xs font-bold">Titanium Plaza • Quito</p>
+                  <span className="text-[#D4AF37] text-[10.5px] font-semibold">Alianzas Internacionales</span>
+                </div>
               </div>
+
+              <button
+                onClick={() => scrollTo('quienes-somos')}
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D4AF37] hover:text-[#FDE047] transition-colors mt-3.5 cursor-pointer"
+              >
+                <span>Conocer la historia institucional</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </button>
             </div>
           </motion.div>
 
-          {/* CARD 2: Especialidades Clave (ELEVATED / TALLER / PROMINENT - 2x2 Grid) */}
+          {/* COLUMN 2: Especialidades Clave (Open Typographic List - ZERO BOXES) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45 }}
-            className="w-[86vw] sm:w-auto shrink-0 md:shrink snap-center rounded-3xl bg-gradient-to-b from-[#0C244C] to-[#081832] border-2 border-[#D4AF37]/60 p-6 sm:p-7 flex flex-col justify-between backdrop-blur-2xl shadow-2xl shadow-black/80 md:-translate-y-4 md:hover:-translate-y-6 transition-all relative z-10"
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="md:border-l border-slate-800/70 md:pl-8 lg:pl-10 flex flex-col justify-between"
           >
-            {/* Top Gold Badge */}
-            <div className="flex items-center justify-between mb-4">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#D4AF37]/20 border border-[#D4AF37]/50 text-[10px] font-extrabold uppercase tracking-wider text-[#FDE047]">
-                <Sparkles className="w-3 h-3 text-[#FDE047]" />
-                <span>Nuestra Experiencia</span>
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center gap-2 text-[#D4AF37]">
+                  <Sparkles className="w-4 h-4" />
+                  <span className="text-[11px] font-extrabold uppercase tracking-widest font-heading">
+                    Especialidades Clave
+                  </span>
+                </div>
+                <span className="text-xs text-slate-400 font-medium">6 Prácticas</span>
               </div>
-              <span className="text-xs text-slate-400 font-medium">6 Áreas</span>
+              <h3 className="font-heading font-extrabold text-xl lg:text-2xl text-white mb-4 leading-tight">
+                Áreas Estratégicas
+              </h3>
+
+              {/* Open Editorial List Items (Zero Boxes) */}
+              <div className="space-y-4">
+                <div
+                  onClick={() => {
+                    onSelectArea('corporativo-m-a');
+                    scrollTo('especialidades');
+                  }}
+                  className="flex items-start gap-3.5 group cursor-pointer"
+                >
+                  <Building2 className="w-5 h-5 text-[#D4AF37] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                  <div>
+                    <h4 className="text-xs sm:text-sm font-bold text-white group-hover:text-[#D4AF37] transition-colors leading-tight mb-0.5">
+                      Derecho Corporativo & M&A
+                    </h4>
+                    <p className="text-[11.5px] text-slate-400 leading-snug">
+                      Fusiones, adquisiciones, joint ventures y gobierno societario.
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  onClick={() => {
+                    onSelectArea('litigios-penal');
+                    scrollTo('especialidades');
+                  }}
+                  className="flex items-start gap-3.5 group cursor-pointer"
+                >
+                  <Scale className="w-5 h-5 text-[#D4AF37] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                  <div>
+                    <h4 className="text-xs sm:text-sm font-bold text-white group-hover:text-[#D4AF37] transition-colors leading-tight mb-0.5">
+                      Litigios & Penal Económico
+                    </h4>
+                    <p className="text-[11.5px] text-slate-400 leading-snug">
+                      Defensa judicial de alta complejidad y arbitrajes comerciales.
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  onClick={() => {
+                    onSelectArea('patrimonial-sucesiones');
+                    scrollTo('especialidades');
+                  }}
+                  className="flex items-start gap-3.5 group cursor-pointer"
+                >
+                  <ShieldCheck className="w-5 h-5 text-[#D4AF37] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                  <div>
+                    <h4 className="text-xs sm:text-sm font-bold text-white group-hover:text-[#D4AF37] transition-colors leading-tight mb-0.5">
+                      Blindaje Patrimonial & Sucesorio
+                    </h4>
+                    <p className="text-[11.5px] text-slate-400 leading-snug">
+                      Fideicomisos mercantiles y estructuras de protección familiar.
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  onClick={() => {
+                    onSelectArea('tributario-fiscal');
+                    scrollTo('especialidades');
+                  }}
+                  className="flex items-start gap-3.5 group cursor-pointer"
+                >
+                  <TrendingUp className="w-5 h-5 text-[#D4AF37] shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                  <div>
+                    <h4 className="text-xs sm:text-sm font-bold text-white group-hover:text-[#D4AF37] transition-colors leading-tight mb-0.5">
+                      Derecho Tributario & Fiscal
+                    </h4>
+                    <p className="text-[11.5px] text-slate-400 leading-snug">
+                      Planificación fiscal corporativa y litigios de impugnación SRI.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* 2x2 Grid of Key Specialties with Icons (SkyStructure Pattern) */}
-            <div className="grid grid-cols-2 gap-3.5 my-auto py-2">
-              <button
-                onClick={() => {
-                  onSelectArea('corporativo-m-a');
-                  scrollTo('especialidades');
-                }}
-                className="p-3.5 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-[#D4AF37]/50 transition-all text-left group/item cursor-pointer"
-              >
-                <div className="w-8 h-8 rounded-xl bg-[#D4AF37]/15 flex items-center justify-center mb-2 text-[#D4AF37]">
-                  <Building2 className="w-4 h-4" />
-                </div>
-                <h4 className="text-xs font-bold text-white group-hover/item:text-[#D4AF37] transition-colors leading-tight mb-1">
-                  Corporativo & M&A
-                </h4>
-                <p className="text-[10.5px] text-slate-400 leading-tight">Fusiones y contratos de escala.</p>
-              </button>
-
-              <button
-                onClick={() => {
-                  onSelectArea('litigios-penal');
-                  scrollTo('especialidades');
-                }}
-                className="p-3.5 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-[#D4AF37]/50 transition-all text-left group/item cursor-pointer"
-              >
-                <div className="w-8 h-8 rounded-xl bg-[#D4AF37]/15 flex items-center justify-center mb-2 text-[#D4AF37]">
-                  <Scale className="w-4 h-4" />
-                </div>
-                <h4 className="text-xs font-bold text-white group-hover/item:text-[#D4AF37] transition-colors leading-tight mb-1">
-                  Litigios & Penal
-                </h4>
-                <p className="text-[10.5px] text-slate-400 leading-tight">Defensa en foros judiciales.</p>
-              </button>
-
-              <button
-                onClick={() => {
-                  onSelectArea('patrimonial-sucesiones');
-                  scrollTo('especialidades');
-                }}
-                className="p-3.5 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-[#D4AF37]/50 transition-all text-left group/item cursor-pointer"
-              >
-                <div className="w-8 h-8 rounded-xl bg-[#D4AF37]/15 flex items-center justify-center mb-2 text-[#D4AF37]">
-                  <ShieldCheck className="w-4 h-4" />
-                </div>
-                <h4 className="text-xs font-bold text-white group-hover/item:text-[#D4AF37] transition-colors leading-tight mb-1">
-                  Blindaje Patrimonial
-                </h4>
-                <p className="text-[10.5px] text-slate-400 leading-tight">Fideicomisos y estructuras.</p>
-              </button>
-
-              <button
-                onClick={() => {
-                  onSelectArea('tributario-fiscal');
-                  scrollTo('especialidades');
-                }}
-                className="p-3.5 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-[#D4AF37]/50 transition-all text-left group/item cursor-pointer"
-              >
-                <div className="w-8 h-8 rounded-xl bg-[#D4AF37]/15 flex items-center justify-center mb-2 text-[#D4AF37]">
-                  <TrendingUp className="w-4 h-4" />
-                </div>
-                <h4 className="text-xs font-bold text-white group-hover/item:text-[#D4AF37] transition-colors leading-tight mb-1">
-                  Tributario & Fiscal
-                </h4>
-                <p className="text-[10.5px] text-slate-400 leading-tight">Estrategias ante el SRI.</p>
-              </button>
-            </div>
-
-            {/* Bottom Link */}
             <button
               onClick={() => scrollTo('especialidades')}
-              className="w-full mt-3 py-2.5 rounded-xl bg-[#D4AF37]/15 hover:bg-[#D4AF37]/25 text-[#FDE047] font-bold text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer border border-[#D4AF37]/30"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D4AF37] hover:text-[#FDE047] transition-colors mt-4 cursor-pointer"
             >
-              <span>Explorar las 6 Especialidades</span>
+              <span>Ver el catálogo de las 6 especialidades</span>
               <ChevronRight className="w-3.5 h-3.5" />
             </button>
           </motion.div>
 
-          {/* CARD 3: Casos Recientes (Recent Projects Preview Cards) */}
+          {/* COLUMN 3: Casos Recientes (Open Media Rows - ZERO BOXES) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.55 }}
-            className="w-[86vw] sm:w-auto shrink-0 md:shrink snap-center rounded-3xl bg-[#091D3C]/85 border border-slate-700/70 p-6 sm:p-7 flex flex-col justify-between backdrop-blur-xl shadow-2xl hover:border-[#D4AF37]/50 transition-all group"
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="md:border-l border-slate-800/70 md:pl-8 lg:pl-10 flex flex-col justify-between"
           >
             <div>
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#D4AF37] font-heading">
-                  Resultados Clave
+              <div className="flex items-center gap-2 mb-2 text-[#D4AF37]">
+                <Briefcase className="w-4 h-4" />
+                <span className="text-[11px] font-extrabold uppercase tracking-widest font-heading">
+                  Precedentes & Casos
                 </span>
-                <Briefcase className="w-4 h-4 text-[#D4AF37]" />
               </div>
-              <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-white mb-4 leading-snug">
-                Casos Emblemáticos
+              <h3 className="font-heading font-extrabold text-2xl text-white mb-4 leading-tight">
+                Resultados Comprobados
               </h3>
-            </div>
 
-            {/* 2 Case Study Thumbnail Cards (SkyStructure Pattern) */}
-            <div className="space-y-3 my-auto">
-              <button
-                onClick={() => scrollTo('casos')}
-                className="w-full flex items-center gap-3 p-2.5 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 transition-all text-left cursor-pointer group/thumb"
-              >
-                <div className="w-14 h-14 rounded-xl overflow-hidden shrink-0 border border-slate-700">
+              {/* Open Editorial Case Rows (Zero Card Boxes) */}
+              <div className="space-y-4">
+                <div
+                  onClick={() => scrollTo('casos')}
+                  className="flex items-center gap-3.5 group cursor-pointer"
+                >
                   <img
                     src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=300&q=80"
                     alt="Arbitraje Energía"
-                    className="w-full h-full object-cover group-hover/thumb:scale-110 transition-transform"
+                    className="w-16 h-16 rounded-xl object-cover shrink-0 filter brightness-95 group-hover:scale-105 transition-transform"
                     loading="lazy"
                   />
+                  <div>
+                    <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-wider block mb-0.5">
+                      Laudo Favorable • CIADI
+                    </span>
+                    <h4 className="text-xs sm:text-sm font-bold text-white group-hover:text-[#D4AF37] transition-colors leading-snug">
+                      Consorcio Energético SLB
+                    </h4>
+                    <p className="text-xs text-[#D4AF37] font-semibold mt-0.5">$18.4M USD Recuperados</p>
+                  </div>
                 </div>
-                <div className="min-w-0 flex-1">
-                  <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-wider">Laudo Favorable</span>
-                  <p className="text-xs font-bold text-white truncate group-hover/thumb:text-[#D4AF37] transition-colors">
-                    Consorcio Energético SLB
-                  </p>
-                  <p className="text-[10.5px] text-slate-400 truncate">Arbitraje $18.4M USD</p>
-                </div>
-              </button>
 
-              <button
-                onClick={() => scrollTo('casos')}
-                className="w-full flex items-center gap-3 p-2.5 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 transition-all text-left cursor-pointer group/thumb"
-              >
-                <div className="w-14 h-14 rounded-xl overflow-hidden shrink-0 border border-slate-700">
+                <div
+                  onClick={() => scrollTo('casos')}
+                  className="flex items-center gap-3.5 group cursor-pointer"
+                >
                   <img
                     src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=80"
                     alt="M&A Retail"
-                    className="w-full h-full object-cover group-hover/thumb:scale-110 transition-transform"
+                    className="w-16 h-16 rounded-xl object-cover shrink-0 filter brightness-95 group-hover:scale-105 transition-transform"
                     loading="lazy"
                   />
+                  <div>
+                    <span className="text-[10px] font-bold text-[#D4AF37] uppercase tracking-wider block mb-0.5">
+                      Cierre Transaccional
+                    </span>
+                    <h4 className="text-xs sm:text-sm font-bold text-white group-hover:text-[#D4AF37] transition-colors leading-snug">
+                      Fusión Corporativa Retail
+                    </h4>
+                    <p className="text-xs text-slate-300 font-semibold mt-0.5">$45M USD Operación M&A</p>
+                  </div>
                 </div>
-                <div className="min-w-0 flex-1">
-                  <span className="text-[10px] font-bold text-[#D4AF37] uppercase tracking-wider">Cierre Transaccional</span>
-                  <p className="text-xs font-bold text-white truncate group-hover/thumb:text-[#D4AF37] transition-colors">
-                    Fusión Corporativa Retail
-                  </p>
-                  <p className="text-[10.5px] text-slate-400 truncate">Operación $45M USD</p>
-                </div>
-              </button>
+              </div>
             </div>
 
             <button
               onClick={() => scrollTo('casos')}
-              className="w-full mt-3 py-2 text-xs font-bold text-slate-300 hover:text-white flex items-center justify-center gap-1 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D4AF37] hover:text-[#FDE047] transition-colors mt-4 cursor-pointer"
             >
-              <span>Ver todos los precedentes</span>
+              <span>Examinar precedentes y testimonios</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </button>
           </motion.div>
@@ -341,4 +363,3 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
     </section>
   );
 };
-
