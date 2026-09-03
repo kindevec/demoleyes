@@ -1,6 +1,6 @@
 ﻿import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Award, GraduationCap, Scale, ArrowUpRight, BookOpen, Trophy, X, CalendarCheck } from 'lucide-react';
+import { GraduationCap, Scale, ArrowUpRight, BookOpen, Trophy, X, CalendarCheck } from 'lucide-react';
 import { ATTORNEYS } from '../data/legalData';
 import { Attorney } from '../types';
 
@@ -12,35 +12,33 @@ export const Attorneys: React.FC<AttorneysProps> = ({ onConsultPartner }) => {
   const [selectedAttorneyForModal, setSelectedAttorneyForModal] = useState<Attorney | null>(null);
 
   return (
-    <section id="abogados" className="py-24 bg-[#070B19] text-white relative">
+    <section id="abogados" className="py-20 lg:py-28 bg-[#071326] text-white relative border-t border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold tracking-widest uppercase mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] text-xs font-semibold tracking-wide mb-4">
             Liderazgo Académico y Procesal
           </div>
-          <h2 className="font-serif-luxury text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white mb-3">
             Socios y Abogados Principales
           </h2>
-          <div className="w-16 h-0.5 bg-amber-500/60 mx-auto mb-6" />
-          <p className="text-slate-300 text-base sm:text-lg">
-            Nuestros litigios y transacciones son dirigidos personalmente por profesionales con
-            posgrados en las facultades de derecho más prestigiosas del mundo y trayectoria probada
-            en la alta judicatura.
+          <p className="text-slate-300 text-sm sm:text-base">
+            Nuestros litigios y transacciones son conducidos personalmente por profesionales con
+            posgrados en las facultades de derecho más prestigiosas del mundo.
           </p>
         </div>
 
         {/* 3 Partner Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {ATTORNEYS.map((attorney, idx) => (
             <motion.div
               key={attorney.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="group rounded-sm bg-slate-900/60 border border-white/10 hover:border-amber-500/40 transition-all duration-300 overflow-hidden flex flex-col justify-between shadow-2xl backdrop-blur-sm"
+              className="rounded-3xl bg-[#0B1D3A]/80 hover:bg-[#0B1D3A] border border-slate-700/80 hover:border-[#D4AF37]/40 transition-all duration-300 overflow-hidden flex flex-col justify-between shadow-xl backdrop-blur-xl group"
             >
               <div>
                 {/* Attorney Portrait Image */}
@@ -52,53 +50,52 @@ export const Attorneys: React.FC<AttorneysProps> = ({ onConsultPartner }) => {
                     decoding="async"
                     width={800}
                     height={800}
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover object-top filter grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                    className="w-full h-full object-cover object-top filter grayscale contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                   />
                   {/* Subtle Gradient Shade */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d1424] via-transparent to-transparent opacity-90" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B1D3A] via-transparent to-transparent opacity-95" />
                   
                   {/* Experience Badge */}
                   <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between">
-                    <span className="text-[11px] font-semibold tracking-wider uppercase px-2.5 py-1 rounded bg-[#070B19]/80 backdrop-blur-md text-amber-300 border border-amber-400/30">
+                    <span className="text-[10px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full bg-[#071326]/90 backdrop-blur-md text-[#D4AF37] border border-[#D4AF37]/30">
                       {attorney.experience}
                     </span>
                   </div>
                 </div>
 
                 {/* Details */}
-                <div className="p-6 sm:p-7">
-                  <div className="mb-1 text-xs font-bold uppercase tracking-widest text-amber-400">
+                <div className="p-6">
+                  <div className="mb-1 text-[11px] font-bold uppercase tracking-wider text-[#D4AF37]">
                     {attorney.role}
                   </div>
-                  <h3 className="font-serif-luxury text-2xl font-bold text-white mb-2 group-hover:text-amber-200 transition-colors">
+                  <h3 className="font-heading font-bold text-xl text-white mb-1.5 group-hover:text-[#D4AF37] transition-colors">
                     {attorney.name}
                   </h3>
                   <p className="text-xs text-slate-300 font-medium mb-4 italic">
                     Especialidad: {attorney.specialty}
                   </p>
 
-                  <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
+                  <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6 line-clamp-3">
                     {attorney.bio}
                   </p>
 
                   {/* Academic Credentials */}
-                  <div className="space-y-2 pt-4 border-t border-white/10 mb-6">
-                    <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5 mb-2">
-                      <GraduationCap className="w-3.5 h-3.5 text-amber-400" />
-                      <span>Credenciales Académicas</span>
+                  <div className="space-y-1.5 pt-4 border-t border-slate-800 mb-4">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5 mb-1.5">
+                      <GraduationCap className="w-3.5 h-3.5 text-[#D4AF37]" />
+                      <span>Formación Académica</span>
                     </div>
-                    {attorney.education.map((edu, eIdx) => (
+                    {attorney.education.slice(0, 2).map((edu, eIdx) => (
                       <div key={eIdx} className="text-xs text-slate-300 leading-snug flex items-start gap-1.5">
-                        <span className="text-amber-400 text-xs">•</span>
+                        <span className="text-[#D4AF37]">•</span>
                         <span>{edu}</span>
                       </div>
                     ))}
                   </div>
 
                   {/* Official Bar Number */}
-                  <div className="text-[11px] text-slate-400 font-mono bg-slate-950/60 p-2 rounded border border-white/5 flex items-center gap-2">
-                    <Scale className="w-3 h-3 text-amber-400 shrink-0" />
+                  <div className="text-[11px] text-slate-400 font-mono bg-[#071326] p-2 rounded-xl border border-slate-800 flex items-center gap-2">
+                    <Scale className="w-3 h-3 text-[#D4AF37] shrink-0" />
                     <span>{attorney.barNumber}</span>
                   </div>
                 </div>
@@ -108,18 +105,20 @@ export const Attorneys: React.FC<AttorneysProps> = ({ onConsultPartner }) => {
               <div className="p-6 pt-0 space-y-2">
                 <button
                   onClick={() => setSelectedAttorneyForModal(attorney)}
-                  className="w-full py-2 px-3 rounded-sm bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white text-xs font-semibold tracking-wider transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="w-full py-2.5 px-3 rounded-xl bg-slate-900/60 hover:bg-slate-900 text-slate-300 hover:text-white text-xs font-semibold tracking-wide transition-colors flex items-center justify-center gap-1.5 cursor-pointer border border-slate-700/60"
                 >
-                  <BookOpen className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Ver Trayectoria & Casos Ganados</span>
+                  <BookOpen className="w-3.5 h-3.5 text-[#D4AF37]" />
+                  <span>Ver Trayectoria & Casos</span>
                 </button>
 
                 <button
                   onClick={() => onConsultPartner(attorney.name)}
-                  className="w-full py-2.5 px-4 rounded-sm bg-amber-500/10 hover:bg-amber-500 hover:text-slate-950 text-amber-400 border border-amber-500/30 hover:border-transparent text-xs font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-2.5 px-4 rounded-full bg-[#D4AF37] hover:bg-[#C59B27] text-slate-950 text-xs font-bold tracking-wide transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md active:scale-95"
                 >
-                  <span>Solicitar Consulta Directa</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
+                  <span>Solicitar Consulta</span>
+                  <div className="w-3.5 h-3.5 rounded-full bg-slate-950/15 flex items-center justify-center">
+                    <ArrowUpRight className="w-2.5 h-2.5 text-slate-950" />
+                  </div>
                 </button>
               </div>
             </motion.div>
@@ -141,10 +140,10 @@ export const Attorneys: React.FC<AttorneysProps> = ({ onConsultPartner }) => {
             />
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-2xl rounded-sm bg-[#0A1024] border border-amber-500/40 p-6 sm:p-8 shadow-2xl z-10 my-8 max-h-[90vh] overflow-y-auto"
+              exit={{ opacity: 0, scale: 0.95, y: 15 }}
+              className="relative w-full max-w-2xl rounded-3xl bg-[#0B1D3A] border border-slate-700/90 p-6 sm:p-8 shadow-2xl z-10 my-8 max-h-[90vh] overflow-y-auto"
             >
               <button
                 onClick={() => setSelectedAttorneyForModal(null)}
@@ -158,13 +157,13 @@ export const Attorneys: React.FC<AttorneysProps> = ({ onConsultPartner }) => {
                 <img
                   src={selectedAttorneyForModal.image}
                   alt={selectedAttorneyForModal.name}
-                  className="w-16 h-16 rounded-full object-cover border-2 border-amber-400/40 shrink-0"
+                  className="w-16 h-16 rounded-2xl object-cover border-2 border-[#D4AF37]/40 shrink-0"
                 />
                 <div>
-                  <span className="text-[10px] text-amber-400 font-bold uppercase tracking-widest block">
+                  <span className="text-[10px] text-[#D4AF37] font-bold uppercase tracking-wider block">
                     {selectedAttorneyForModal.role}
                   </span>
-                  <h3 className="font-serif-luxury text-2xl font-bold text-white">
+                  <h3 className="font-heading font-bold text-2xl text-white">
                     {selectedAttorneyForModal.name}
                   </h3>
                   <p className="text-xs text-slate-400 font-mono mt-0.5">
@@ -175,15 +174,15 @@ export const Attorneys: React.FC<AttorneysProps> = ({ onConsultPartner }) => {
 
               {/* Notable Wins */}
               {selectedAttorneyForModal.notableWins && (
-                <div className="mb-6 p-4 rounded bg-slate-950/70 border border-amber-500/20">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-amber-400 mb-2.5 flex items-center gap-2">
-                    <Trophy className="w-4 h-4 text-amber-400" />
-                    <span>Precedentes Notables & Victorias Clave</span>
+                <div className="mb-5 p-4 rounded-2xl bg-[#071326] border border-slate-800">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#D4AF37] mb-2.5 flex items-center gap-2">
+                    <Trophy className="w-4 h-4 text-[#D4AF37]" />
+                    <span>Precedentes Notables & Victorias</span>
                   </h4>
-                  <ul className="space-y-2 text-xs text-slate-300">
+                  <ul className="space-y-1.5 text-xs text-slate-300">
                     {selectedAttorneyForModal.notableWins.map((win, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <span className="text-amber-400 font-bold">•</span>
+                        <span className="text-[#D4AF37] font-bold">•</span>
                         <span>{win}</span>
                       </li>
                     ))}
@@ -193,12 +192,12 @@ export const Attorneys: React.FC<AttorneysProps> = ({ onConsultPartner }) => {
 
               {/* Publications */}
               {selectedAttorneyForModal.publications && (
-                <div className="mb-6 p-4 rounded bg-slate-950/70 border border-white/10">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-2.5 flex items-center gap-2">
-                    <BookOpen className="w-4 h-4 text-amber-400" />
-                    <span>Tratados y Publicaciones Doctrinales</span>
+                <div className="mb-6 p-4 rounded-2xl bg-[#071326] border border-slate-800">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-2 flex items-center gap-2">
+                    <BookOpen className="w-4 h-4 text-[#D4AF37]" />
+                    <span>Publicaciones Doctrinales</span>
                   </h4>
-                  <ul className="space-y-1.5 text-xs text-slate-400 italic">
+                  <ul className="space-y-1 text-xs text-slate-400 italic">
                     {selectedAttorneyForModal.publications.map((pub, i) => (
                       <li key={i}>"{pub}"</li>
                     ))}
@@ -207,7 +206,7 @@ export const Attorneys: React.FC<AttorneysProps> = ({ onConsultPartner }) => {
               )}
 
               {/* Direct Booking CTA */}
-              <div className="pt-4 border-t border-white/10 flex justify-end gap-3">
+              <div className="pt-3 border-t border-slate-800 flex justify-end gap-3">
                 <button
                   onClick={() => setSelectedAttorneyForModal(null)}
                   className="px-4 py-2 text-xs text-slate-400 hover:text-white"
@@ -220,10 +219,10 @@ export const Attorneys: React.FC<AttorneysProps> = ({ onConsultPartner }) => {
                     setSelectedAttorneyForModal(null);
                     onConsultPartner(name);
                   }}
-                  className="px-5 py-2.5 rounded-sm bg-amber-500 text-slate-950 font-bold text-xs uppercase tracking-wider hover:bg-amber-400 transition-colors flex items-center gap-1.5 cursor-pointer"
+                  className="px-6 py-2.5 rounded-full bg-[#D4AF37] text-slate-950 font-bold text-xs tracking-wide hover:bg-[#C59B27] transition-colors flex items-center gap-2 cursor-pointer shadow-md active:scale-95"
                 >
                   <CalendarCheck className="w-4 h-4 text-slate-950" />
-                  <span>Agendar Consulta con este Socio</span>
+                  <span>Agendar con este Socio</span>
                 </button>
               </div>
             </motion.div>

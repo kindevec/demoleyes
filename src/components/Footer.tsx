@@ -1,116 +1,226 @@
 ﻿import React from 'react';
-import { CrestLogo } from './CrestLogo';
-import { MapPin, Phone, Mail, Clock, ShieldCheck, ExternalLink, Award } from 'lucide-react';
+import { Scale, MapPin, Phone, Mail, Clock, ShieldCheck, ArrowUp, Linkedin, Instagram, ArrowUpRight } from 'lucide-react';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onNavigateToBooking: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onNavigateToBooking }) => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <footer className="bg-[#040711] text-slate-400 text-xs border-t border-white/10 pt-16 pb-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="relative w-full bg-[#071326] text-slate-300 border-t border-slate-800/80 pt-12 pb-24 md:pt-16 md:pb-12 overflow-hidden text-xs">
+      {/* Top Ambient Glow Accent Line */}
+      <div className="absolute top-0 right-1/2 left-1/2 h-[1px] w-2/5 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent pointer-events-none" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Main Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
+        {/* Main 4-Column Grid (SmartLegal Architecture) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-10 border-b border-slate-800">
           
-          {/* Brand & Purpose */}
-          <div className="space-y-4">
-            <CrestLogo size="sm" />
-            <p className="text-slate-400 text-xs leading-relaxed pt-2">
-              Firma jurídica de élite enfocada en litigios de alta complejidad, estructuraciones
-              societarias, derecho penal económico y resguardo patrimonial intergeneracional.
+          {/* Col 1: Brand Info (5 cols on lg) */}
+          <div className="lg:col-span-4 space-y-3.5">
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#D4AF37] to-[#996515] p-[1px] shadow-md shadow-[#D4AF37]/15 flex items-center justify-center shrink-0">
+                <div className="w-full h-full rounded-[11px] bg-[#071326] flex items-center justify-center">
+                  <Scale className="w-4 h-4 text-[#D4AF37]" />
+                </div>
+              </div>
+              <div className="flex flex-col">
+                <span className="font-heading font-extrabold text-base tracking-tight text-white leading-tight">
+                  VALENZUELA <span className="text-[#D4AF37]">&</span> ASOC.
+                </span>
+                <span className="text-[8.5px] uppercase tracking-[0.22em] text-[#D4AF37] font-semibold">
+                  Firma Jurídica de Élite
+                </span>
+              </div>
+            </div>
+
+            <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
+              Asesoría jurídica de alta especialización en litigios de cuantía, estructuración M&A, defensa penal económica y resguardo patrimonial fiduciario en Ecuador.
             </p>
-            <div className="flex items-center gap-2 text-[11px] text-amber-400/90 font-medium">
-              <ShieldCheck className="w-4 h-4 text-amber-400 shrink-0" />
+
+            {/* Social Icons */}
+            <div className="flex items-center gap-2 pt-1">
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-lg bg-[#0B1D3A] hover:bg-[#D4AF37] hover:text-slate-950 text-slate-300 flex items-center justify-center transition-all duration-200 border border-slate-700/60"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-lg bg-[#0B1D3A] hover:bg-[#D4AF37] hover:text-slate-950 text-slate-300 flex items-center justify-center transition-all duration-200 border border-slate-700/60"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a
+                href="https://wa.me/593999999999"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-lg bg-[#0B1D3A] hover:bg-[#25D366] hover:text-white text-slate-300 flex items-center justify-center transition-all duration-200 border border-slate-700/60"
+                aria-label="WhatsApp"
+              >
+                <Phone className="w-4 h-4" />
+              </a>
+            </div>
+
+            <div className="flex items-center gap-1.5 text-[11px] text-[#D4AF37] font-medium pt-1">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#D4AF37]" />
               <span>Secreto Profesional Estricto (Art. 11 Código de Ética)</span>
             </div>
-            <div className="flex items-center gap-2 text-[11px] text-slate-400 font-mono">
-              <Award className="w-4 h-4 text-amber-400 shrink-0" />
-              <span>Chambers & Partners Band 1 • Legal 500</span>
-            </div>
           </div>
 
-          {/* Sede Corporativa & Contacto */}
-          <div className="space-y-3">
-            <h4 className="font-serif-luxury text-base font-bold text-white uppercase tracking-wider">
-              Sedes Oficiales
-            </h4>
-            <div className="space-y-3 text-slate-300">
-              <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+          {/* Col 2: Áreas de Práctica (3 cols on lg) */}
+          <div className="lg:col-span-3 space-y-2">
+            <div className="font-heading font-bold text-xs uppercase tracking-wider text-white flex items-center gap-1.5 mb-2">
+              <Scale className="w-3.5 h-3.5 text-[#D4AF37]" />
+              <span>Áreas de Práctica</span>
+            </div>
+            <ul className="space-y-1.5 text-xs text-slate-400">
+              <li>
+                <button onClick={() => scrollTo('especialidades')} className="hover:text-[#D4AF37] transition-colors cursor-pointer text-left">
+                  Derecho Corporativo & M&A
+                </button>
+              </li>
+              <li>
+                <button onClick={() => scrollTo('especialidades')} className="hover:text-[#D4AF37] transition-colors cursor-pointer text-left">
+                  Litigios & Penal Económico
+                </button>
+              </li>
+              <li>
+                <button onClick={() => scrollTo('especialidades')} className="hover:text-[#D4AF37] transition-colors cursor-pointer text-left">
+                  Tributario & Fiscalidad
+                </button>
+              </li>
+              <li>
+                <button onClick={() => scrollTo('especialidades')} className="hover:text-[#D4AF37] transition-colors cursor-pointer text-left">
+                  Protección Patrimonial & Trusts
+                </button>
+              </li>
+              <li>
+                <button onClick={() => scrollTo('especialidades')} className="hover:text-[#D4AF37] transition-colors cursor-pointer text-left">
+                  Compliance Laboral Ejecutivo
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 3: Navegación Rápida (2 cols on lg) */}
+          <div className="lg:col-span-2 space-y-2">
+            <div className="font-heading font-bold text-xs uppercase tracking-wider text-white mb-2">
+              Navegación
+            </div>
+            <ul className="space-y-1.5 text-xs text-slate-400">
+              <li>
+                <button onClick={() => scrollTo('inicio')} className="hover:text-[#D4AF37] transition-colors cursor-pointer text-left">
+                  Inicio
+                </button>
+              </li>
+              <li>
+                <button onClick={() => scrollTo('quienes-somos')} className="hover:text-[#D4AF37] transition-colors cursor-pointer text-left">
+                  La Firma
+                </button>
+              </li>
+              <li>
+                <button onClick={() => scrollTo('diagnostico')} className="hover:text-[#D4AF37] transition-colors cursor-pointer text-left">
+                  Diagnóstico
+                </button>
+              </li>
+              <li>
+                <button onClick={() => scrollTo('honorarios')} className="hover:text-[#D4AF37] transition-colors cursor-pointer text-left">
+                  Honorarios
+                </button>
+              </li>
+              <li>
+                <button onClick={() => scrollTo('abogados')} className="hover:text-[#D4AF37] transition-colors cursor-pointer text-left">
+                  Socios
+                </button>
+              </li>
+              <li>
+                <button onClick={() => scrollTo('faq')} className="hover:text-[#D4AF37] transition-colors cursor-pointer text-left">
+                  FAQ
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 4: Contacto Institucional (3 cols on lg) */}
+          <div className="lg:col-span-3 space-y-3">
+            <div className="font-heading font-bold text-xs uppercase tracking-wider text-white mb-2">
+              Contacto Matriz
+            </div>
+            <div className="space-y-2 text-xs text-slate-400">
+              <div className="flex items-start gap-2">
+                <MapPin className="w-3.5 h-3.5 text-[#D4AF37] shrink-0 mt-0.5" />
                 <span className="leading-snug">
-                  <strong>Quito (Sede Matriz):</strong> Av. República del Salvador y Naciones Unidas, Edificio Titanium Plaza, Piso 14.
+                  Av. República del Salvador y NNUU, Edif. Titanium Plaza, Piso 14, Quito.
                 </span>
               </div>
-              <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                <span className="leading-snug">
-                  <strong>Guayaquil:</strong> Puerto Santa Ana, Torre The Point, Piso 18.
-                </span>
+              <div className="flex items-center gap-2">
+                <Phone className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
+                <span>+593 (02) 394-8200</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>PBX: +593 (02) 394-8200 | +593 99 999 9999</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-amber-400 shrink-0" />
+              <div className="flex items-center gap-2">
+                <Mail className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
                 <span>consultas@valenzuela-abogados.com</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Clock className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>Lun - Vie: 08:30 - 18:30 | Guardia Penal 24/7</span>
-              </div>
+            </div>
+
+            <div className="pt-1">
+              <button
+                onClick={onNavigateToBooking}
+                className="w-full py-2.5 px-4 rounded-full bg-[#D4AF37] hover:bg-[#C59B27] text-slate-950 font-bold text-xs transition-all cursor-pointer text-center flex items-center justify-center gap-2 active:scale-95 shadow-md"
+              >
+                <span>Solicitar Consulta</span>
+                <div className="w-3.5 h-3.5 rounded-full bg-slate-950/15 flex items-center justify-center">
+                  <ArrowUpRight className="w-2.5 h-2.5 text-slate-950" />
+                </div>
+              </button>
             </div>
           </div>
 
-          {/* Prácticas Principales */}
-          <div className="space-y-3">
-            <h4 className="font-serif-luxury text-base font-bold text-white uppercase tracking-wider">
-              Especialidades
-            </h4>
-            <ul className="space-y-1.5 text-slate-400">
-              <li><a href="#especialidades" className="hover:text-amber-400 transition-colors">Derecho Corporativo y M&A</a></li>
-              <li><a href="#especialidades" className="hover:text-amber-400 transition-colors">Litigios Complejos y Arbitraje</a></li>
-              <li><a href="#especialidades" className="hover:text-amber-400 transition-colors">Defensa Penal Económica</a></li>
-              <li><a href="#especialidades" className="hover:text-amber-400 transition-colors">Protección Patrimonial y Fideicomisos</a></li>
-              <li><a href="#especialidades" className="hover:text-amber-400 transition-colors">Asesoría Tributaria Estratégica</a></li>
-              <li><a href="#especialidades" className="hover:text-amber-400 transition-colors">Compliance Laboral y Empresas</a></li>
-              <li><a href="#especialidades" className="hover:text-amber-400 transition-colors">Contratación e Inversión Inmobiliaria</a></li>
-            </ul>
-          </div>
-
-          {/* Enlaces de Interés & Transparencia */}
-          <div className="space-y-3">
-            <h4 className="font-serif-luxury text-base font-bold text-white uppercase tracking-wider">
-              Gobernanza & Servicios
-            </h4>
-            <ul className="space-y-1.5 text-slate-400">
-              <li><a href="#diagnostico" className="hover:text-amber-400 transition-colors">Evaluador de Viabilidad 24/7</a></li>
-              <li><a href="#honorarios" className="hover:text-amber-400 transition-colors">Modelos de Honorarios Transparentes</a></li>
-              <li><a href="#abogados" className="hover:text-amber-400 transition-colors">Socios Directores & Credenciales</a></li>
-              <li><a href="#casos" className="hover:text-amber-400 transition-colors">Precedentes & Casos Resueltos</a></li>
-              <li><a href="#agendar" className="hover:text-amber-400 transition-colors">Agendamiento Privado de Sesión</a></li>
-              <li><a href="#faq" className="hover:text-amber-400 transition-colors">Preguntas Frecuentes</a></li>
-            </ul>
-          </div>
-
         </div>
 
-        {/* Legal Disclaimer */}
-        <div className="p-4 rounded bg-slate-950/60 border border-white/5 text-[11px] text-slate-400 leading-relaxed mb-8">
-          <p className="font-semibold text-slate-300 mb-1">Aviso Legal y Descargo de Responsabilidad Profesional:</p>
-          <p>
-            El contenido de este sitio web tiene propósitos estrictamente informativos y descriptivos de la
-            práctica profesional de la firma. No constituye dictamen, opinión jurídica vinculante ni
-            establece por sí mismo una relación formal abogado-cliente hasta la suscripción del
-            correspondiente contrato de prestación de servicios profesionales y aceptación formal del mandato.
-          </p>
-        </div>
-
-        {/* Bottom Bar with Mandatory Kindev Branding */}
-        <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <div>
-            © 2026 Valenzuela & Asociados. Todos los derechos reservados.
+        {/* Bottom Bar: Copyright & Kindev Standard */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-400 text-xs">
+          <div className="flex items-center gap-2 flex-wrap justify-center sm:justify-start">
+            <span>© 2026 Valenzuela & Asociados. Todos los derechos reservados.</span>
           </div>
-          <div className="text-amber-400 font-semibold tracking-wide">
-            Desarrollado por Kindev S.A.S.
+
+          <div className="flex items-center gap-3">
+            <span>
+              Quito, Ecuador • Creado por{' '}
+              <a
+                href="https://kindevx.web.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#D4AF37] hover:underline font-bold"
+              >
+                Kindev S.A.S.
+              </a>
+            </span>
+            <button
+              onClick={scrollToTop}
+              className="inline-flex items-center gap-1 text-slate-300 hover:text-white transition-colors cursor-pointer font-semibold ml-2"
+              aria-label="Volver arriba"
+            >
+              <span>Subir</span>
+              <ArrowUp className="w-3 h-3" />
+            </button>
           </div>
         </div>
 

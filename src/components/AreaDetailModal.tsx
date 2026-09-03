@@ -1,6 +1,6 @@
 ﻿import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Scale, ShieldCheck, Briefcase, FileCheck, Building2, Landmark, CheckCircle2, ArrowRight, UserCheck, Clock } from 'lucide-react';
+import { X, Scale, ShieldCheck, Briefcase, FileCheck, Building2, Landmark, CheckCircle2, ArrowUpRight, UserCheck, Clock } from 'lucide-react';
 import { PracticeArea } from '../types';
 
 interface AreaDetailModalProps {
@@ -35,18 +35,18 @@ export const AreaDetailModal: React.FC<AreaDetailModalProps> = ({
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'Scale':
-        return <Scale className="w-6 h-6 text-amber-400" />;
+        return <Scale className="w-6 h-6 text-[#D4AF37]" />;
       case 'ShieldCheck':
-        return <ShieldCheck className="w-6 h-6 text-amber-400" />;
+        return <ShieldCheck className="w-6 h-6 text-[#D4AF37]" />;
       case 'Briefcase':
-        return <Briefcase className="w-6 h-6 text-amber-400" />;
+        return <Briefcase className="w-6 h-6 text-[#D4AF37]" />;
       case 'FileCheck':
-        return <FileCheck className="w-6 h-6 text-amber-400" />;
+        return <FileCheck className="w-6 h-6 text-[#D4AF37]" />;
       case 'Building2':
-        return <Building2 className="w-6 h-6 text-amber-400" />;
+        return <Building2 className="w-6 h-6 text-[#D4AF37]" />;
       case 'Landmark':
       default:
-        return <Landmark className="w-6 h-6 text-amber-400" />;
+        return <Landmark className="w-6 h-6 text-[#D4AF37]" />;
     }
   };
 
@@ -59,16 +59,16 @@ export const AreaDetailModal: React.FC<AreaDetailModalProps> = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-black/80 backdrop-blur-md transition-opacity"
+          className="fixed inset-0 bg-black/80 backdrop-blur-md"
         />
 
         {/* Modal Window */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          initial={{ opacity: 0, scale: 0.95, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: 20 }}
+          exit={{ opacity: 0, scale: 0.95, y: 15 }}
           transition={{ duration: 0.25, ease: 'easeOut' }}
-          className="relative w-full max-w-3xl rounded-sm bg-[#0A1024] border border-amber-500/40 p-6 sm:p-10 shadow-2xl z-10 my-8 max-h-[90vh] overflow-y-auto"
+          className="relative w-full max-w-2xl rounded-3xl bg-[#0B1D3A] border border-slate-700/90 p-6 sm:p-8 shadow-2xl z-10 my-8 max-h-[90vh] overflow-y-auto"
         >
           {/* Close Button */}
           <button
@@ -81,38 +81,38 @@ export const AreaDetailModal: React.FC<AreaDetailModalProps> = ({
 
           {/* Top Header */}
           <div className="flex items-start gap-4 mb-6 pr-8">
-            <div className="w-12 h-12 rounded-sm bg-slate-900 border border-amber-500/40 flex items-center justify-center shrink-0 mt-1 shadow-md">
+            <div className="w-12 h-12 rounded-2xl bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center shrink-0 shadow-md">
               {getIcon(area.iconName)}
             </div>
             <div>
-              <span className="inline-block text-[10px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 mb-2">
+              <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] border border-[#D4AF37]/20 mb-1.5">
                 {area.tag}
               </span>
-              <h3 className="font-serif-luxury text-2xl sm:text-3xl font-bold text-white leading-tight">
+              <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-white leading-tight">
                 {area.title}
               </h3>
-              <p className="text-xs sm:text-sm text-amber-400/90 font-medium mt-1">
+              <p className="text-xs sm:text-sm text-[#D4AF37] font-medium mt-0.5">
                 {area.subtitle}
               </p>
             </div>
           </div>
 
           {/* Description */}
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
+          <p className="text-slate-300 text-sm leading-relaxed mb-6">
             {area.description}
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
             {/* Typical Cases */}
-            <div className="p-5 rounded-sm bg-slate-950/70 border border-white/10">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-amber-400 mb-3 flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-amber-400" />
-                <span>Casos Típicos Atendidos</span>
+            <div className="p-4 rounded-2xl bg-[#071326] border border-slate-800">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-[#D4AF37] mb-2.5 flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-[#D4AF37]" />
+                <span>Casos Típicos</span>
               </h4>
-              <ul className="space-y-2 text-xs text-slate-300">
+              <ul className="space-y-1.5 text-xs text-slate-300">
                 {area.typicalCases.map((c, i) => (
                   <li key={i} className="flex items-start gap-2">
-                    <span className="text-amber-400 font-bold">•</span>
+                    <span className="text-[#D4AF37]">•</span>
                     <span>{c}</span>
                   </li>
                 ))}
@@ -120,15 +120,15 @@ export const AreaDetailModal: React.FC<AreaDetailModalProps> = ({
             </div>
 
             {/* Key Strategic Benefits */}
-            <div className="p-5 rounded-sm bg-slate-950/70 border border-white/10">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-amber-400 mb-3 flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-amber-400" />
-                <span>Ventajas Estratégicas</span>
+            <div className="p-4 rounded-2xl bg-[#071326] border border-slate-800">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-[#D4AF37] mb-2.5 flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-[#D4AF37]" />
+                <span>Ventajas Clave</span>
               </h4>
-              <ul className="space-y-2 text-xs text-slate-300">
+              <ul className="space-y-1.5 text-xs text-slate-300">
                 {area.keyBenefits.map((b, i) => (
                   <li key={i} className="flex items-start gap-2">
-                    <span className="text-amber-400 font-bold">•</span>
+                    <span className="text-[#D4AF37]">•</span>
                     <span>{b}</span>
                   </li>
                 ))}
@@ -137,40 +137,38 @@ export const AreaDetailModal: React.FC<AreaDetailModalProps> = ({
           </div>
 
           {/* Partner & Turnaround */}
-          <div className="p-4 rounded-sm bg-[#070B19] border border-amber-500/20 mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
-                <UserCheck className="w-4 h-4" />
-              </div>
-              <div>
-                <span className="text-[10px] text-slate-400 uppercase tracking-widest block">Socio Responsable del Área:</span>
-                <span className="text-xs font-bold text-white font-serif-luxury">{area.leadPartner}</span>
-              </div>
+          <div className="p-3.5 rounded-2xl bg-[#071326] border border-slate-800 mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+            <div className="flex items-center gap-2.5">
+              <UserCheck className="w-4 h-4 text-[#D4AF37]" />
+              <span className="text-slate-300">
+                Socio: <strong className="text-white">{area.leadPartner}</strong>
+              </span>
             </div>
-
-            <div className="flex items-center gap-2 text-xs text-slate-300">
-              <Clock className="w-4 h-4 text-amber-400 shrink-0" />
+            <div className="flex items-center gap-2 text-slate-400">
+              <Clock className="w-3.5 h-3.5 text-[#D4AF37]" />
               <span>{area.turnaroundTime}</span>
             </div>
           </div>
 
           {/* Action Footer */}
-          <div className="flex flex-col sm:flex-row items-center justify-end gap-3 pt-4 border-t border-white/10">
+          <div className="flex flex-col sm:flex-row items-center justify-end gap-3 pt-3 border-t border-slate-800">
             <button
               onClick={onClose}
-              className="w-full sm:w-auto px-5 py-2.5 rounded-sm text-xs font-semibold text-slate-400 hover:text-white transition-colors cursor-pointer"
+              className="w-full sm:w-auto px-4 py-2 text-xs font-semibold text-slate-400 hover:text-white transition-colors cursor-pointer"
             >
-              Cerrar Detalle
+              Cerrar
             </button>
             <button
               onClick={() => {
                 onClose();
                 onSelectForBooking(area.id, area.title);
               }}
-              className="w-full sm:w-auto px-6 py-3 rounded-sm bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs tracking-wider uppercase transition-all shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#D4AF37] hover:bg-[#C59B27] text-slate-950 font-bold text-xs tracking-wide transition-all shadow-lg shadow-[#D4AF37]/20 flex items-center justify-center gap-2 cursor-pointer active:scale-95"
             >
               <span>Solicitar Consulta en esta Especialidad</span>
-              <ArrowRight className="w-4 h-4 text-slate-950" />
+              <div className="w-4 h-4 rounded-full bg-slate-950/15 flex items-center justify-center">
+                <ArrowUpRight className="w-3 h-3 text-slate-950" />
+              </div>
             </button>
           </div>
         </motion.div>

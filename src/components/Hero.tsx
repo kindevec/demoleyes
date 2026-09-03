@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import { motion } from 'motion/react';
-import { Shield, ArrowRight, Award, ChevronDown, CheckCircle2 } from 'lucide-react';
+import { Shield, ArrowUpRight, Award, ChevronDown } from 'lucide-react';
 import { FIRM_METRICS } from '../data/legalData';
 
 interface HeroProps {
@@ -17,90 +17,82 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
   return (
     <section
       id="inicio"
-      className="relative min-h-screen pt-28 pb-20 md:pt-36 md:pb-28 flex flex-col justify-between overflow-hidden bg-[#070B19]"
+      className="relative min-h-[92vh] sm:min-h-screen pt-28 pb-16 md:pt-36 md:pb-24 flex flex-col justify-between overflow-hidden bg-[#071326]"
     >
       {/* Background Ambience & Lighting */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(197,168,128,0.15),transparent_60%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(11,19,43,0.8),transparent_70%)] pointer-events-none" />
-      
-      {/* Dramatic Statue of Lady Justice Visual */}
-      <div className="absolute top-0 right-0 w-full md:w-3/5 h-full opacity-35 md:opacity-55 pointer-events-none mix-blend-luminosity overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(212,175,55,0.12),transparent_60%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(11,29,58,0.8),transparent_65%)] pointer-events-none" />
+
+      {/* Cinematic Panoramic Legal Backdrop */}
+      <div className="absolute top-0 right-0 w-full lg:w-3/5 h-full opacity-35 lg:opacity-45 pointer-events-none mix-blend-luminosity overflow-hidden z-0">
         <img
-          src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1600&q=80"
-          alt="Estatua de la Dama de la Justicia con Balanza de Bronce"
+          src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1920&q=80"
+          alt="Dama de la Justicia - Valenzuela & Asociados"
           fetchPriority="high"
           decoding="async"
-          width={1600}
-          height={1000}
-          referrerPolicy="no-referrer"
-          className="w-full h-full object-cover object-center md:object-[70%_20%] filter brightness-90 contrast-125"
+          width={1920}
+          height={1080}
+          className="w-full h-full object-cover object-center lg:object-[65%_25%] filter brightness-90 contrast-125"
         />
-        {/* Soft edge gradients blending into deep midnight */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#070B19] via-[#070B19]/70 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#070B19] via-transparent to-[#070B19]/80" />
+        {/* Soft edge gradients blending seamlessly into deep navy */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/85 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#071326] via-[#071326]/70 to-transparent pointer-events-none" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 my-auto">
-        <div className="max-w-3xl">
-          {/* Top Badge */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
+        <div className="max-w-3xl space-y-6">
+          
+          {/* Top Institutional Badge */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold tracking-wider uppercase mb-6"
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] text-xs font-semibold tracking-wide"
           >
-            <Shield className="w-3.5 h-3.5 text-amber-400" />
+            <Shield className="w-3.5 h-3.5 text-[#D4AF37]" />
             <span>Firma Líder en Litigios y Asesoría Corporativa 2026</span>
           </motion.div>
 
-          {/* Golden Kicker & Classical Editorial Headline */}
-          <motion.div
+          {/* Main Display Headline (Poppins Font Hierarchy) */}
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-white leading-[1.12]"
           >
-            <div className="flex items-center gap-3 mb-3">
-              <span className="w-8 h-[2px] bg-amber-400" />
-              <span className="text-xs font-bold tracking-[0.25em] uppercase text-amber-400/90">
-                Experiencia • Determinación • Resultados
-              </span>
-            </div>
-
-            <h1 className="font-serif-luxury text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] mb-6">
-              Defensa Estratégica y <br className="hidden sm:inline" />
-              <span className="italic font-light text-slate-100">Seguridad Jurídica</span> al{' '}
-              <span className="gold-gradient-text font-bold">Más Alto Nivel</span>
-            </h1>
-          </motion.div>
+            Defensa Estratégica y <br />
+            Soluciones Jurídicas <br />
+            <span className="text-[#D4AF37]">al Más Alto Nivel</span>
+          </motion.h1>
 
           {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed mb-8 max-w-2xl"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-sm sm:text-base text-slate-300 max-w-2xl font-normal leading-relaxed"
           >
             Protegemos el patrimonio, la continuidad empresarial y los intereses de líderes y
-            corporaciones a través de litigación de alto impacto, blindaje fiduciario y asesoría
-            preventiva con máxima discreción ética.
+            corporaciones mediante litigación de alto impacto, blindaje societario y asesoría preventiva
+            con absoluta reserva fiduciaria.
           </motion.p>
 
-          {/* Quick Interactive Chips in Hero */}
+          {/* Quick Category Chips */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="mb-8"
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="pt-1"
           >
             <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2.5">
               Especialidades con mayor demanda:
             </span>
-            <div className="flex flex-wrap gap-2.5">
+            <div className="flex flex-wrap gap-2">
               {[
                 { label: 'Derecho Corporativo & M&A', id: 'corporativo-m-a' },
                 { label: 'Litigios & Penal Económico', id: 'litigios-penal' },
-                { label: 'Inmobiliario & Patrimonial', id: 'patrimonial-sucesiones' },
-                { label: 'Tributario & Fiscal', id: 'tributario-fiscal' }
+                { label: 'Inmobiliario & Fideicomisos', id: 'patrimonial-sucesiones' },
+                { label: 'Tributario & Fiscal', id: 'tributario-fiscal' },
               ].map((chip) => (
                 <button
                   key={chip.id}
@@ -108,7 +100,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
                     onSelectArea(chip.id);
                     scrollTo('especialidades');
                   }}
-                  className="px-3.5 py-1.5 rounded-full text-xs font-medium bg-slate-900/80 border border-slate-700 hover:border-amber-400/60 hover:text-amber-300 text-slate-200 transition-all cursor-pointer backdrop-blur-sm shadow-sm hover:shadow-amber-500/10"
+                  className="px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#0B1D3A]/90 hover:bg-[#0B1D3A] border border-slate-700/80 hover:border-[#D4AF37]/60 hover:text-[#D4AF37] text-slate-200 transition-all cursor-pointer backdrop-blur-sm shadow-xs"
                 >
                   {chip.label}
                 </button>
@@ -116,12 +108,12 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
             </div>
           </motion.div>
 
-          {/* Dual Action CTAs */}
+          {/* Dual Action CTAs (Kindev Standard) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-12"
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-wrap items-center gap-3.5 pt-2"
           >
             <button
               onClick={() => {
@@ -129,61 +121,66 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
                 onNavigateToBooking();
               }}
               id="hero-cta-agendar"
-              className="px-7 py-4 rounded-sm bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 text-slate-950 font-bold text-sm tracking-wider uppercase shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2 group cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-full text-xs sm:text-sm font-bold bg-[#D4AF37] hover:bg-[#C59B27] text-slate-950 shadow-lg shadow-[#D4AF37]/20 transition-all cursor-pointer active:scale-95"
             >
-              <span>Solicitar Consulta Confidencial</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              <span>Solicitar Consulta Privada</span>
+              <div className="w-4 h-4 rounded-full bg-slate-950/15 flex items-center justify-center">
+                <ArrowUpRight className="w-3 h-3 text-slate-950" />
+              </div>
             </button>
 
             <button
               onClick={() => scrollTo('casos')}
               id="hero-cta-casos"
-              className="px-6 py-4 rounded-sm border border-white/20 hover:border-amber-400/40 bg-white/5 hover:bg-white/10 backdrop-blur-md text-white font-medium text-sm tracking-wider uppercase transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 rounded-full text-xs sm:text-sm font-semibold bg-white/10 hover:bg-white/15 text-white border border-white/20 transition-all cursor-pointer"
             >
               <span>Ver Casos de Éxito</span>
             </button>
           </motion.div>
 
-          {/* Live Credibility Strip with Interactive Hover */}
+          {/* Credibility Stats Ribbon in Glass Cards */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="grid grid-cols-3 gap-4 pt-6 border-t border-white/10"
+            transition={{ duration: 0.7, delay: 0.5 }}
+            className="grid grid-cols-3 gap-3 sm:gap-4 pt-6"
           >
-            <div className="p-2 rounded hover:bg-white/5 transition-colors cursor-default">
-              <div className="font-serif-luxury text-2xl sm:text-3xl font-bold text-amber-400">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-[#0B1D3A]/60 border border-slate-700/60 backdrop-blur-md">
+              <div className="font-heading font-extrabold text-2xl sm:text-3xl text-[#D4AF37]">
                 {FIRM_METRICS.yearsExperience}
               </div>
-              <p className="text-[11px] sm:text-xs text-slate-400 font-medium tracking-wide uppercase mt-0.5">
+              <p className="text-[10px] sm:text-xs text-slate-300 font-medium tracking-wide uppercase mt-0.5">
                 Años de Trayectoria
               </p>
             </div>
-            <div className="p-2 rounded hover:bg-white/5 transition-colors cursor-default">
-              <div className="font-serif-luxury text-2xl sm:text-3xl font-bold text-amber-400">
+
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-[#0B1D3A]/60 border border-slate-700/60 backdrop-blur-md">
+              <div className="font-heading font-extrabold text-2xl sm:text-3xl text-[#D4AF37]">
                 {FIRM_METRICS.favorableRatio}
               </div>
-              <p className="text-[11px] sm:text-xs text-slate-400 font-medium tracking-wide uppercase mt-0.5">
+              <p className="text-[10px] sm:text-xs text-slate-300 font-medium tracking-wide uppercase mt-0.5">
                 Casos Favorables
               </p>
             </div>
-            <div className="p-2 rounded hover:bg-white/5 transition-colors cursor-default">
-              <div className="font-serif-luxury text-2xl sm:text-3xl font-bold text-amber-400">
+
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-[#0B1D3A]/60 border border-slate-700/60 backdrop-blur-md">
+              <div className="font-heading font-extrabold text-2xl sm:text-3xl text-[#D4AF37]">
                 {FIRM_METRICS.protectedAssets}
               </div>
-              <p className="text-[11px] sm:text-xs text-slate-400 font-medium tracking-wide uppercase mt-0.5">
+              <p className="text-[10px] sm:text-xs text-slate-300 font-medium tracking-wide uppercase mt-0.5">
                 Patrimonio Blindado
               </p>
             </div>
           </motion.div>
+
         </div>
       </div>
 
       {/* Down Indicator */}
-      <div className="relative z-10 flex justify-center mt-6">
+      <div className="relative z-10 flex justify-center mt-4">
         <button
           onClick={() => scrollTo('quienes-somos')}
-          className="text-slate-400 hover:text-amber-400 transition-colors p-2 animate-bounce cursor-pointer"
+          className="text-slate-400 hover:text-[#D4AF37] transition-colors p-2 animate-bounce cursor-pointer"
           aria-label="Desplazarse a Quiénes Somos"
         >
           <ChevronDown className="w-5 h-5" />

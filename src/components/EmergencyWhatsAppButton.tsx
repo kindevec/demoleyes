@@ -1,40 +1,38 @@
 ﻿import React from 'react';
-import { MessageCircle } from 'lucide-react';
+import { MessageSquare } from 'lucide-react';
 
 export const EmergencyWhatsAppButton: React.FC = () => {
-  const whatsappUrl =
-    'https://wa.me/593999999999?text=Hola%2C%20requiero%20asistencia%20legal%20urgente%20con%20el%20equipo%20de%20Valenzuela%20%26%20Asociados.';
+  const whatsappUrl = `https://wa.me/593999999999?text=${encodeURIComponent(
+    'Hola Valenzuela & Asociados, requiero asistencia legal confidencial sobre un caso corporativo o litigio.'
+  )}`;
 
   return (
-    <aside aria-label="Canal de Asistencia Inmediata" className="fixed bottom-20 md:bottom-6 right-4 sm:right-6 z-40">
+    <aside 
+      aria-label="Contacto flotante" 
+      className="fixed bottom-20 sm:bottom-22 md:bottom-6 right-4 sm:right-6 z-40 md:z-50"
+    >
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        id="btn-whatsapp-urgencias"
-        className="group relative flex items-center gap-3 p-2.5 sm:pl-3.5 sm:pr-4 sm:py-2.5 rounded-full bg-slate-900/95 hover:bg-slate-900 border border-emerald-500/40 shadow-2xl shadow-emerald-950/80 transition-all duration-300 hover:scale-105 backdrop-blur-md"
-        title="Canal de Urgencias Jurídicas 24/7"
+        id="floating-whatsapp-btn"
+        className="relative group flex items-center justify-center cursor-pointer select-none touch-manipulation"
+        aria-label="Abrir WhatsApp para consulta directa con Valenzuela & Asociados"
+        title="Contactar por WhatsApp a Valenzuela & Asociados"
       >
-        {/* Pulsing Green Indicator Ring */}
-        <div className="relative flex items-center justify-center w-10 h-10 rounded-full bg-emerald-600 text-white shadow-md shadow-emerald-600/40 shrink-0">
-          <span className="absolute -top-0.5 -right-0.5 flex h-3.5 w-3.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 border border-slate-950" />
-          </span>
-          <MessageCircle className="w-5 h-5 fill-current" />
+        {/* Soft Ambient Glowing Pulse Rings */}
+        <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-35 animate-ping duration-1000 pointer-events-none" />
+        <span className="absolute -inset-1 rounded-full bg-gradient-to-tr from-[#25D366] to-[#128C7E] opacity-40 blur-md group-hover:opacity-75 transition-opacity pointer-events-none" />
+
+        {/* Main Floating Button Badge (Kindev Standard) */}
+        <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-[#20ba59] via-[#25D366] to-[#2be873] text-white flex items-center justify-center shadow-[0_8px_25px_rgba(37,211,102,0.45)] border-2 border-white/30 transition-all duration-300 group-hover:scale-110 group-active:scale-95">
+          <MessageSquare className="w-6 h-6 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.2)]" />
         </div>
 
-        {/* Text Details (compact on small mobile, expanded on desktop/tablet) */}
-        <div className="hidden sm:flex flex-col text-left pr-1">
-          <div className="flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400">
-              Línea Urgencias 24/7
-            </span>
-          </div>
-          <span className="text-xs font-semibold text-white group-hover:text-emerald-300 transition-colors whitespace-nowrap">
-            Guardia Legal Inmediata
-          </span>
+        {/* Floating Tooltip Pill (Reveals on Desktop Hover Only) */}
+        <div className="hidden md:flex absolute right-full mr-3 px-3.5 py-1.5 rounded-xl bg-slate-950/95 backdrop-blur-md text-white border border-slate-700/80 text-xs font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300 shadow-xl pointer-events-none items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse shadow-[0_0_6px_#25D366]" />
+          <span>Guardia Legal 24/7 • <strong>Escríbenos</strong></span>
         </div>
       </a>
     </aside>

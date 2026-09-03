@@ -1,6 +1,7 @@
-﻿import React, { useState } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { ClientTrustLogos } from './components/ClientTrustLogos';
 import { WhoWeAre } from './components/WhoWeAre';
 import { PracticeAreas } from './components/PracticeAreas';
 import { AreaDetailModal } from './components/AreaDetailModal';
@@ -11,6 +12,7 @@ import { CaseStudiesAndProof } from './components/CaseStudiesAndProof';
 import { BookingForm } from './components/BookingForm';
 import { FaqAccordion } from './components/FaqAccordion';
 import { Footer } from './components/Footer';
+import { MobileBottomNav } from './components/MobileBottomNav';
 import { EmergencyWhatsAppButton } from './components/EmergencyWhatsAppButton';
 import { PracticeArea } from './types';
 
@@ -18,6 +20,40 @@ export default function App() {
   const [selectedPracticeArea, setSelectedPracticeArea] = useState<string>('corporativo-m-a');
   const [preselectedNotes, setPreselectedNotes] = useState<string>('');
   const [modalArea, setModalArea] = useState<PracticeArea | null>(null);
+  const [activeSection, setActiveSection] = useState<string>('inicio');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = [
+        'inicio',
+        'quienes-somos',
+        'especialidades',
+        'diagnostico',
+        'honorarios',
+        'abogados',
+        'casos',
+        'agendar',
+        'faq'
+      ];
+
+      const scrollPos = window.scrollY + 250;
+
+      for (const sectionId of sections) {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -32,17 +68,17 @@ export default function App() {
 
   const handleSelectAreaForBooking = (areaId: string, areaTitle: string) => {
     setSelectedPracticeArea(areaId);
-    setPreselectedNotes(`[Consulta prioritaria sobre el área: ${areaTitle}]`);
+    setPreselectedNotes(`[Consulta sobre especialidad: ${areaTitle}]`);
     scrollTo('agendar');
   };
 
   const handleApplyDiagnosis = (nature: string, urgency: string, notes: string) => {
-    setPreselectedNotes(`${notes}\nNaturaleza del caso: ${nature}\nNivel de urgencia: ${urgency}`);
+    setPreselectedNotes(`${notes}\nNaturaleza: ${nature}\nUrgencia: ${urgency}`);
     scrollTo('agendar');
   };
 
   const handleConsultPartner = (partnerName: string) => {
-    setPreselectedNotes(`[Solicitud de consulta dirigida específicamente al socio: ${partnerName}]`);
+    setPreselectedNotes(`[Consulta dirigida al socio: ${partnerName}]`);
     scrollTo('agendar');
   };
 
@@ -52,58 +88,70 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#070B19] text-slate-100 selection:bg-amber-500/30 selection:text-amber-200">
-      {/* Desktop Sticky Header & Mobile Bottom Nav Bar */}
-      <Navbar onNavigateToBooking={() => scrollTo('agendar')} />
+    <div className="min-h-screen bg-[#071326] text-slate-100 selection:bg-[#D4AF37] selection:text-slate-950 font-sans">
+      {/* Desktop Sticky Header */}
+      <Navbar
+        onNavigateToBooking={() => scrollTo('agendar')}
+        activeSection={activeSection}
+      />
 
-      {/* Root Container with mandatory KINDEV constraints: overflow-x-hidden and pb-24 md:pb-12 */}
-      <main className="overflow-x-hidden pb-24 md:pb-12">
-        {/* 1. Hero Section de Alto Impacto */}
+      {/* Main Landing Page Flow */}
+      <main className="overflow-x-clip w-full pb-20 md:pb-0">
+        {/* 1. Hero Section */}
         <Hero
           onSelectArea={handleSelectAreaFromHero}
           onNavigateToBooking={() => scrollTo('agendar')}
         />
 
-        {/* 2. Sección Quiénes Somos / Institucional con Tabs Interactivos */}
+        {/* 2. Corporate Marquee (SmartLegal Standard) */}
+        <ClientTrustLogos />
+
+        {/* 3. La Firma (Who We Are) */}
         <WhoWeAre onLearnMore={() => scrollTo('abogados')} />
 
-        {/* 3. Áreas de Práctica con Filtros Dinámicos */}
+        {/* 4. Especialidades (Practice Areas) */}
         <PracticeAreas
           selectedAreaId={selectedPracticeArea}
           onSelectAreaForBooking={handleSelectAreaForBooking}
           onOpenAreaDetail={(area) => setModalArea(area)}
         />
 
-        {/* 4. Evaluador Interactivo de Caso (Wizard en 3 Clics con Código de Folio) */}
+        {/* 5. Evaluador de Viabilidad (Diagnostic Wizard) */}
         <CaseDiagnosticWizard onApplyDiagnosisToForm={handleApplyDiagnosis} />
 
-        {/* 5. Simulador de Modelos de Honorarios y Transparencia Tarifaria (Nuevo) */}
+        {/* 6. Modelos de Honorarios (Fee Calculator) */}
         <FeeCalculator onSelectPlanForBooking={handleSelectPlanForBooking} />
 
-        {/* 6. Equipo de Socios y Abogados Principales con Modal de Trayectoria */}
+        {/* 7. Socios y Abogados Principales */}
         <Attorneys onConsultPartner={handleConsultPartner} />
 
-        {/* 7. Prueba Social, Sellos ISO 27001 y Casos Emblemáticos Resueltos */}
+        {/* 8. Casos de Éxito & Acreditaciones */}
         <CaseStudiesAndProof />
 
-        {/* 8. Formulario de Agendamiento Seguro con Cifrado Simulado */}
+        {/* 9. Formulario de Agendamiento Privado */}
         <BookingForm
           preselectedArea={selectedPracticeArea}
           preselectedNotes={preselectedNotes}
           onClearPreselection={() => setPreselectedNotes('')}
         />
 
-        {/* 9. Preguntas Frecuentes con Búsqueda en Vivo y Filtros de Categoría */}
+        {/* 10. Preguntas Frecuentes */}
         <FaqAccordion />
 
-        {/* 10. Footer Corporativo Multisede */}
-        <Footer />
+        {/* 11. Footer Institucional */}
+        <Footer onNavigateToBooking={() => scrollTo('agendar')} />
       </main>
 
-      {/* Canal Flotante de Emergencia (WhatsApp Inteligente 24/7) */}
+      {/* Mobile Bottom Navigation Bar with Tubelight Lamp */}
+      <MobileBottomNav
+        activeSection={activeSection}
+        onNavigateToSection={scrollTo}
+      />
+
+      {/* Floating WhatsApp Emergency Button */}
       <EmergencyWhatsAppButton />
 
-      {/* Modal de Detalle de Área de Práctica */}
+      {/* Area Detail Modal */}
       <AreaDetailModal
         area={modalArea}
         isOpen={modalArea !== null}

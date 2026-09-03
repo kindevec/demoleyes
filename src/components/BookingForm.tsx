@@ -1,20 +1,6 @@
 ﻿import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import {
-  Lock,
-  Calendar,
-  User,
-  Phone,
-  Mail,
-  FileText,
-  ShieldCheck,
-  CheckCircle2,
-  Clock,
-  Send,
-  Loader2,
-  FileCheck,
-  X
-} from 'lucide-react';
+import { ShieldCheck, CalendarCheck, CheckCircle2, Lock, ArrowUpRight, MessageSquare, AlertCircle, Sparkles } from 'lucide-react';
 import { PRACTICE_AREAS } from '../data/legalData';
 
 interface BookingFormProps {
@@ -28,399 +14,324 @@ export const BookingForm: React.FC<BookingFormProps> = ({
   preselectedNotes,
   onClearPreselection
 }) => {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    phone: '',
-    email: '',
-    area: 'corporativo-m-a',
-    date: '',
-    description: '',
-    honeypot: '' // Anti-spam hidden field
-  });
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [area, setArea] = useState(preselectedArea || 'corporativo-m-a');
+  const [notes, setNotes] = useState(preselectedNotes || '');
+  const [preferredDate, setPreferredDate] = useState('');
+  const [preferredTime, setPreferredTime] = useState('09:00');
+  const [urgency, setUrgency] = useState('normal');
+  const [honeypot, setHoneypot] = useState('');
 
-  const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [referenceCode, setReferenceCode] = useState('');
-  const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [submissionFolio, setSubmissionFolio] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
 
   useEffect(() => {
     if (preselectedArea) {
-      setFormData((prev) => ({ ...prev, area: preselectedArea }));
+      setArea(preselectedArea);
     }
   }, [preselectedArea]);
 
   useEffect(() => {
     if (preselectedNotes) {
-      setFormData((prev) => {
-        if (!prev.description.includes(preselectedNotes)) {
-          return {
-            ...prev,
-            description: prev.description
-              ? `${prev.description}\n\n${preselectedNotes}`
-              : preselectedNotes
-          };
-        }
-        return prev;
-      });
+      setNotes(preselectedNotes);
     }
   }, [preselectedNotes]);
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Anti-spam bot check
-    if (formData.honeypot) {
-      console.warn('Spam submission detected.');
+    // Honeypot check
+    if (honeypot.trim() !== '') {
       return;
     }
 
-    if (!formData.fullName.trim() || !formData.phone.trim() || !formData.email.trim()) {
-      alert('Por favor complete los campos obligatorios para coordinar su sesión confidencial.');
+    if (!fullName.trim() || !email.trim() || !phone.trim()) {
+      setErrorMsg('Por favor complete su nombre, correo y número telefónico.');
       return;
     }
 
-    setLoading(true);
-
-    // Simulate secure TLS encryption & server submission
-    setTimeout(() => {
-      const genCode = `VAL-EXP-${Math.floor(100000 + Math.random() * 900000)}`;
-      setReferenceCode(genCode);
-      setLoading(false);
-      setSubmitted(true);
-      setToastMessage(`Solicitud radicada con éxito. Código confidencial: ${genCode}`);
-
-      setTimeout(() => {
-        setToastMessage(null);
-      }, 7000);
-    }, 1200);
+    const generatedFolio = `AG-${Math.floor(100000 + Math.random() * 900000)}`;
+    setSubmissionFolio(generatedFolio);
+    setSubmitted(true);
+    setErrorMsg('');
   };
 
-  const handleResetForm = () => {
-    setSubmitted(false);
-    setFormData({
-      fullName: '',
-      phone: '',
-      email: '',
-      area: 'corporativo-m-a',
-      date: '',
-      description: '',
-      honeypot: ''
-    });
-    if (onClearPreselection) onClearPreselection();
+  const getWhatsAppBookingUrl = () => {
+    const text = `*SOLICITUD DE CONSULTA JURÍDICA*\nFolio: ${submissionFolio}\nNombre: ${fullName}\nEmail: ${email}\nTeléfono: ${phone}\nÁrea: ${area}\nFecha deseada: ${preferredDate || 'Lo antes posible'} a las ${preferredTime}\nNotas: ${notes}`;
+    return `https://wa.me/593999999999?text=${encodeURIComponent(text)}`;
   };
 
   return (
-    <section id="agendar" className="py-24 bg-[#070B19] text-white relative overflow-hidden">
-      {/* Decorative ambient radial glows */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl pointer-events-none" />
-
+    <section id="agendar" className="py-20 lg:py-28 bg-[#071326] text-white relative border-t border-slate-800/80">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Toast Notification */}
-        <AnimatePresence>
-          {toastMessage && (
-            <motion.div
-              initial={{ opacity: 0, y: -20, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -20, scale: 0.95 }}
-              className="fixed top-24 right-4 sm:right-8 z-50 max-w-md bg-[#040711]/95 border border-emerald-500/50 text-emerald-200 px-5 py-4 rounded-sm shadow-2xl flex items-center gap-3 backdrop-blur-xl"
-            >
-              <CheckCircle2 className="w-6 h-6 text-emerald-400 shrink-0" />
-              <div>
-                <p className="font-bold text-xs uppercase tracking-wider text-emerald-300">
-                  Agendamiento Registrado
-                </p>
-                <p className="text-xs text-emerald-100 mt-0.5">{toastMessage}</p>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Section Header */}
+        {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold tracking-wider uppercase mb-4">
-            <Lock className="w-3.5 h-3.5 text-amber-400" />
-            <span>Secreto Profesional y Confidencialidad Garantizada</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] text-xs font-semibold tracking-wide mb-4">
+            <Lock className="w-3.5 h-3.5 text-[#D4AF37]" />
+            Cita Confidencial Privada
           </div>
-
-          <h2 className="font-serif-luxury text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-            Agendar Consulta Jurídica Privada
+          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-white mb-3">
+            Agendamiento de Sesión Estratégica
           </h2>
-          <div className="w-16 h-0.5 bg-amber-500/60 mx-auto mb-4" />
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-            Coordine una sesión de análisis preliminar con uno de nuestros socios directores. La
-            información compartida está blindada por ley procesal y secreto profesional inquebrantable.
+          <p className="text-slate-300 text-sm leading-relaxed">
+            Reserve una sesión inicial con el socio director a cargo de su materia. Toda información
+            compartida se encuentra protegida bajo secreto fiduciario legal.
           </p>
         </div>
 
-        {/* Form Card */}
-        <div className="rounded-sm bg-slate-900/80 border border-amber-500/30 p-6 sm:p-12 shadow-2xl backdrop-blur-md relative">
-          
-          {submitted ? (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="text-center py-10 space-y-6"
-            >
-              <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center mx-auto text-emerald-400 shadow-lg shadow-emerald-950/50">
-                <CheckCircle2 className="w-9 h-9 text-emerald-400" />
-              </div>
+        {/* Preselection Banner */}
+        {preselectedNotes && !submitted && (
+          <div className="mb-6 p-4 rounded-2xl bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-between gap-4">
+            <div className="flex items-center gap-2.5 text-xs text-[#D4AF37]">
+              <Sparkles className="w-4 h-4 shrink-0 text-[#D4AF37]" />
+              <span>Se han cargado parámetros de consulta previa en el formulario.</span>
+            </div>
+            {onClearPreselection && (
+              <button
+                onClick={onClearPreselection}
+                className="text-[11px] text-slate-400 hover:text-white underline cursor-pointer"
+              >
+                Limpiar
+              </button>
+            )}
+          </div>
+        )}
 
-              <div>
-                <h3 className="font-serif-luxury text-3xl font-bold text-white mb-2">
-                  Solicitud Cifrada y Radicada
-                </h3>
-                <p className="text-slate-300 text-sm max-w-md mx-auto mb-6 leading-relaxed">
-                  Su requerimiento ha ingresado con máxima prioridad a la secretaría del despacho. Un
-                  socio director revisará los antecedentes y se pondrá en contacto en menos de 2 horas
-                  hábiles.
-                </p>
-              </div>
-
-              <div className="inline-block p-5 rounded-sm bg-slate-950 border border-amber-500/40 font-mono text-center shadow-inner">
-                <span className="text-[11px] text-slate-400 block uppercase tracking-widest mb-1.5">
-                  Expediente de Radicación Confidencial:
-                </span>
-                <span className="text-2xl font-bold text-amber-400 tracking-wider">{referenceCode}</span>
-              </div>
-
-              <div className="pt-4 flex flex-col sm:flex-row justify-center gap-4">
-                <a
-                  href={`https://wa.me/593999999999?text=Hola%2C%20acabo%20de%20agendar%20en%20l%C3%ADnea%20mi%20consulta%20con%20folio%20${referenceCode}.%20Deseo%20confirmar%20recepci%C3%B3n.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-7 py-3.5 rounded-sm bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-lg shadow-emerald-950/60 hover:scale-[1.01]"
-                >
-                  Confirmar por WhatsApp Inmediato
-                </a>
-
-                <button
-                  type="button"
-                  onClick={handleResetForm}
-                  className="px-6 py-3.5 rounded-sm bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium uppercase tracking-wider transition-colors border border-white/10 cursor-pointer"
-                >
-                  Agendar Otro Requerimiento
-                </button>
-              </div>
-            </motion.div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
-              
-              {/* Anti-spam Honeypot field */}
-              <div style={{ display: 'none' }} aria-hidden="true">
-                <label htmlFor="website_hp">No llenar este campo</label>
+        {/* Main Form Container */}
+        <div className="rounded-3xl bg-[#0B1D3A]/95 border border-slate-700/80 p-7 sm:p-10 shadow-2xl backdrop-blur-xl">
+          <AnimatePresence mode="wait">
+            {!submitted ? (
+              <motion.form
+                key="booking-form"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onSubmit={handleSubmit}
+                className="space-y-6"
+              >
+                {/* Honeypot field (hidden from genuine users) */}
                 <input
                   type="text"
-                  id="website_hp"
-                  name="honeypot"
+                  name="user_verification_token"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
                   tabIndex={-1}
-                  value={formData.honeypot}
-                  onChange={handleChange}
                   autoComplete="off"
+                  className="hidden"
+                  aria-hidden="true"
                 />
-              </div>
 
-              {/* Preselected Diagnosis Banner */}
-              {preselectedNotes && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="p-3.5 rounded bg-amber-500/10 border border-amber-500/30 flex items-center justify-between gap-3 text-xs text-amber-200"
-                >
-                  <div className="flex items-center gap-2">
-                    <FileCheck className="w-4 h-4 text-amber-400 shrink-0" />
-                    <span>Datos del diagnóstico transferidos automáticamente al formulario.</span>
+                {errorMsg && (
+                  <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 text-rose-400 shrink-0" />
+                    <span>{errorMsg}</span>
                   </div>
-                  {onClearPreselection && (
-                    <button
-                      type="button"
-                      onClick={() => {
-                        onClearPreselection();
-                        setFormData((prev) => ({ ...prev, description: '' }));
-                      }}
-                      className="p-1 text-amber-400 hover:text-white rounded hover:bg-white/10 cursor-pointer transition-colors"
-                      title="Quitar diagnóstico"
-                    >
-                      <X className="w-4 h-4" />
-                    </button>
-                  )}
-                </motion.div>
-              )}
+                )}
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {/* Nombre Completo */}
-                <div>
-                  <label htmlFor="fullName" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                    Nombre Completo o Razón Social <span className="text-amber-400">*</span>
-                  </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
-                      <User className="w-4 h-4" />
-                    </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  {/* Nombre */}
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-semibold text-slate-300 block">
+                      Nombre y Apellidos completos *
+                    </label>
                     <input
                       type="text"
-                      id="fullName"
-                      name="fullName"
                       required
-                      placeholder="Dr. / Ing. / Lic. / Empresa S.A."
-                      value={formData.fullName}
-                      onChange={handleChange}
-                      className="w-full pl-10 pr-4 py-3 bg-[#050813] border border-slate-700/80 rounded-sm text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all"
+                      placeholder="Ej. Ing. Carlos Morales"
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      className="w-full px-4 py-3 rounded-xl bg-[#071326] border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
                     />
                   </div>
-                </div>
 
-                {/* Teléfono / WhatsApp */}
-                <div>
-                  <label htmlFor="phone" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                    Teléfono Directo / Celular <span className="text-amber-400">*</span>
-                  </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
-                      <Phone className="w-4 h-4" />
-                    </div>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      required
-                      placeholder="+593 99 999 9999"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full pl-10 pr-4 py-3 bg-[#050813] border border-slate-700/80 rounded-sm text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {/* Email */}
-                <div>
-                  <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                    Correo Electrónico Corporativo <span className="text-amber-400">*</span>
-                  </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
-                      <Mail className="w-4 h-4" />
-                    </div>
+                  {/* Correo Electrónico */}
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-semibold text-slate-300 block">
+                      Correo Corporativo / Personal *
+                    </label>
                     <input
                       type="email"
-                      id="email"
-                      name="email"
                       required
-                      placeholder="nombre@empresa.com"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full pl-10 pr-4 py-3 bg-[#050813] border border-slate-700/80 rounded-sm text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all"
+                      placeholder="ejemplo@empresa.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full px-4 py-3 rounded-xl bg-[#071326] border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
                     />
                   </div>
                 </div>
 
-                {/* Área del Caso */}
-                <div>
-                  <label htmlFor="area" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                    Especialidad Jurídica <span className="text-amber-400">*</span>
-                  </label>
-                  <div className="relative">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  {/* Teléfono */}
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-semibold text-slate-300 block">
+                      Teléfono Móvil (WhatsApp) *
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="+593 99 999 9999"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      className="w-full px-4 py-3 rounded-xl bg-[#071326] border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
+                    />
+                  </div>
+
+                  {/* Área Legal */}
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-semibold text-slate-300 block">
+                      Materia o Especialidad Requerida
+                    </label>
                     <select
-                      id="area"
-                      name="area"
-                      value={formData.area}
-                      onChange={handleChange}
-                      className="w-full px-3.5 py-3 bg-[#050813] border border-slate-700/80 rounded-sm text-sm text-white focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all appearance-none cursor-pointer"
+                      value={area}
+                      onChange={(e) => setArea(e.target.value)}
+                      className="w-full px-4 py-3 rounded-xl bg-[#071326] border border-slate-800 text-sm text-white focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
                     >
                       {PRACTICE_AREAS.map((pa) => (
-                        <option key={pa.id} value={pa.id} className="bg-slate-900 text-white">
+                        <option key={pa.id} value={pa.id} className="bg-[#071326] text-white">
                           {pa.title}
                         </option>
                       ))}
                     </select>
-                    <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-amber-400 text-xs">
-                      ▼
-                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Fecha Preferida */}
-              <div>
-                <label htmlFor="date" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                  Fecha Preferida para la Sesión (Tentativa)
-                </label>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
-                    <Calendar className="w-4 h-4" />
+                {/* Fecha y Hora Deseada */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-semibold text-slate-300 block">
+                      Fecha Tentativa para la Sesión
+                    </label>
+                    <input
+                      type="date"
+                      value={preferredDate}
+                      onChange={(e) => setPreferredDate(e.target.value)}
+                      className="w-full px-4 py-3 rounded-xl bg-[#071326] border border-slate-800 text-sm text-white focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
+                    />
                   </div>
-                  <input
-                    type="date"
-                    id="date"
-                    name="date"
-                    value={formData.date}
-                    onChange={handleChange}
-                    className="w-full pl-10 pr-4 py-3 bg-[#050813] border border-slate-700/80 rounded-sm text-sm text-white focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all"
+
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-semibold text-slate-300 block">
+                      Franja Horaria Preferida
+                    </label>
+                    <select
+                      value={preferredTime}
+                      onChange={(e) => setPreferredTime(e.target.value)}
+                      className="w-full px-4 py-3 rounded-xl bg-[#071326] border border-slate-800 text-sm text-white focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
+                    >
+                      <option value="09:00" className="bg-[#071326]">09:00 - 10:30 (Mañana)</option>
+                      <option value="11:00" className="bg-[#071326]">11:00 - 12:30 (Media Mañana)</option>
+                      <option value="15:00" className="bg-[#071326]">15:00 - 16:30 (Tarde)</option>
+                      <option value="17:00" className="bg-[#071326]">17:00 - 18:30 (Final de Tarde)</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Breve descripción o notas */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-slate-300 block">
+                    Resumen Preliminar del Caso o Asunto
+                  </label>
+                  <textarea
+                    rows={3}
+                    placeholder="Detalle brevemente las circunstancias de hecho, partes involucradas y si existe alguna citación con plazo perentorio..."
+                    value={notes}
+                    onChange={(e) => setNotes(e.target.value)}
+                    className="w-full px-4 py-3 rounded-xl bg-[#071326] border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all resize-none"
                   />
                 </div>
-              </div>
 
-              {/* Breve descripción */}
-              <div>
-                <label htmlFor="description" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                  Breve Síntesis de los Hechos o Requerimiento
-                </label>
-                <textarea
-                  id="description"
-                  name="description"
-                  rows={4}
-                  placeholder="Describa brevemente la controversia, transacción o consulta legal a evaluar..."
-                  value={formData.description}
-                  onChange={handleChange}
-                  className="w-full p-3.5 bg-[#050813] border border-slate-700/80 rounded-sm text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all"
-                />
-              </div>
+                {/* Privacy and Secrecy Guarantee */}
+                <div className="p-3.5 rounded-xl bg-[#071326] border border-slate-800 flex items-start gap-2.5 text-xs text-slate-400">
+                  <ShieldCheck className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
+                  <span>
+                    La información provista queda protegida automáticamente bajo secreto profesional
+                    estricto según el Art. 11 del Código de Ética del Abogado.
+                  </span>
+                </div>
 
-              {/* Confidentiality Notice */}
-              <div className="p-4 bg-slate-950/70 rounded-sm border border-white/10 flex items-start gap-3">
-                <ShieldCheck className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  <strong className="text-white">Garantía de confidencialidad absoluta:</strong> El envío de este formulario genera una relación
-                  precontractual blindada bajo secreto profesional inquebrantable (Código de Ética Profesional
-                  y leyes procesales vigentes).
-                </p>
-              </div>
+                {/* Submit Pill Button */}
+                <div className="pt-2 flex justify-center">
+                  <button
+                    type="submit"
+                    className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#D4AF37] hover:bg-[#C59B27] text-slate-950 font-bold text-xs sm:text-sm tracking-wide transition-all shadow-lg shadow-[#D4AF37]/20 flex items-center justify-center gap-2 cursor-pointer active:scale-95"
+                  >
+                    <span>Confirmar Solicitud de Cita Privada</span>
+                    <div className="w-4 h-4 rounded-full bg-slate-950/15 flex items-center justify-center">
+                      <ArrowUpRight className="w-3 h-3 text-slate-950" />
+                    </div>
+                  </button>
+                </div>
+              </motion.form>
+            ) : (
+              <motion.div
+                key="booking-success"
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="space-y-6 text-center py-4"
+              >
+                <div className="w-16 h-16 rounded-full bg-emerald-500/15 border border-emerald-500/40 flex items-center justify-center mx-auto text-emerald-400">
+                  <CheckCircle2 className="w-8 h-8 text-emerald-400" />
+                </div>
 
-              {/* Submit Button */}
-              <div>
-                <button
-                  type="submit"
-                  disabled={loading}
-                  id="btn-submit-booking"
-                  className="w-full py-4 px-6 rounded-sm bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 text-slate-950 font-bold text-sm tracking-wider uppercase shadow-xl shadow-amber-500/20 hover:shadow-amber-500/35 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
-                >
-                  {loading ? (
-                    <>
-                      <Loader2 className="w-5 h-5 animate-spin text-slate-950" />
-                      <span>Cifrando y Radicando Expediente...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4 text-slate-950" />
-                      <span>Formalizar Solicitud de Consulta</span>
-                    </>
-                  )}
-                </button>
-              </div>
+                <div>
+                  <h3 className="font-heading font-extrabold text-2xl text-white mb-1">
+                    Solicitud Registrada con Éxito
+                  </h3>
+                  <p className="text-xs text-slate-400">
+                    Nuestra secretaría ejecutiva validará su requerimiento en menos de 2 horas hábiles.
+                  </p>
+                </div>
 
-            </form>
-          )}
+                <div className="p-4 rounded-2xl bg-[#071326] border border-slate-800 max-w-md mx-auto text-xs space-y-2 text-slate-300">
+                  <div className="flex justify-between border-b border-slate-800 pb-1.5">
+                    <span className="text-slate-400">Folio Oficial:</span>
+                    <strong className="text-[#D4AF37] font-mono">{submissionFolio}</strong>
+                  </div>
+                  <div className="flex justify-between border-b border-slate-800 pb-1.5">
+                    <span className="text-slate-400">Cliente:</span>
+                    <strong className="text-white">{fullName}</strong>
+                  </div>
+                  <div className="flex justify-between border-b border-slate-800 pb-1.5">
+                    <span className="text-slate-400">Canal de Notificación:</span>
+                    <strong className="text-white">{phone}</strong>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Horario Solicitado:</span>
+                    <strong className="text-[#D4AF37]">{preferredDate || 'Próximo turno disponible'} ({preferredTime})</strong>
+                  </div>
+                </div>
 
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                  <a
+                    href={getWhatsAppBookingUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs tracking-wide transition-all shadow-md flex items-center justify-center gap-2"
+                  >
+                    <MessageSquare className="w-4 h-4" />
+                    <span>Confirmar Inmediatamente vía WhatsApp</span>
+                  </a>
+
+                  <button
+                    onClick={() => {
+                      setSubmitted(false);
+                      setFullName('');
+                      setEmail('');
+                      setPhone('');
+                      setNotes('');
+                    }}
+                    className="w-full sm:w-auto px-5 py-3 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-semibold transition-colors"
+                  >
+                    Nueva Solicitud
+                  </button>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
       </div>
