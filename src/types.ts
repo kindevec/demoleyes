@@ -4,6 +4,7 @@
   subtitle: string;
   description: string;
   iconName: string;
+  image: string;
   services: string[];
   tag: string;
   leadPartner: string;
@@ -37,6 +38,7 @@ export interface CaseStudy {
   year: string;
   tag: string;
   strategyApplied: string;
+  image: string;
 }
 
 export interface Testimonial {
@@ -47,6 +49,7 @@ export interface Testimonial {
   authorTitle: string;
   statusVerified: boolean;
   confidentialId: string;
+  avatar: string;
 }
 
 export interface FaqItem {

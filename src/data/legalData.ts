@@ -7,6 +7,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     subtitle: 'Fusiones, Adquisiciones y Gobernanza Estratégica',
     description: 'Estructuración jurídica integral de operaciones mercantiles complejas, compraventa de compañías, alianzas estratégicas (joint ventures) y pactos parasociales de alta exigencia fiduciaria.',
     iconName: 'Scale',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80',
     services: [
       'Fusiones y Adquisiciones (M&A) transfronterizas con Due Diligence integral',
       'Pactos de Accionistas, Protocolos de Salida y Protección de Mayorías/Minorías',
@@ -33,6 +34,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     subtitle: 'Patrocinio Procesal en Disputas Judiciales Críticas',
     description: 'Defensa técnica especializada y representación litigiosa en tribunales ordinarios, cortes arbitrales internacionales y fueros penales en delitos societarios y patrimoniales.',
     iconName: 'ShieldCheck',
+    image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80',
     services: [
       'Arbitrajes Comerciales Nacionales e Internacionales (CIADI, CCI, Cámara de Comercio)',
       'Defensa Técnica en Delitos Económicos, Fraude Corporativo y Delincuencia Financiera',
@@ -59,6 +61,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     subtitle: 'Optimización Impositiva y Defensa Contenciosa',
     description: 'Diseño de arquitecturas fiscales eficientes y patrocinio litigioso de primer nivel frente a determinaciones impositivas, fiscalizaciones y liquidaciones de la Administración Tributaria.',
     iconName: 'FileCheck',
+    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80',
     services: [
       'Planificación Fiscal Corporativa y Estructuración Transfronteriza',
       'Juicios Contencioso-Tributarios y Acciones de Impugnación de Glosas',
@@ -85,6 +88,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     subtitle: 'Blindaje Fiduciario y Sucesión Intergeneracional',
     description: 'Estructuración de vehículos fiduciarios, trusts y mandatos de sucesión pacífica para resguardar patrimonios de familias empresarias contra contingencias imprevistas y disputas hereditarias.',
     iconName: 'Building2',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
     services: [
       'Fideicomisos Mercantiles Irrevocables de Administración y Garantía',
       'Protocolos Familiares de Gobernanza y Acuerdos de Consejo de Familia',
@@ -111,6 +115,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     subtitle: 'Gestión Preventiva del Talento y Mitigación de Riesgos',
     description: 'Asesoramiento preventivo integral para juntas directivas y gerencias de recursos humanos en desvinculaciones estratégicas de altos ejecutivos, convenios colectivos y programas de ética laboral.',
     iconName: 'Briefcase',
+    image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80',
     services: [
       'Diseño e Implementación de Programas de Compliance y Canales Éticos',
       'Desvinculaciones Estratégicas de Ejecutivos y Golden Parachutes',
@@ -137,6 +142,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
     subtitle: 'Desarrollo de Proyectos, Suelo y Seguridad Jurídica Registral',
     description: 'Blindaje legal integral para promotores, fondos de inversión inmobiliaria y propietarios de suelo en estructuraciones fiduciarias, permutas inmobiliarias y licencias de edificación.',
     iconName: 'Landmark',
+    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80',
     services: [
       'Due Diligence Registral, Catastral y Estudio de Títulos Inmobiliarios de 30 Años',
       'Estructuración Fiduciaria de Desarrollos Urbanos y Torres Corporativas/Residenciales',
@@ -241,7 +247,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     summary: 'Estructuración integral de contrato de compraventa de acciones, due diligence regulatorio y superación de objeciones antimonopolio en plazo récord de 45 días.',
     year: '2025',
     tag: 'Operación M&A',
-    strategyApplied: 'Implementación de cuenta Escrow condicionada a hitos regulatorios y cláusulas de indemnidad reforzadas con garantías hipotecarias solidarias.'
+    strategyApplied: 'Implementación de cuenta Escrow condicionada a hitos regulatorios y cláusulas de indemnidad reforzadas con garantías hipotecarias solidarias.',
+    image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'caso-penal-corporativo',
@@ -252,7 +259,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     summary: 'Defensa técnica de un consorcio industrial frente a imputaciones infundadas de defraudación tributaria; desestimación judicial en etapa evaluatoria de juicio.',
     year: '2025',
     tag: 'Defensa Penal',
-    strategyApplied: 'Peritaje forense contable independiente que demostró la licitud de las deducciones fiscales y nulidad de la prueba acusatoria por vicios de forma.'
+    strategyApplied: 'Peritaje forense contable independiente que demostró la licitud de las deducciones fiscales y nulidad de la prueba acusatoria por vicios de forma.',
+    image: 'https://images.unsplash.com/photo-1589994965851-a8f479c573a9?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'caso-reestructuracion-familiar',
@@ -263,7 +271,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     summary: 'Diseño de fideicomiso mercantil irrevocable y protocolo de sucesión que blindó los activos productivos de una familia empresarial de segunda y tercera generación.',
     year: '2024',
     tag: 'Family Office',
-    strategyApplied: 'Constitución de patrimonio autónomo inembargable complementado con estatuto de consejo de familia y fideicomiso de desinversión progresiva.'
+    strategyApplied: 'Constitución de patrimonio autónomo inembargable complementado con estatuto de consejo de familia y fideicomiso de desinversión progresiva.',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80'
   }
 ];
 
@@ -275,7 +284,8 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: 'La precisión analítica del Dr. Valenzuela y su equipo evitó un litigio de 8 cifras que amenazaba nuestra ronda de expansión internacional. Su destreza en negociación procesal y rigor probatorio son sencillamente incomparables.',
     authorTitle: 'Vicepresidente Legal & Riesgos',
     statusVerified: true,
-    confidentialId: 'Expediente Confidencial V-40192'
+    confidentialId: 'Expediente Confidencial V-40192',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80'
   },
   {
     id: 'test-2',
@@ -284,7 +294,8 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: 'Elena Mendoza no solo domina el marco normativo societario, entiende la velocidad y el apetito de riesgo del negocio. Condujo una fusión transfronteriza protegiendo nuestros intereses accionarios con una maestría impecable.',
     authorTitle: 'Presidente del Directorio',
     statusVerified: true,
-    confidentialId: 'Protocolo M&A-89'
+    confidentialId: 'Protocolo M&A-89',
+    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'
   },
   {
     id: 'test-3',
@@ -293,7 +304,8 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: 'El blindaje fiduciario que estructuraron para nuestra familia nos permitió trasladar los activos comerciales a nuestros hijos sin una sola discrepancia ni sobrecosto impositivo. Máxima discreción y probidad institucional.',
     authorTitle: 'Director de Family Office',
     statusVerified: true,
-    confidentialId: 'Trust Privado F-102'
+    confidentialId: 'Trust Privado F-102',
+    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80'
   }
 ];
 

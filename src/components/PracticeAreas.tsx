@@ -1,16 +1,6 @@
 ﻿import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import {
-  Scale,
-  ShieldCheck,
-  Briefcase,
-  FileCheck,
-  Landmark,
-  Building2,
-  ArrowUpRight,
-  CheckCircle2,
-  ExternalLink
-} from 'lucide-react';
+import { Scale, ShieldCheck, FileCheck, Building2, Briefcase, Landmark, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import { PRACTICE_AREAS } from '../data/legalData';
 import { PracticeArea } from '../types';
 
@@ -25,69 +15,61 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({
   onSelectAreaForBooking,
   onOpenAreaDetail
 }) => {
-  const [activeFilter, setActiveFilter] = useState<string>('all');
+  const [filter, setFilter] = useState<string>('all');
 
-  const getIcon = (iconName: string) => {
-    switch (iconName) {
-      case 'Scale':
-        return <Scale className="w-5 h-5 text-[#D4AF37]" />;
-      case 'ShieldCheck':
-        return <ShieldCheck className="w-5 h-5 text-[#D4AF37]" />;
-      case 'Briefcase':
-        return <Briefcase className="w-5 h-5 text-[#D4AF37]" />;
-      case 'FileCheck':
-        return <FileCheck className="w-5 h-5 text-[#D4AF37]" />;
-      case 'Building2':
-        return <Building2 className="w-5 h-5 text-[#D4AF37]" />;
-      case 'Landmark':
-      default:
-        return <Landmark className="w-5 h-5 text-[#D4AF37]" />;
-    }
+  const iconMap: Record<string, React.ReactNode> = {
+    Scale: <Scale className="w-4 h-4" />,
+    ShieldCheck: <ShieldCheck className="w-4 h-4" />,
+    FileCheck: <FileCheck className="w-4 h-4" />,
+    Building2: <Building2 className="w-4 h-4" />,
+    Briefcase: <Briefcase className="w-4 h-4" />,
+    Landmark: <Landmark className="w-4 h-4" />,
   };
 
-  const filterCategories = [
-    { id: 'all', label: 'Todas las Áreas' },
+  const categories = [
+    { id: 'all', label: 'Todas las Especialidades' },
     { id: 'Corporativo', label: 'Corporativo & M&A' },
     { id: 'Litigios', label: 'Litigios & Penal' },
     { id: 'Tributario', label: 'Tributario' },
-    { id: 'Patrimonial', label: 'Patrimonial' },
+    { id: 'Patrimonial', label: 'Patrimonial & Trusts' },
     { id: 'Compliance', label: 'Compliance' },
-    { id: 'Inmobiliario', label: 'Inmobiliario' }
+    { id: 'Inmobiliario', label: 'Inmobiliario' },
   ];
 
-  const filteredAreas =
-    activeFilter === 'all'
-      ? PRACTICE_AREAS
-      : PRACTICE_AREAS.filter((a) => a.tag.toLowerCase() === activeFilter.toLowerCase());
+  const filteredAreas = PRACTICE_AREAS.filter((area) => {
+    if (filter === 'all') return true;
+    return area.tag.toLowerCase() === filter.toLowerCase();
+  });
 
   return (
-    <section id="especialidades" className="relative bg-[#071326] text-white py-20 lg:py-28 border-t border-slate-800/80">
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+    <section id="especialidades" className="py-20 lg:py-28 bg-[#071326] text-white relative border-t border-slate-800/80">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] text-xs font-semibold tracking-wide mb-4">
-            Especialización Jurídica Integral
+            <Scale className="w-3.5 h-3.5 text-[#D4AF37]" />
+            Práctica Jurídica Transversal
           </div>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-white mb-4">
-            Áreas de Práctica & Defensa
+          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white mb-3">
+            Áreas de Práctica & Especialidades
           </h2>
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-            Abordamos las controversias y transacciones corporativas más exigentes con equipos
-            multidisciplinarios liderados directamente por socios de trayectoria comprobada.
+            Asistencia jurídica integral estructurada por departamentos altamente especializados,
+            conduciendo cada mandato bajo los más estrictos estándares internacionales.
           </p>
         </div>
 
-        {/* Filter Category Pills */}
+        {/* Filter Pills */}
         <div className="flex items-center justify-center flex-wrap gap-2 mb-12">
-          {filterCategories.map((cat) => (
+          {categories.map((cat) => (
             <button
               key={cat.id}
-              onClick={() => setActiveFilter(cat.id)}
+              onClick={() => setFilter(cat.id)}
               className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all cursor-pointer ${
-                activeFilter === cat.id
-                  ? 'bg-[#D4AF37] text-slate-950 font-bold shadow-md shadow-[#D4AF37]/20'
-                  : 'bg-[#0B1D3A]/80 text-slate-300 hover:text-white border border-slate-700/60 hover:border-[#D4AF37]/40'
+                filter === cat.id
+                  ? 'bg-[#D4AF37] text-slate-950 font-bold shadow-md shadow-[#D4AF37]/20 scale-105'
+                  : 'bg-[#0B1D3A]/60 text-slate-300 hover:text-white border border-slate-700/60'
               }`}
             >
               {cat.label}
@@ -95,81 +77,91 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({
           ))}
         </div>
 
-        {/* Practice Area Cards Grid */}
+        {/* 6 High-Impact Visual Practice Area Cards with Photography */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           <AnimatePresence mode="popLayout">
-            {filteredAreas.map((area, idx) => {
-              const isHighlighted = selectedAreaId === area.id;
+            {filteredAreas.map((area) => {
+              const isSelected = selectedAreaId === area.id;
 
               return (
                 <motion.div
-                  layout
                   key={area.id}
-                  initial={{ opacity: 0, scale: 0.96 }}
+                  layout
+                  initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.96 }}
-                  transition={{ duration: 0.3, delay: idx * 0.04 }}
-                  className={`rounded-3xl p-7 flex flex-col justify-between transition-all duration-300 ${
-                    isHighlighted
-                      ? 'bg-[#0B1D3A] border-2 border-[#D4AF37] shadow-2xl shadow-[#D4AF37]/10 ring-1 ring-[#D4AF37]/30'
-                      : 'bg-[#0B1D3A]/80 hover:bg-[#0B1D3A] border border-slate-700/80 hover:border-[#D4AF37]/40 shadow-xl'
-                  } backdrop-blur-xl group`}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.35 }}
+                  className={`rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300 group shadow-xl ${
+                    isSelected
+                      ? 'bg-[#0B1D3A] border-2 border-[#D4AF37] ring-2 ring-[#D4AF37]/20'
+                      : 'bg-[#0B1D3A]/60 hover:bg-[#0B1D3A] border border-slate-800 hover:border-[#D4AF37]/40'
+                  }`}
                 >
-                  <div>
-                    {/* Top Bar: Icon + Tag */}
-                    <div className="flex items-center justify-between mb-5">
-                      <div className="w-12 h-12 rounded-2xl bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
-                        {getIcon(area.iconName)}
-                      </div>
-                      <span className="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] border border-[#D4AF37]/20">
+                  {/* High-Resolution Photo Header */}
+                  <div className="relative h-44 sm:h-48 w-full overflow-hidden">
+                    <img
+                      src={area.image}
+                      alt={area.title}
+                      loading="lazy"
+                      decoding="async"
+                      width={800}
+                      height={450}
+                      className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-700 filter brightness-90 contrast-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B1D3A] via-[#0B1D3A]/40 to-transparent pointer-events-none" />
+
+                    {/* Floating Pill Badge & Icon */}
+                    <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none">
+                      <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-slate-950/80 backdrop-blur-md text-[#D4AF37] border border-[#D4AF37]/30">
                         {area.tag}
                       </span>
-                    </div>
-
-                    {/* Title & Subtitle */}
-                    <h3 className="font-heading font-bold text-xl text-white mb-1 group-hover:text-[#D4AF37] transition-colors">
-                      {area.title}
-                    </h3>
-                    <p className="text-xs text-[#D4AF37] font-medium tracking-wide mb-4">
-                      {area.subtitle}
-                    </p>
-
-                    <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6">
-                      {area.description}
-                    </p>
-
-                    {/* 3 Specific Services List */}
-                    <div className="space-y-2.5 mb-6 pt-4 border-t border-slate-800">
-                      {area.services.map((srv, sIdx) => (
-                        <div key={sIdx} className="flex items-start gap-2.5">
-                          <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
-                          <span className="text-xs text-slate-300 font-medium leading-tight">
-                            {srv}
-                          </span>
-                        </div>
-                      ))}
+                      <div className="w-8 h-8 rounded-xl bg-slate-950/80 backdrop-blur-md border border-slate-700/80 flex items-center justify-center text-[#D4AF37]">
+                        {iconMap[area.iconName] || <Scale className="w-4 h-4" />}
+                      </div>
                     </div>
                   </div>
 
-                  {/* Dual Action Buttons */}
-                  <div className="pt-3 space-y-2 border-t border-slate-800">
-                    <button
-                      onClick={() => onOpenAreaDetail(area)}
-                      className="w-full py-2.5 px-3 rounded-xl bg-slate-900/60 hover:bg-slate-900 text-slate-300 hover:text-white text-xs font-semibold tracking-wide transition-colors flex items-center justify-center gap-1.5 cursor-pointer border border-slate-700/60"
-                    >
-                      <span>Ver Alcance & Casos</span>
-                      <ExternalLink className="w-3.5 h-3.5 text-[#D4AF37]" />
-                    </button>
+                  {/* Card Content Body */}
+                  <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="font-heading font-bold text-lg text-white mb-1.5 group-hover:text-[#D4AF37] transition-colors leading-snug">
+                        {area.title}
+                      </h3>
+                      <p className="text-[11px] font-semibold text-[#D4AF37] mb-3">
+                        {area.subtitle}
+                      </p>
+                      <p className="text-xs text-slate-300 leading-relaxed mb-5">
+                        {area.description}
+                      </p>
 
-                    <button
-                      onClick={() => onSelectAreaForBooking(area.id, area.title)}
-                      className="w-full py-2.5 px-4 rounded-full bg-[#D4AF37] hover:bg-[#C59B27] text-slate-950 font-bold text-xs tracking-wide transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-md active:scale-95"
-                    >
-                      <span>Agendar Consulta</span>
-                      <div className="w-3.5 h-3.5 rounded-full bg-slate-950/15 flex items-center justify-center">
-                        <ArrowUpRight className="w-2.5 h-2.5 text-slate-950" />
+                      {/* Services Checklist */}
+                      <div className="space-y-2 mb-6 pt-2 border-t border-slate-800">
+                        {area.services.slice(0, 3).map((srv, idx) => (
+                          <div key={idx} className="flex items-start gap-2 text-xs text-slate-300">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-[#D4AF37] shrink-0 mt-0.5" />
+                            <span>{srv}</span>
+                          </div>
+                        ))}
                       </div>
-                    </button>
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="pt-4 border-t border-slate-800 flex items-center justify-between gap-3">
+                      <button
+                        onClick={() => onOpenAreaDetail(area)}
+                        className="text-xs font-semibold text-slate-300 hover:text-[#D4AF37] transition-colors cursor-pointer flex items-center gap-1"
+                      >
+                        <span>Detalles & Precedentes</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </button>
+
+                      <button
+                        onClick={() => onSelectAreaForBooking(area.id, area.title)}
+                        className="px-4 py-2 rounded-full text-xs font-bold bg-[#D4AF37] hover:bg-[#C59B27] text-slate-950 transition-all cursor-pointer shadow-md active:scale-95"
+                      >
+                        <span>Consultar</span>
+                      </button>
+                    </div>
                   </div>
                 </motion.div>
               );
