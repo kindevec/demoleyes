@@ -1,19 +1,23 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { WhoWeAre } from './components/WhoWeAre';
 import { PracticeAreas } from './components/PracticeAreas';
+import { AreaDetailModal } from './components/AreaDetailModal';
 import { CaseDiagnosticWizard } from './components/CaseDiagnosticWizard';
+import { FeeCalculator } from './components/FeeCalculator';
 import { Attorneys } from './components/Attorneys';
 import { CaseStudiesAndProof } from './components/CaseStudiesAndProof';
 import { BookingForm } from './components/BookingForm';
 import { FaqAccordion } from './components/FaqAccordion';
 import { Footer } from './components/Footer';
 import { EmergencyWhatsAppButton } from './components/EmergencyWhatsAppButton';
+import { PracticeArea } from './types';
 
 export default function App() {
   const [selectedPracticeArea, setSelectedPracticeArea] = useState<string>('corporativo-m-a');
   const [preselectedNotes, setPreselectedNotes] = useState<string>('');
+  const [modalArea, setModalArea] = useState<PracticeArea | null>(null);
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -42,6 +46,11 @@ export default function App() {
     scrollTo('agendar');
   };
 
+  const handleSelectPlanForBooking = (planName: string) => {
+    setPreselectedNotes(`[Interés en esquema de honorarios: ${planName}]`);
+    scrollTo('agendar');
+  };
+
   return (
     <div className="min-h-screen bg-[#070B19] text-slate-100 selection:bg-amber-500/30 selection:text-amber-200">
       {/* Desktop Sticky Header & Mobile Bottom Nav Bar */}
@@ -55,40 +64,52 @@ export default function App() {
           onNavigateToBooking={() => scrollTo('agendar')}
         />
 
-        {/* 2. Sección Quiénes Somos / Institucional (Fiel al Diseño de la Imagen de Referencia) */}
+        {/* 2. Sección Quiénes Somos / Institucional con Tabs Interactivos */}
         <WhoWeAre onLearnMore={() => scrollTo('abogados')} />
 
-        {/* 3. Áreas de Práctica (Servicios Jurídicos) */}
+        {/* 3. Áreas de Práctica con Filtros Dinámicos */}
         <PracticeAreas
           selectedAreaId={selectedPracticeArea}
           onSelectAreaForBooking={handleSelectAreaForBooking}
+          onOpenAreaDetail={(area) => setModalArea(area)}
         />
 
-        {/* 4. Evaluador Interactivo de Caso (Widget de Diagnóstico Preliminar en 3 Clics) */}
+        {/* 4. Evaluador Interactivo de Caso (Wizard en 3 Clics con Código de Folio) */}
         <CaseDiagnosticWizard onApplyDiagnosisToForm={handleApplyDiagnosis} />
 
-        {/* 5. Equipo de Socios y Abogados Principales */}
+        {/* 5. Simulador de Modelos de Honorarios y Transparencia Tarifaria (Nuevo) */}
+        <FeeCalculator onSelectPlanForBooking={handleSelectPlanForBooking} />
+
+        {/* 6. Equipo de Socios y Abogados Principales con Modal de Trayectoria */}
         <Attorneys onConsultPartner={handleConsultPartner} />
 
-        {/* 6. Prueba Social y Casos Anónimos Resueltos */}
+        {/* 7. Prueba Social, Sellos ISO 27001 y Casos Emblemáticos Resueltos */}
         <CaseStudiesAndProof />
 
-        {/* 7. Formulario de Agendamiento Seguro */}
+        {/* 8. Formulario de Agendamiento Seguro con Cifrado Simulado */}
         <BookingForm
           preselectedArea={selectedPracticeArea}
           preselectedNotes={preselectedNotes}
           onClearPreselection={() => setPreselectedNotes('')}
         />
 
-        {/* 8. Preguntas Frecuentes (FAQ Acordeón) */}
+        {/* 9. Preguntas Frecuentes con Búsqueda en Vivo y Filtros de Categoría */}
         <FaqAccordion />
 
-        {/* 9. Footer Corporativo Oficial */}
+        {/* 10. Footer Corporativo Multisede */}
         <Footer />
       </main>
 
       {/* Canal Flotante de Emergencia (WhatsApp Inteligente 24/7) */}
       <EmergencyWhatsAppButton />
+
+      {/* Modal de Detalle de Área de Práctica */}
+      <AreaDetailModal
+        area={modalArea}
+        isOpen={modalArea !== null}
+        onClose={() => setModalArea(null)}
+        onSelectForBooking={handleSelectAreaForBooking}
+      />
     </div>
   );
 }

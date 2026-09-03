@@ -1,6 +1,6 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'motion/react';
-import { ShieldCheck, CheckCircle2, Lock, Award, Quote } from 'lucide-react';
+import { ShieldCheck, CheckCircle2, Lock, Award, Quote, FileCheck } from 'lucide-react';
 import { CASE_STUDIES, TESTIMONIALS } from '../data/legalData';
 
 export const CaseStudiesAndProof: React.FC = () => {
@@ -16,15 +16,15 @@ export const CaseStudiesAndProof: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold tracking-widest uppercase mb-4">
             <Lock className="w-3.5 h-3.5 text-amber-400" />
-            Casos Emblemáticos y Rigor Ético
+            Casos Emblemáticos & Rigor Ético
           </div>
           <h2 className="font-serif-luxury text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             Precedentes de Éxito y Resguardo Confidencial
           </h2>
           <div className="w-16 h-0.5 bg-amber-500/60 mx-auto mb-6" />
           <p className="text-slate-300 text-base sm:text-lg">
-            En estricto cumplimiento del secreto profesional y los acuerdos de confidencialidad,
-            presentamos de forma anónima tres resoluciones que sentaron jurisprudencia favorable.
+            En estricto cumplimiento del secreto fiduciario y los acuerdos de confidencialidad,
+            presentamos de forma anónima tres resoluciones que sentaron jurisprudencia y protegieron el valor del cliente.
           </p>
         </div>
 
@@ -37,9 +37,9 @@ export const CaseStudiesAndProof: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="rounded-sm bg-slate-900/80 border border-amber-500/20 p-7 flex flex-col justify-between shadow-xl relative backdrop-blur-md"
+              className="rounded-sm bg-slate-900/80 border border-amber-500/20 p-7 flex flex-col justify-between shadow-xl relative backdrop-blur-md hover:border-amber-500/40 transition-colors"
             >
-              <div className="absolute top-4 right-4 text-amber-400/20 font-serif-luxury text-4xl font-bold">
+              <div className="absolute top-4 right-4 text-amber-400/20 font-serif-luxury text-4xl font-bold select-none">
                 0{idx + 1}
               </div>
 
@@ -55,9 +55,18 @@ export const CaseStudiesAndProof: React.FC = () => {
                   {caseStudy.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
                   {caseStudy.summary}
                 </p>
+
+                {/* Strategy Applied */}
+                <div className="p-3 rounded bg-[#070B19]/80 border border-white/5 text-xs text-slate-400 mb-6">
+                  <span className="text-amber-400 font-semibold block mb-1 flex items-center gap-1.5">
+                    <FileCheck className="w-3.5 h-3.5 text-amber-400" />
+                    <span>Estrategia Aplicada:</span>
+                  </span>
+                  <p className="leading-relaxed">{caseStudy.strategyApplied}</p>
+                </div>
               </div>
 
               <div className="pt-4 border-t border-white/10 space-y-2 bg-slate-950/40 -mx-7 -mb-7 p-5 rounded-b-sm">
@@ -78,30 +87,30 @@ export const CaseStudiesAndProof: React.FC = () => {
         </div>
 
         {/* Institutional Accreditation Seals Banner */}
-        <div className="p-6 rounded-sm bg-slate-950/80 border border-white/10 mb-20 backdrop-blur-md">
+        <div className="p-8 rounded-sm bg-slate-950/80 border border-white/10 mb-20 backdrop-blur-md">
           <div className="text-center text-xs font-semibold uppercase tracking-widest text-slate-400 mb-6">
             Acreditaciones Institucionales y Estándares Éticos Internacionales
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 items-center justify-items-center text-center">
             <div className="p-3">
-              <Award className="w-6 h-6 text-amber-400 mx-auto mb-2" />
+              <Award className="w-7 h-7 text-amber-400 mx-auto mb-2" />
               <div className="text-xs font-bold text-white">Chambers & Partners</div>
-              <div className="text-[10px] text-slate-400">Band 1 Dispute Resolution</div>
+              <div className="text-[10px] text-slate-400 mt-0.5">Band 1 Dispute Resolution</div>
             </div>
             <div className="p-3">
-              <ShieldCheck className="w-6 h-6 text-amber-400 mx-auto mb-2" />
+              <ShieldCheck className="w-7 h-7 text-amber-400 mx-auto mb-2" />
               <div className="text-xs font-bold text-white">The Legal 500</div>
-              <div className="text-[10px] text-slate-400">Leading Law Firm 2025/2026</div>
+              <div className="text-[10px] text-slate-400 mt-0.5">Leading Law Firm 2025/2026</div>
             </div>
             <div className="p-3">
-              <Lock className="w-6 h-6 text-amber-400 mx-auto mb-2" />
+              <Lock className="w-7 h-7 text-amber-400 mx-auto mb-2" />
               <div className="text-xs font-bold text-white">ISO 27001 Certified</div>
-              <div className="text-[10px] text-slate-400">Cifrado de Expedientes Digitales</div>
+              <div className="text-[10px] text-slate-400 mt-0.5">Cifrado de Expedientes Digitales</div>
             </div>
             <div className="p-3">
-              <Award className="w-6 h-6 text-amber-400 mx-auto mb-2" />
+              <Award className="w-7 h-7 text-amber-400 mx-auto mb-2" />
               <div className="text-xs font-bold text-white">Colegio de Abogados</div>
-              <div className="text-[10px] text-slate-400">Miembros del Tribunal de Honor</div>
+              <div className="text-[10px] text-slate-400 mt-0.5">Tribunal de Honor & Ética</div>
             </div>
           </div>
         </div>
@@ -118,13 +127,13 @@ export const CaseStudiesAndProof: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {TESTIMONIALS.map((test, idx) => (
+            {TESTIMONIALS.map((test) => (
               <div
                 key={test.id}
-                className="p-6 rounded-sm bg-slate-900/50 border border-white/10 relative flex flex-col justify-between"
+                className="p-7 rounded-sm bg-slate-900/50 border border-white/10 relative flex flex-col justify-between hover:border-amber-500/30 transition-colors"
               >
                 <div>
-                  <Quote className="w-6 h-6 text-amber-400/40 mb-3" />
+                  <Quote className="w-7 h-7 text-amber-400/40 mb-3" />
                   <p className="text-xs sm:text-sm text-slate-300 italic leading-relaxed mb-6">
                     "{test.quote}"
                   </p>
@@ -133,7 +142,7 @@ export const CaseStudiesAndProof: React.FC = () => {
                 <div className="pt-4 border-t border-white/10 flex items-center justify-between">
                   <div>
                     <div className="text-xs font-bold text-white">{test.clientType}</div>
-                    <div className="text-[11px] text-amber-400/80">{test.authorTitle}</div>
+                    <div className="text-[11px] text-amber-400/90 font-medium">{test.authorTitle}</div>
                     <div className="text-[9px] text-slate-400 font-mono mt-0.5">{test.industry}</div>
                   </div>
                   <div className="flex flex-col items-end">

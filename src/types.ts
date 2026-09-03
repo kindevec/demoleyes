@@ -1,11 +1,16 @@
-export interface PracticeArea {
+﻿export interface PracticeArea {
   id: string;
   title: string;
   subtitle: string;
   description: string;
-  iconName: 'Scale' | 'ShieldCheck' | 'Briefcase' | 'FileCheck' | 'Landmark' | 'Building2';
+  iconName: string;
   services: string[];
   tag: string;
+  leadPartner: string;
+  leadPartnerRole: string;
+  typicalCases: string[];
+  keyBenefits: string[];
+  turnaroundTime: string;
 }
 
 export interface Attorney {
@@ -18,6 +23,8 @@ export interface Attorney {
   experience: string;
   image: string;
   bio: string;
+  publications?: string[];
+  notableWins?: string[];
 }
 
 export interface CaseStudy {
@@ -29,6 +36,7 @@ export interface CaseStudy {
   summary: string;
   year: string;
   tag: string;
+  strategyApplied: string;
 }
 
 export interface Testimonial {
@@ -43,16 +51,18 @@ export interface Testimonial {
 
 export interface FaqItem {
   id: string;
+  category: 'Honorarios' | 'Confidencialidad' | 'Urgencias' | 'Internacional' | 'Procesal';
   question: string;
   answer: string;
-  category: string;
 }
 
-export interface DiagnosisData {
-  caseNature: 'empresa' | 'persona' | 'conflicto';
-  urgency: 'inmediata' | 'planificacion' | 'audiencia';
-  recommendedSpecialist: string;
-  slaResponseTime: string;
-  caseRefCode: string;
-  estimatedComplexity: string;
+export interface FeeModel {
+  id: string;
+  name: string;
+  badge: string;
+  description: string;
+  idealFor: string;
+  billingFrequency: string;
+  features: string[];
+  estimatedRange: string;
 }

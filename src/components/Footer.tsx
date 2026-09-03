@@ -1,10 +1,10 @@
-import React from 'react';
+﻿import React from 'react';
 import { CrestLogo } from './CrestLogo';
-import { MapPin, Phone, Mail, Clock, ShieldCheck, ExternalLink } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ShieldCheck, ExternalLink, Award } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#050812] text-slate-400 text-xs border-t border-white/10 pt-16 pb-12">
+    <footer className="bg-[#040711] text-slate-400 text-xs border-t border-white/10 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Grid */}
@@ -18,26 +18,36 @@ export const Footer: React.FC = () => {
               societarias, derecho penal económico y resguardo patrimonial intergeneracional.
             </p>
             <div className="flex items-center gap-2 text-[11px] text-amber-400/90 font-medium">
-              <ShieldCheck className="w-4 h-4 text-amber-400" />
+              <ShieldCheck className="w-4 h-4 text-amber-400 shrink-0" />
               <span>Secreto Profesional Estricto (Art. 11 Código de Ética)</span>
+            </div>
+            <div className="flex items-center gap-2 text-[11px] text-slate-400 font-mono">
+              <Award className="w-4 h-4 text-amber-400 shrink-0" />
+              <span>Chambers & Partners Band 1 • Legal 500</span>
             </div>
           </div>
 
           {/* Sede Corporativa & Contacto */}
           <div className="space-y-3">
             <h4 className="font-serif-luxury text-base font-bold text-white uppercase tracking-wider">
-              Sede Corporativa
+              Sedes Oficiales
             </h4>
-            <div className="space-y-2.5 text-slate-300">
+            <div className="space-y-3 text-slate-300">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                 <span className="leading-snug">
-                  Av. República del Salvador y Naciones Unidas, Edificio Titanium Plaza, Piso 14, Distrito Financiero.
+                  <strong>Quito (Sede Matriz):</strong> Av. República del Salvador y Naciones Unidas, Edificio Titanium Plaza, Piso 14.
+                </span>
+              </div>
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                <span className="leading-snug">
+                  <strong>Guayaquil:</strong> Puerto Santa Ana, Torre The Point, Piso 18.
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>PBX: +593 (02) 394-8200 / +593 99 999 9999</span>
+                <span>PBX: +593 (02) 394-8200 | +593 99 999 9999</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-amber-400 shrink-0" />
@@ -62,20 +72,22 @@ export const Footer: React.FC = () => {
               <li><a href="#especialidades" className="hover:text-amber-400 transition-colors">Protección Patrimonial y Fideicomisos</a></li>
               <li><a href="#especialidades" className="hover:text-amber-400 transition-colors">Asesoría Tributaria Estratégica</a></li>
               <li><a href="#especialidades" className="hover:text-amber-400 transition-colors">Compliance Laboral y Empresas</a></li>
+              <li><a href="#especialidades" className="hover:text-amber-400 transition-colors">Contratación e Inversión Inmobiliaria</a></li>
             </ul>
           </div>
 
           {/* Enlaces de Interés & Transparencia */}
           <div className="space-y-3">
             <h4 className="font-serif-luxury text-base font-bold text-white uppercase tracking-wider">
-              Gobernanza & Cumplimiento
+              Gobernanza & Servicios
             </h4>
             <ul className="space-y-1.5 text-slate-400">
-              <li><a href="#diagnostico" className="hover:text-amber-400 transition-colors">Evaluador de Urgencias 24/7</a></li>
-              <li><a href="#abogados" className="hover:text-amber-400 transition-colors">Colegiaturas y Certificaciones</a></li>
-              <li><a href="#casos" className="hover:text-amber-400 transition-colors">Protocolo de Confidencialidad ISO 27001</a></li>
-              <li><a href="#agendar" className="hover:text-amber-400 transition-colors">Agendamiento Privado de Caso</a></li>
-              <li><a href="#faq" className="hover:text-amber-400 transition-colors">Política de Honorarios Transparentes</a></li>
+              <li><a href="#diagnostico" className="hover:text-amber-400 transition-colors">Evaluador de Viabilidad 24/7</a></li>
+              <li><a href="#honorarios" className="hover:text-amber-400 transition-colors">Modelos de Honorarios Transparentes</a></li>
+              <li><a href="#abogados" className="hover:text-amber-400 transition-colors">Socios Directores & Credenciales</a></li>
+              <li><a href="#casos" className="hover:text-amber-400 transition-colors">Precedentes & Casos Resueltos</a></li>
+              <li><a href="#agendar" className="hover:text-amber-400 transition-colors">Agendamiento Privado de Sesión</a></li>
+              <li><a href="#faq" className="hover:text-amber-400 transition-colors">Preguntas Frecuentes</a></li>
             </ul>
           </div>
 
@@ -88,7 +100,7 @@ export const Footer: React.FC = () => {
             El contenido de este sitio web tiene propósitos estrictamente informativos y descriptivos de la
             práctica profesional de la firma. No constituye dictamen, opinión jurídica vinculante ni
             establece por sí mismo una relación formal abogado-cliente hasta la suscripción del
-            correspondiente contrato de prestación de servicios profesionales y aceptación del encargo.
+            correspondiente contrato de prestación de servicios profesionales y aceptación formal del mandato.
           </p>
         </div>
 
@@ -97,8 +109,8 @@ export const Footer: React.FC = () => {
           <div>
             © 2026 Valenzuela & Asociados. Todos los derechos reservados.
           </div>
-          <div className="text-amber-400/90 font-medium">
-            Desarrollado por Kindev
+          <div className="text-amber-400 font-semibold tracking-wide">
+            Desarrollado por Kindev S.A.S.
           </div>
         </div>
 

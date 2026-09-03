@@ -19,7 +19,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToBooking }) => {
       }
 
       // Determine active section for nav indicators
-      const sections = ['inicio', 'quienes-somos', 'especialidades', 'diagnostico', 'abogados', 'casos', 'agendar', 'faq'];
+      const sections = ['inicio', 'quienes-somos', 'especialidades', 'diagnostico', 'honorarios', 'abogados', 'casos', 'agendar', 'faq'];
       const scrollPosition = window.scrollY + 250;
 
       for (const section of sections) {
@@ -49,10 +49,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToBooking }) => {
   const navLinks = [
     { id: 'inicio', label: 'Inicio' },
     { id: 'quienes-somos', label: 'La Firma' },
-    { id: 'especialidades', label: 'Áreas de Práctica' },
+    { id: 'especialidades', label: 'Áreas' },
     { id: 'diagnostico', label: 'Diagnóstico' },
+    { id: 'honorarios', label: 'Honorarios' },
     { id: 'abogados', label: 'Socios' },
-    { id: 'casos', label: 'Casos Resueltos' },
+    { id: 'casos', label: 'Casos' },
     { id: 'faq', label: 'FAQ' },
   ];
 
@@ -62,7 +63,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToBooking }) => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-[#070B19]/90 backdrop-blur-xl border-b border-amber-500/20 shadow-2xl shadow-black/60 py-3.5'
+            ? 'bg-[#070B19]/92 backdrop-blur-xl border-b border-amber-500/20 shadow-2xl shadow-black/60 py-3.5'
             : 'bg-gradient-to-b from-[#070B19]/95 via-[#070B19]/75 to-transparent py-5'
         }`}
       >
@@ -81,7 +82,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToBooking }) => {
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center space-x-7" aria-label="Navegación Principal">
+          <nav className="hidden lg:flex items-center space-x-6" aria-label="Navegación Principal">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (

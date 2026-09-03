@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'motion/react';
 import { Shield, ArrowRight, Award, ChevronDown, CheckCircle2 } from 'lucide-react';
 import { FIRM_METRICS } from '../data/legalData';
@@ -23,11 +23,15 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(197,168,128,0.15),transparent_60%)] pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(11,19,43,0.8),transparent_70%)] pointer-events-none" />
       
-      {/* Dramatic Statue of Lady Justice Visual (inspired directly by the reference image) */}
+      {/* Dramatic Statue of Lady Justice Visual */}
       <div className="absolute top-0 right-0 w-full md:w-3/5 h-full opacity-35 md:opacity-55 pointer-events-none mix-blend-luminosity overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1600&q=80"
           alt="Estatua de la Dama de la Justicia con Balanza de Bronce"
+          fetchPriority="high"
+          decoding="async"
+          width={1600}
+          height={1000}
           referrerPolicy="no-referrer"
           className="w-full h-full object-cover object-center md:object-[70%_20%] filter brightness-90 contrast-125"
         />
@@ -78,7 +82,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
           >
             Protegemos el patrimonio, la continuidad empresarial y los intereses de líderes y
             corporaciones a través de litigación de alto impacto, blindaje fiduciario y asesoría
-            preventiva con máxima discreción.
+            preventiva con máxima discreción ética.
           </motion.p>
 
           {/* Quick Interactive Chips in Hero */}
@@ -89,13 +93,14 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
             className="mb-8"
           >
             <span className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2.5">
-              Seleccione su área de interés:
+              Especialidades con mayor demanda:
             </span>
             <div className="flex flex-wrap gap-2.5">
               {[
-                { label: 'Derecho Corporativo', id: 'corporativo-m-a' },
+                { label: 'Derecho Corporativo & M&A', id: 'corporativo-m-a' },
                 { label: 'Litigios & Penal Económico', id: 'litigios-penal' },
-                { label: 'Inmobiliario & Patrimonial', id: 'patrimonial-sucesiones' }
+                { label: 'Inmobiliario & Patrimonial', id: 'patrimonial-sucesiones' },
+                { label: 'Tributario & Fiscal', id: 'tributario-fiscal' }
               ].map((chip) => (
                 <button
                   key={chip.id}
@@ -139,14 +144,14 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
             </button>
           </motion.div>
 
-          {/* Live Credibility Strip */}
+          {/* Live Credibility Strip with Interactive Hover */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             className="grid grid-cols-3 gap-4 pt-6 border-t border-white/10"
           >
-            <div>
+            <div className="p-2 rounded hover:bg-white/5 transition-colors cursor-default">
               <div className="font-serif-luxury text-2xl sm:text-3xl font-bold text-amber-400">
                 {FIRM_METRICS.yearsExperience}
               </div>
@@ -154,7 +159,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
                 Años de Trayectoria
               </p>
             </div>
-            <div>
+            <div className="p-2 rounded hover:bg-white/5 transition-colors cursor-default">
               <div className="font-serif-luxury text-2xl sm:text-3xl font-bold text-amber-400">
                 {FIRM_METRICS.favorableRatio}
               </div>
@@ -162,12 +167,12 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
                 Casos Favorables
               </p>
             </div>
-            <div>
+            <div className="p-2 rounded hover:bg-white/5 transition-colors cursor-default">
               <div className="font-serif-luxury text-2xl sm:text-3xl font-bold text-amber-400">
                 {FIRM_METRICS.protectedAssets}
               </div>
               <p className="text-[11px] sm:text-xs text-slate-400 font-medium tracking-wide uppercase mt-0.5">
-                Patrimonio Protegido
+                Patrimonio Blindado
               </p>
             </div>
           </motion.div>
