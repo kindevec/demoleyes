@@ -33,7 +33,7 @@ export const Attorneys: React.FC<AttorneysProps> = ({ onConsultPartner }) => {
         </div>
 
         {/* 3 Partner Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 md:gap-8 pb-4 md:pb-0 px-4 md:px-0 -mx-4 md:mx-0 no-scrollbar md:grid-cols-3">
           {ATTORNEYS.map((attorney, idx) => (
             <motion.div
               key={attorney.id}
@@ -235,5 +235,6 @@ export const Attorneys: React.FC<AttorneysProps> = ({ onConsultPartner }) => {
     </section>
   );
 };
+
 
 

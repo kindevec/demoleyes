@@ -96,7 +96,7 @@ export const FaqAccordion: React.FC = () => {
               return (
                 <div
                   key={faq.id}
-                  className="rounded-2xl bg-[#0B1D3A]/80 border border-slate-700/80 hover:border-[#D4AF37]/30 transition-colors overflow-hidden"
+                  className="-mx-4 sm:mx-0 rounded-none sm:rounded-2xl bg-[#0B1D3A]/70 sm:bg-[#0B1D3A]/80 border-y sm:border border-slate-800/80 hover:border-[#D4AF37]/30 transition-colors overflow-hidden"
                 >
                   <button
                     type="button"
@@ -148,7 +148,7 @@ export const FaqAccordion: React.FC = () => {
         </div>
 
         {/* WhatsApp Help Footer with Official Logo */}
-        <div className="mt-10 p-5 rounded-3xl bg-[#0B1D3A]/70 border border-slate-700/80 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-10 p-5 -mx-4 sm:mx-0 rounded-none sm:rounded-3xl bg-[#0B1D3A]/70 border-y sm:border border-slate-700/80 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-left">
             <h4 className="text-sm font-bold text-white font-heading">¿Tiene una interrogante jurídica particular?</h4>
             <p className="text-xs text-slate-400">Consulte directamente con un abogado de guardia sin ningún costo preliminar.</p>
@@ -168,5 +168,6 @@ export const FaqAccordion: React.FC = () => {
     </section>
   );
 };
+
 
 

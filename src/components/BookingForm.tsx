@@ -90,7 +90,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
 
         {/* Preselection Banner */}
         {preselectedNotes && !submitted && (
-          <div className="mb-8 max-w-4xl mx-auto p-4 rounded-2xl bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-between gap-4">
+          <div className="mb-8 max-w-4xl -mx-4 sm:mx-auto p-4 rounded-none sm:rounded-2xl bg-[#D4AF37]/10 border-y sm:border border-[#D4AF37]/30 flex items-center justify-between gap-4">
             <div className="flex items-center gap-2.5 text-xs text-[#D4AF37]">
               <Sparkles className="w-4 h-4 shrink-0 text-[#D4AF37]" />
               <span>Se han precargado parámetros de consulta previa en el formulario.</span>
@@ -110,7 +110,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch max-w-6xl mx-auto">
           
           {/* Left Column: Visual Photography & Executive Contacts */}
-          <div className="lg:col-span-5 flex flex-col justify-between rounded-3xl overflow-hidden border border-slate-800 relative min-h-[420px] shadow-2xl group">
+          <div className="lg:col-span-5 flex flex-col justify-between -mx-4 sm:mx-0 rounded-none sm:rounded-3xl overflow-hidden border-y sm:border border-slate-800 relative min-h-[360px] sm:min-h-[420px] shadow-2xl group">
             {/* Background High-Res Image */}
             <img
               src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=80"
@@ -159,7 +159,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
           </div>
 
           {/* Right Column: Sleek Booking Form */}
-          <div className="lg:col-span-7 rounded-3xl bg-[#0B1D3A]/60 border border-slate-800 p-7 sm:p-9 shadow-xl backdrop-blur-xl flex flex-col justify-center">
+          <div className="lg:col-span-7 -mx-4 sm:mx-0 rounded-none sm:rounded-3xl bg-[#0B1D3A]/70 sm:bg-[#0B1D3A]/60 border-y sm:border border-slate-800 p-5 sm:p-9 shadow-xl backdrop-blur-xl flex flex-col justify-center">
             <AnimatePresence mode="wait">
               {!submitted ? (
                 <motion.form
@@ -390,6 +390,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
     </section>
   );
 };
+
 
 
 

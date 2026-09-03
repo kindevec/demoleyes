@@ -191,7 +191,7 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
             className="lg:col-span-5 flex flex-col justify-start space-y-6"
           >
             {/* Photo Card with Floating Glass Ribbon */}
-            <div className="relative rounded-3xl overflow-hidden border border-slate-800 shadow-2xl aspect-[4/3] sm:aspect-[16/11] w-full group">
+            <div className="relative -mx-4 sm:mx-0 rounded-none sm:rounded-3xl overflow-hidden border-y sm:border border-slate-800 shadow-2xl aspect-[16/10] sm:aspect-[16/11] w-auto sm:w-full group">
               <img
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
                 alt="Sede Central Valmont & Asociados"
@@ -204,7 +204,7 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
               <div className="absolute inset-0 bg-gradient-to-t from-[#071326] via-[#071326]/40 to-transparent pointer-events-none" />
 
               {/* Floating Glass Plaque */}
-              <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-[#071326]/85 backdrop-blur-xl border border-slate-700/80 shadow-lg">
+              <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 p-3.5 sm:p-4 rounded-2xl bg-[#071326]/90 backdrop-blur-xl border border-slate-700/80 shadow-xl">
                 <div className="flex items-center gap-2 text-[#D4AF37] mb-1">
                   <Award className="w-4 h-4 text-[#D4AF37]" />
                   <span className="text-[10px] font-bold uppercase tracking-widest font-heading">
@@ -276,4 +276,5 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
     </section>
   );
 };
+
 

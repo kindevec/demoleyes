@@ -127,7 +127,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-wrap items-center gap-3.5 pt-2"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2"
           >
             <button
               onClick={() => {
@@ -157,7 +157,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.5 }}
-            className="grid grid-cols-3 gap-4 sm:gap-8 pt-8 border-t border-slate-800/80"
+            className="grid grid-cols-3 gap-2 sm:gap-8 -mx-4 sm:mx-0 px-4 sm:px-0 py-5 sm:py-0 mt-6 sm:mt-0 border-y sm:border-y-0 sm:border-t border-slate-800/80 bg-slate-950/60 sm:bg-transparent backdrop-blur-md sm:backdrop-blur-none text-center sm:text-left"
           >
             <div>
               <div className="font-heading font-extrabold text-3xl sm:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-[#FFF0BE] via-[#D4AF37] to-[#C59B27] tracking-tight">
@@ -203,3 +203,4 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
     </section>
   );
 };
+

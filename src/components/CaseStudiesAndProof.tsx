@@ -33,7 +33,7 @@ export const CaseStudiesAndProof: React.FC = () => {
         </div>
 
         {/* 3 Landmark Case Studies with Photography */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-20">
+        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 md:gap-8 pb-4 md:pb-0 px-4 md:px-0 -mx-4 md:mx-0 no-scrollbar md:grid-cols-3 mb-12 md:mb-20">
           {CASE_STUDIES.map((caseStudy, idx) => (
             <motion.div
               key={caseStudy.id}
@@ -41,7 +41,7 @@ export const CaseStudiesAndProof: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="rounded-3xl bg-[#0B1D3A]/60 hover:bg-[#0B1D3A]/90 border border-slate-800 hover:border-[#D4AF37]/40 overflow-hidden flex flex-col justify-between transition-all duration-300 group shadow-xl"
+              className="w-[86vw] md:w-auto shrink-0 md:shrink snap-center rounded-3xl bg-[#0B1D3A]/60 hover:bg-[#0B1D3A]/90 border border-slate-800 hover:border-[#D4AF37]/40 overflow-hidden flex flex-col justify-between transition-all duration-300 group shadow-xl"
             >
               {/* Photo Header */}
               <div className="relative h-44 sm:h-48 w-full overflow-hidden">
@@ -104,7 +104,7 @@ export const CaseStudiesAndProof: React.FC = () => {
         </div>
 
         {/* Institutional Accreditation Emblems */}
-        <div className="py-10 border-y border-slate-800/80 mb-20">
+        <div className="-mx-4 sm:mx-0 px-4 sm:px-0 py-10 border-y border-slate-800/80 mb-14 md:mb-20 bg-slate-950/40 sm:bg-transparent">
           <div className="text-center mb-8">
             <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] text-[#D4AF37] font-heading">
               Acreditaciones Internacionales & Estándares Éticos
@@ -193,11 +193,11 @@ export const CaseStudiesAndProof: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 md:gap-6 pb-4 md:pb-0 px-4 md:px-0 -mx-4 md:mx-0 no-scrollbar md:grid-cols-3">
             {TESTIMONIALS.map((test) => (
               <div
                 key={test.id}
-                className="p-7 rounded-3xl bg-[#0B1D3A]/40 border border-slate-800 hover:border-[#D4AF37]/30 relative flex flex-col justify-between transition-colors shadow-lg"
+                className="w-[86vw] md:w-auto shrink-0 md:shrink snap-center p-6 sm:p-7 rounded-3xl bg-[#0B1D3A]/40 border border-slate-800 hover:border-[#D4AF37]/30 relative flex flex-col justify-between transition-colors shadow-lg"
               >
                 <div>
                   <Quote className="w-6 h-6 text-[#D4AF37]/40 mb-3" />
@@ -237,5 +237,6 @@ export const CaseStudiesAndProof: React.FC = () => {
     </section>
   );
 };
+
 
 

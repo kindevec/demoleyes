@@ -39,7 +39,7 @@ export const FeeCalculator: React.FC<FeeCalculatorProps> = ({ onSelectPlanForBoo
         </div>
 
         {/* 3 Clean Model Cards (NO BOX IN BOX) */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 mb-14">
+        <div className="flex lg:grid overflow-x-auto lg:overflow-visible snap-x snap-mandatory gap-4 lg:gap-8 pb-4 lg:pb-0 px-4 lg:px-0 -mx-4 lg:mx-0 no-scrollbar lg:grid-cols-3 mb-10 lg:mb-14">
           {FEE_MODELS.map((model) => {
             const isSelected = selectedModelId === model.id;
 
@@ -47,7 +47,7 @@ export const FeeCalculator: React.FC<FeeCalculatorProps> = ({ onSelectPlanForBoo
               <div
                 key={model.id}
                 onClick={() => setSelectedModelId(model.id)}
-                className={`rounded-3xl p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 cursor-pointer relative ${
+                className={`w-[86vw] lg:w-auto shrink-0 lg:shrink snap-center rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 cursor-pointer relative ${
                   isSelected
                     ? 'bg-[#0B1D3A] border-2 border-[#D4AF37] shadow-2xl shadow-[#D4AF37]/10'
                     : 'bg-[#0B1D3A]/50 hover:bg-[#0B1D3A]/80 border border-slate-800 hover:border-[#D4AF37]/40 shadow-xl'
@@ -116,6 +116,11 @@ export const FeeCalculator: React.FC<FeeCalculatorProps> = ({ onSelectPlanForBoo
           })}
         </div>
 
+        {/* Mobile Swipe Cue */}
+        <div className="flex lg:hidden items-center justify-center gap-1.5 mb-8 text-[11px] text-[#D4AF37] font-medium">
+          <span>Desliza para comparar esquemas tarifarios →</span>
+        </div>
+
         {/* Ethical Guarantee (Clean horizontal footer divider - NO BOX IN BOX) */}
         <div className="pt-8 border-t border-slate-800/80 max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div className="flex items-center gap-3">
@@ -135,5 +140,6 @@ export const FeeCalculator: React.FC<FeeCalculatorProps> = ({ onSelectPlanForBoo
     </section>
   );
 };
+
 
 

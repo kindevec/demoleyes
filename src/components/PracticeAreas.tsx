@@ -89,7 +89,7 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({
         </div>
 
         {/* 6 High-Impact Visual Practice Area Cards with Photography */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory gap-4 md:gap-8 pb-4 md:pb-0 px-4 md:px-0 -mx-4 md:mx-0 no-scrollbar md:grid-cols-2 lg:grid-cols-3">
           <AnimatePresence mode="popLayout">
             {filteredAreas.map((area) => {
               const isSelected = selectedAreaId === area.id;
@@ -102,7 +102,7 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.35 }}
-                  className={`rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300 group shadow-xl ${
+                  className={`w-[86vw] sm:w-auto shrink-0 md:shrink snap-center rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300 group shadow-xl ${
                     isSelected
                       ? 'bg-[#0B1D3A] border-2 border-[#D4AF37] ring-2 ring-[#D4AF37]/20'
                       : 'bg-[#0B1D3A]/60 hover:bg-[#0B1D3A] border border-slate-800 hover:border-[#D4AF37]/40'
@@ -180,9 +180,15 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({
           </AnimatePresence>
         </div>
 
+        {/* Mobile Swipe Cue */}
+        <div className="flex md:hidden items-center justify-center gap-1.5 mt-4 text-[11px] text-[#D4AF37] font-medium">
+          <span>Desliza horizontalmente para explorar especialidades →</span>
+        </div>
+
       </div>
     </section>
   );
 };
+
 
 
