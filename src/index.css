@@ -38,6 +38,15 @@
   }
 }
 
+/* Deluxe High-End Editorial Typography Classes */
+.font-serif-deluxe {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
 /* Safe Area Padding for Mobile Bottom Navigation */
 .pb-safe {
   padding-bottom: max(0.4rem, env(safe-area-inset-bottom, 0.4rem));
@@ -47,9 +56,21 @@
   bottom: env(safe-area-inset-bottom, 0px);
 }
 
-/* Kindev Luxury Gold Gradient Text */
+/* Kindev Luxury Deluxe Gradients */
 .gold-gradient-text {
-  background: linear-gradient(135deg, #FDE047 0%, #D4AF37 50%, #B8860B 100%);
+  background: linear-gradient(135deg, #FFF0BE 0%, #D4AF37 50%, #B8860B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.platinum-gradient-text {
+  background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 50%, #94A3B8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.emerald-gold-gradient {
+  background: linear-gradient(135deg, #6EE7B7 0%, #D4AF37 50%, #F59E0B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

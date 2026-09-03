@@ -17,7 +17,7 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Left Column: Narrative & Interactive Tabs (Open & Airy) */}
+          {/* Left Column: Narrative & Interactive Tabs */}
           <motion.div
             initial={{ opacity: 0, x: -25 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -31,9 +31,18 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
               <span>Institucional • Tradición y Rigor</span>
             </div>
 
-            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-[1.15] mb-6">
-              Abogacía de Élite. <br />
-              <span className="text-[#D4AF37]">Resultados Comprobados.</span>
+            {/* Deluxe Multi-font & Multi-color Headline */}
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-[1.15] mb-6">
+              <span className="font-extrabold text-white">Abogacía de</span>{' '}
+              <span className="font-serif-deluxe italic font-light text-transparent bg-clip-text bg-gradient-to-r from-[#FFF4C2] via-[#D4AF37] to-[#C59B27] drop-shadow-[0_2px_10px_rgba(212,175,55,0.2)]">
+                Élite
+              </span>. <br />
+              <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-300">
+                Resultados
+              </span>{' '}
+              <span className="font-serif-deluxe italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-[#D4AF37] to-amber-500">
+                Comprobados
+              </span>.
             </h2>
 
             {/* Seamless Underline Tabs */}
@@ -138,7 +147,7 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
               )}
             </AnimatePresence>
 
-            {/* Feature Bullets with subtle divider */}
+            {/* Feature Bullets */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-8 pt-2 border-t border-slate-800/80">
               <div className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
@@ -171,7 +180,7 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
             </div>
           </motion.div>
 
-          {/* Right Column: Editorial Visual Showcase (NO NESTED BOXES!) */}
+          {/* Right Column: Editorial Visual Showcase */}
           <motion.div
             initial={{ opacity: 0, x: 25 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -179,7 +188,7 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-5 flex flex-col justify-start space-y-6"
           >
-            {/* High-Impact Visual Photo Card with Floating Glass Ribbon */}
+            {/* Photo Card with Floating Glass Ribbon */}
             <div className="relative rounded-3xl overflow-hidden border border-slate-800 shadow-2xl aspect-[4/3] sm:aspect-[16/11] w-full group">
               <img
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
@@ -192,7 +201,7 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#071326] via-[#071326]/40 to-transparent pointer-events-none" />
 
-              {/* Floating Glass Plaque at Bottom of Photo */}
+              {/* Floating Glass Plaque */}
               <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-[#071326]/85 backdrop-blur-xl border border-slate-700/80 shadow-lg">
                 <div className="flex items-center gap-2 text-[#D4AF37] mb-1">
                   <Award className="w-4 h-4 text-[#D4AF37]" />
@@ -201,7 +210,7 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
                   </span>
                 </div>
                 <p className="font-heading font-extrabold text-lg text-white">
-                  Más de 18 Años de Ejercicio Impecable
+                  Más de 18 Años de <span className="font-serif-deluxe italic font-light text-[#D4AF37]">Excelencia Jurídica</span>
                 </p>
                 <p className="text-xs text-slate-300 mt-0.5">
                   Quito • Guayaquil • Alianzas Internacionales
@@ -209,7 +218,7 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
               </div>
             </div>
 
-            {/* 3 Pillars in an Open Typographic Grid (No Cards!) */}
+            {/* 3 Pillars in an Open Typographic Grid */}
             <div className="space-y-4 pt-1">
               <div className="flex items-start gap-4">
                 <div className="w-8 h-8 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -265,4 +274,3 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
     </section>
   );
 };
-

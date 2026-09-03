@@ -13,8 +13,14 @@ export const CaseStudiesAndProof: React.FC = () => {
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] text-xs font-semibold tracking-wide mb-4">
             Jurisprudencia & Precedentes
           </div>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white mb-3">
-            Casos Emblemáticos Resueltos
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl tracking-tight mb-3">
+            <span className="font-extrabold text-white">Casos</span>{" "}
+            <span className="font-serif-deluxe italic font-light text-transparent bg-clip-text bg-gradient-to-r from-[#FFF0BE] via-[#D4AF37] to-[#C59B27] drop-shadow-[0_2px_10px_rgba(212,175,55,0.2)]">
+              Emblemáticos
+            </span>{" "}
+            <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-300">
+              Resueltos
+            </span>
           </h2>
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
             En estricto cumplimiento del secreto fiduciario y acuerdos de confidencialidad,
@@ -227,3 +233,4 @@ export const CaseStudiesAndProof: React.FC = () => {
     </section>
   );
 };
+

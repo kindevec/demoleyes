@@ -41,8 +41,11 @@ export const FaqAccordion: React.FC = () => {
             <HelpCircle className="w-3.5 h-3.5 text-[#D4AF37]" />
             Transparencia & Respuestas Claras
           </div>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl text-white mb-3">
-            Preguntas Frecuentes
+          <h2 className="font-heading text-3xl sm:text-4xl tracking-tight mb-3">
+            <span className="font-extrabold text-white">Preguntas</span>{" "}
+            <span className="font-serif-deluxe italic font-light text-transparent bg-clip-text bg-gradient-to-r from-[#FFE58F] via-[#D4AF37] to-amber-500 drop-shadow-[0_2px_10px_rgba(212,175,55,0.2)]">
+              Frecuentes & Garantías
+            </span>
           </h2>
           <p className="text-slate-300 text-sm leading-relaxed">
             Respuestas detalladas sobre nuestros esquemas tarifarios, secreto fiduciario y dinamismo procesal.
@@ -162,3 +165,4 @@ export const FaqAccordion: React.FC = () => {
     </section>
   );
 };
+

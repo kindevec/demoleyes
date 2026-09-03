@@ -73,8 +73,11 @@ export const BookingForm: React.FC<BookingFormProps> = ({
             <Lock className="w-3.5 h-3.5 text-[#D4AF37]" />
             Cita Confidencial Privada
           </div>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white mb-3">
-            Agendamiento de Sesión Estratégica
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl tracking-tight mb-3">
+            <span className="font-extrabold text-white">Agendamiento de</span>{" "}
+            <span className="font-serif-deluxe italic font-light text-transparent bg-clip-text bg-gradient-to-r from-[#FFF2B2] via-[#D4AF37] to-[#AA771C] drop-shadow-[0_2px_10px_rgba(212,175,55,0.2)]">
+              Sesión Estratégica
+            </span>
           </h2>
           <p className="text-slate-300 text-sm leading-relaxed">
             Reserve una sesión inicial con el socio director a cargo de su materia. Toda información
@@ -384,4 +387,5 @@ export const BookingForm: React.FC<BookingFormProps> = ({
     </section>
   );
 };
+
 

@@ -19,8 +19,15 @@ export const FeeCalculator: React.FC<FeeCalculatorProps> = ({ onSelectPlanForBoo
             <Calculator className="w-3.5 h-3.5 text-[#D4AF37]" />
             Transparencia Tarifaria Innegociable
           </div>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white mb-3">
-            Modelos de Contratación & Honorarios
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl tracking-tight mb-3">
+            <span className="font-extrabold text-white">Modelos de</span>{" "}
+            <span className="font-serif-deluxe italic font-light text-transparent bg-clip-text bg-gradient-to-r from-[#FFF0BE] via-[#D4AF37] to-[#AA771C] drop-shadow-[0_2px_10px_rgba(212,175,55,0.2)]">
+              Contratación
+            </span>{" "}
+            <span className="font-extrabold text-slate-300">&</span>{" "}
+            <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-300">
+              Honorarios
+            </span>
           </h2>
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
             Eliminamos la incertidumbre de la facturación por horas desmedida. Estructuramos acuerdos
@@ -125,3 +132,4 @@ export const FeeCalculator: React.FC<FeeCalculatorProps> = ({ onSelectPlanForBoo
     </section>
   );
 };
+

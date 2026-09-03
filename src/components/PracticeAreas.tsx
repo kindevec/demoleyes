@@ -51,8 +51,15 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({
             <Scale className="w-3.5 h-3.5 text-[#D4AF37]" />
             Práctica Jurídica Transversal
           </div>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white mb-3">
-            Áreas de Práctica & Especialidades
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl tracking-tight mb-3">
+            <span className="font-extrabold text-white">Áreas de</span>{" "}
+            <span className="font-serif-deluxe italic font-light text-transparent bg-clip-text bg-gradient-to-r from-[#FFF4C2] via-[#D4AF37] to-[#C59B27] drop-shadow-[0_2px_10px_rgba(212,175,55,0.2)]">
+              Práctica
+            </span>{" "}
+            <span className="font-extrabold text-slate-300">&</span>{" "}
+            <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#BAE6FD] via-slate-100 to-white">
+              Especialidades
+            </span>
           </h2>
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
             Asistencia jurídica integral estructurada por departamentos altamente especializados,
@@ -173,3 +180,4 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({
     </section>
   );
 };
+
