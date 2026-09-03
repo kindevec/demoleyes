@@ -290,7 +290,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
               >
                 <div className="w-14 h-14 rounded-xl overflow-hidden shrink-0 border border-slate-700">
                   <img
-                    src="https://images.unsplash.com/photo-1541888946425-d0fbb1861593?auto=format&fit=crop&w=300&q=80"
+                    src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=300&q=80"
                     alt="Arbitraje Energía"
                     className="w-full h-full object-cover group-hover/thumb:scale-110 transition-transform"
                     loading="lazy"
@@ -341,3 +341,4 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
     </section>
   );
 };
+
