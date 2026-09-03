@@ -176,3 +176,4 @@ export const AreaDetailModal: React.FC<AreaDetailModalProps> = ({
     </AnimatePresence>
   );
 };
+

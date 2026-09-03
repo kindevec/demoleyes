@@ -84,7 +84,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm sm:text-base text-slate-300 max-w-2xl font-normal leading-relaxed"
+            className="text-sm sm:text-base text-slate-300 max-w-2xl font-normal leading-relaxed text-justify-clean"
           >
             Protegemos el patrimonio, la continuidad empresarial y los intereses de líderes y
             corporaciones mediante litigación de alto impacto, blindaje societario y asesoría preventiva
@@ -203,5 +203,6 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
     </section>
   );
 };
+
 
 

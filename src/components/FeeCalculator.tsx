@@ -34,7 +34,7 @@ export const FeeCalculator: React.FC<FeeCalculatorProps> = ({ onSelectPlanForBoo
               Honorarios
             </span>
           </h2>
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-300 text-sm sm:text-base leading-relaxed text-justify-clean">
             Eliminamos la incertidumbre de la facturación por horas desmedida. Estructuramos acuerdos
             claros, predecibles y formalizados mediante contrato de servicios profesionales.
           </p>
@@ -69,12 +69,12 @@ export const FeeCalculator: React.FC<FeeCalculatorProps> = ({ onSelectPlanForBoo
                     {model.name}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4 text-justify-clean">
                     {model.description}
                   </p>
 
                   {/* Clean Typographic Callout (No nested box!) */}
-                  <p className="text-xs text-slate-400 mb-6 leading-relaxed">
+                  <p className="text-xs text-slate-400 mb-6 leading-relaxed text-justify-clean">
                     <span className="text-[#D4AF37] font-semibold">Ideal para: </span>
                     {model.idealFor}
                   </p>
@@ -142,6 +142,7 @@ export const FeeCalculator: React.FC<FeeCalculatorProps> = ({ onSelectPlanForBoo
     </section>
   );
 };
+
 
 
 

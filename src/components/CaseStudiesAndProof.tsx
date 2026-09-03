@@ -28,7 +28,7 @@ export const CaseStudiesAndProof: React.FC = () => {
               Resueltos
             </span>
           </h2>
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-300 text-sm sm:text-base leading-relaxed text-justify-clean">
             En estricto cumplimiento del secreto fiduciario y acuerdos de confidencialidad,
             presentamos resoluciones que sentaron precedente y protegieron el valor del cliente.
           </p>
@@ -75,14 +75,14 @@ export const CaseStudiesAndProof: React.FC = () => {
                     {caseStudy.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4 text-justify-clean">
                     {caseStudy.summary}
                   </p>
 
                   {/* Strategy Applied */}
                   <div className="border-l-2 border-[#D4AF37] pl-3.5 py-1 mb-6 text-xs text-slate-400">
                     <span className="text-[#D4AF37] font-semibold block mb-0.5">Estrategia Aplicada:</span>
-                    <p className="leading-relaxed">{caseStudy.strategyApplied}</p>
+                    <p className="leading-relaxed text-justify-clean">{caseStudy.strategyApplied}</p>
                   </div>
                 </div>
 
@@ -203,7 +203,7 @@ export const CaseStudiesAndProof: React.FC = () => {
               >
                 <div>
                   <Quote className="w-6 h-6 text-[#D4AF37]/40 mb-3" />
-                  <p className="text-xs sm:text-sm text-slate-300 italic leading-relaxed mb-6">
+                  <p className="text-xs sm:text-sm text-slate-300 italic leading-relaxed mb-6 text-justify-clean">
                     "{test.quote}"
                   </p>
                 </div>
@@ -239,6 +239,7 @@ export const CaseStudiesAndProof: React.FC = () => {
     </section>
   );
 };
+
 
 
 

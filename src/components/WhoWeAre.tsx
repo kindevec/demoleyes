@@ -94,7 +94,7 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -6 }}
                   transition={{ duration: 0.25 }}
-                  className="space-y-3.5 text-slate-300 text-sm sm:text-base leading-relaxed mb-8"
+                  className="space-y-3.5 text-slate-300 text-sm sm:text-base leading-relaxed mb-8 text-justify-clean"
                 >
                   <p>
                     Somos una firma jurídica boutique consagrada a brindar orientación estratégica de
@@ -115,7 +115,7 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -6 }}
                   transition={{ duration: 0.25 }}
-                  className="space-y-3.5 text-slate-300 text-sm sm:text-base leading-relaxed mb-8"
+                  className="space-y-3.5 text-slate-300 text-sm sm:text-base leading-relaxed mb-8 text-justify-clean"
                 >
                   <p>
                     Aplicamos una metodología procesal exhaustiva que incluye simulacros de audiencia,
@@ -135,7 +135,7 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -6 }}
                   transition={{ duration: 0.25 }}
-                  className="space-y-3.5 text-slate-300 text-sm sm:text-base leading-relaxed mb-8"
+                  className="space-y-3.5 text-slate-300 text-sm sm:text-base leading-relaxed mb-8 text-justify-clean"
                 >
                   <p>
                     La integridad es nuestro principal activo. Mantenemos estrictas políticas contra conflictos
@@ -230,7 +230,7 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
                   <h4 className="font-heading font-bold text-sm text-white">
                     Enfoque Estratégico en el Negocio
                   </h4>
-                  <p className="text-xs text-slate-400 leading-relaxed mt-0.5">
+                  <p className="text-xs text-slate-400 leading-relaxed mt-0.5 text-justify-clean">
                     Soluciones legales diseñadas para preservar la continuidad operativa y la reputación del cliente.
                   </p>
                 </div>
@@ -246,7 +246,7 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
                   <h4 className="font-heading font-bold text-sm text-white">
                     Rigor Probatorio & Defensa Activa
                   </h4>
-                  <p className="text-xs text-slate-400 leading-relaxed mt-0.5">
+                  <p className="text-xs text-slate-400 leading-relaxed mt-0.5 text-justify-clean">
                     Patrocinio directo con simulación previa de audiencias ante cortes ordinarias y arbitrales.
                   </p>
                 </div>
@@ -262,7 +262,7 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
                   <h4 className="font-heading font-bold text-sm text-white">
                     Confidencialidad Fiduciaria
                   </h4>
-                  <p className="text-xs text-slate-400 leading-relaxed mt-0.5">
+                  <p className="text-xs text-slate-400 leading-relaxed mt-0.5 text-justify-clean">
                     Custodia de expedientes y acuerdos de secreto respaldados bajo estándar ISO 27001.
                   </p>
                 </div>
@@ -276,6 +276,7 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
     </section>
   );
 };
+
 
 
 

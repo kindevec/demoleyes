@@ -84,7 +84,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
               Sesión Estratégica
             </span>
           </h2>
-          <p className="text-slate-300 text-sm leading-relaxed">
+          <p className="text-slate-300 text-sm leading-relaxed text-justify-clean">
             Reserve una sesión inicial con el socio director a cargo de su materia. Toda información
             compartida se encuentra protegida bajo secreto fiduciario legal.
           </p>
@@ -131,7 +131,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
               <h3 className="font-heading font-extrabold text-2xl text-white leading-snug">
                 Privacidad Incondicional & Rigor Inmediato
               </h3>
-              <p className="text-xs text-slate-300 mt-2 leading-relaxed">
+              <p className="text-xs text-slate-300 mt-2 leading-relaxed text-justify-clean">
                 Sesiones presenciales en nuestras instalaciones de Titanium Plaza o vía teleconferencia cifrada de alta definición.
               </p>
             </div>
@@ -392,6 +392,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
     </section>
   );
 };
+
 
 
 

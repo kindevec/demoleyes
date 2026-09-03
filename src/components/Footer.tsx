@@ -31,7 +31,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateToBooking }) => {
           <div className="lg:col-span-4 space-y-3.5">
             <BrandLogo size="md" />
 
-            <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
+            <p className="text-slate-400 text-xs leading-relaxed max-w-sm text-justify-clean">
               Asesoría jurídica de alta especialización en litigios de cuantía, estructuración M&A, defensa penal económica y resguardo patrimonial fiduciario en Ecuador.
             </p>
 
@@ -215,5 +215,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateToBooking }) => {
     </footer>
   );
 };
+
 
 

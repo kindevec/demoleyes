@@ -52,7 +52,7 @@ export const FaqAccordion: React.FC = () => {
               Frecuentes & Garantías
             </span>
           </h2>
-          <p className="text-slate-300 text-sm leading-relaxed">
+          <p className="text-slate-300 text-sm leading-relaxed text-justify-clean">
             Respuestas detalladas sobre nuestros esquemas tarifarios, secreto fiduciario y dinamismo procesal.
           </p>
         </div>
@@ -133,7 +133,7 @@ export const FaqAccordion: React.FC = () => {
                         transition={{ duration: 0.25, ease: 'easeInOut' }}
                         className="overflow-hidden"
                       >
-                        <div className="px-6 pb-5 pt-1 border-t border-slate-800 text-slate-300 text-xs sm:text-sm leading-relaxed">
+                        <div className="px-6 pb-5 pt-1 border-t border-slate-800 text-slate-300 text-xs sm:text-sm leading-relaxed text-justify-clean">
                           <p>{faq.answer}</p>
                         </div>
                       </motion.div>
@@ -170,6 +170,7 @@ export const FaqAccordion: React.FC = () => {
     </section>
   );
 };
+
 
 
 

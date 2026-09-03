@@ -67,7 +67,7 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({
               Especialidades
             </span>
           </h2>
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+          <p className="text-slate-300 text-sm sm:text-base leading-relaxed text-justify-clean">
             Asistencia jurídica integral estructurada por departamentos altamente especializados,
             conduciendo cada mandato bajo los más estrictos estándares internacionales.
           </p>
@@ -143,7 +143,7 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({
                       <p className="text-[11px] font-semibold text-[#D4AF37] mb-3">
                         {area.subtitle}
                       </p>
-                      <p className="text-xs text-slate-300 leading-relaxed mb-5">
+                      <p className="text-xs text-slate-300 leading-relaxed mb-5 text-justify-clean">
                         {area.description}
                       </p>
 
@@ -191,6 +191,7 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({
     </section>
   );
 };
+
 
 
 
