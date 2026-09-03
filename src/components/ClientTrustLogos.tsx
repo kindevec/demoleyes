@@ -10,8 +10,7 @@ export const ClientTrustLogos: React.FC<ClientTrustLogosProps> = ({ className = 
       id: 'pichincha',
       name: 'Banco Pichincha',
       svg: (
-        <svg viewBox="0 0 180 38" className="h-7 sm:h-8 w-auto fill-current" xmlns="http://www.w3.org/2000/svg">
-          {/* Bank Pichincha Style Geometric Chevron */}
+        <svg viewBox="0 0 180 38" className="h-6 sm:h-7 w-auto fill-current" xmlns="http://www.w3.org/2000/svg">
           <path d="M6 4 L22 19 L6 34 L12 34 L28 19 L12 4 Z" fill="#D4AF37" />
           <path d="M14 4 L30 19 L14 34 L19 34 L35 19 L19 4 Z" fill="#D4AF37" opacity="0.6" />
           <text x="42" y="24" fontFamily="system-ui, -apple-system, sans-serif" fontSize="15" fontWeight="800" letterSpacing="2" fill="currentColor">
@@ -27,8 +26,7 @@ export const ClientTrustLogos: React.FC<ClientTrustLogosProps> = ({ className = 
       id: 'favorita',
       name: 'Corporación Favorita',
       svg: (
-        <svg viewBox="0 0 190 38" className="h-7 sm:h-8 w-auto fill-current" xmlns="http://www.w3.org/2000/svg">
-          {/* Stylized Sunburst Emblem */}
+        <svg viewBox="0 0 190 38" className="h-6 sm:h-7 w-auto fill-current" xmlns="http://www.w3.org/2000/svg">
           <circle cx="18" cy="19" r="6" fill="#D4AF37" />
           <path d="M18 6 L18 10 M18 28 L18 32 M5 19 L9 19 M27 19 L31 19 M9 10 L12 13 M24 25 L27 28 M9 28 L12 25 M24 13 L27 10" stroke="#D4AF37" strokeWidth="2.5" strokeLinecap="round" />
           <text x="40" y="23" fontFamily="system-ui, -apple-system, sans-serif" fontSize="14" fontWeight="800" letterSpacing="1.5" fill="currentColor">
@@ -44,8 +42,7 @@ export const ClientTrustLogos: React.FC<ClientTrustLogosProps> = ({ className = 
       id: 'produbanco',
       name: 'Produbanco Grupo Promerica',
       svg: (
-        <svg viewBox="0 0 200 38" className="h-7 sm:h-8 w-auto fill-current" xmlns="http://www.w3.org/2000/svg">
-          {/* Double Square Geometric Emblem */}
+        <svg viewBox="0 0 200 38" className="h-6 sm:h-7 w-auto fill-current" xmlns="http://www.w3.org/2000/svg">
           <rect x="6" y="8" width="14" height="14" rx="2" fill="#D4AF37" />
           <rect x="14" y="16" width="14" height="14" rx="2" fill="#D4AF37" opacity="0.4" />
           <text x="36" y="22" fontFamily="system-ui, -apple-system, sans-serif" fontSize="14" fontWeight="800" letterSpacing="1.2" fill="currentColor">
@@ -61,8 +58,7 @@ export const ClientTrustLogos: React.FC<ClientTrustLogosProps> = ({ className = 
       id: 'slb',
       name: 'SLB Energy Consorcio',
       svg: (
-        <svg viewBox="0 0 150 38" className="h-7 sm:h-8 w-auto fill-current" xmlns="http://www.w3.org/2000/svg">
-          {/* SLB Modern Typography */}
+        <svg viewBox="0 0 150 38" className="h-6 sm:h-7 w-auto fill-current" xmlns="http://www.w3.org/2000/svg">
           <text x="6" y="26" fontFamily="system-ui, -apple-system, sans-serif" fontSize="24" fontWeight="900" letterSpacing="4" fill="currentColor">
             SLB
           </text>
@@ -77,8 +73,7 @@ export const ClientTrustLogos: React.FC<ClientTrustLogosProps> = ({ className = 
       id: 'holcim',
       name: 'Holcim Ecuador',
       svg: (
-        <svg viewBox="0 0 170 38" className="h-7 sm:h-8 w-auto fill-current" xmlns="http://www.w3.org/2000/svg">
-          {/* Circular Continuous Loop */}
+        <svg viewBox="0 0 170 38" className="h-6 sm:h-7 w-auto fill-current" xmlns="http://www.w3.org/2000/svg">
           <circle cx="16" cy="19" r="10" fill="none" stroke="#D4AF37" strokeWidth="3" strokeDasharray="14 4" />
           <circle cx="16" cy="19" r="4" fill="#D4AF37" />
           <text x="36" y="23" fontFamily="system-ui, -apple-system, sans-serif" fontSize="15" fontWeight="800" letterSpacing="2.5" fill="currentColor">
@@ -94,7 +89,7 @@ export const ClientTrustLogos: React.FC<ClientTrustLogosProps> = ({ className = 
       id: 'chubb',
       name: 'Chubb Seguros Corporativos',
       svg: (
-        <svg viewBox="0 0 160 38" className="h-7 sm:h-8 w-auto fill-current" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 160 38" className="h-6 sm:h-7 w-auto fill-current" xmlns="http://www.w3.org/2000/svg">
           <text x="6" y="24" fontFamily="system-ui, -apple-system, sans-serif" fontSize="18" fontWeight="900" letterSpacing="3" fill="currentColor">
             CHUBB
           </text>
@@ -109,8 +104,7 @@ export const ClientTrustLogos: React.FC<ClientTrustLogosProps> = ({ className = 
       id: 'pronaca',
       name: 'PRONACA Agroindustria',
       svg: (
-        <svg viewBox="0 0 180 38" className="h-7 sm:h-8 w-auto fill-current" xmlns="http://www.w3.org/2000/svg">
-          {/* Stylized Leaf / Grain */}
+        <svg viewBox="0 0 180 38" className="h-6 sm:h-7 w-auto fill-current" xmlns="http://www.w3.org/2000/svg">
           <path d="M8 26 C12 12, 24 8, 26 8 C26 18, 18 26, 8 26 Z" fill="#D4AF37" />
           <path d="M8 26 L22 12" stroke="#071326" strokeWidth="1.5" />
           <text x="34" y="23" fontFamily="system-ui, -apple-system, sans-serif" fontSize="15" fontWeight="800" letterSpacing="2" fill="currentColor">
@@ -126,8 +120,7 @@ export const ClientTrustLogos: React.FC<ClientTrustLogosProps> = ({ className = 
       id: 'telefonica',
       name: 'Telefónica Empresas',
       svg: (
-        <svg viewBox="0 0 190 38" className="h-7 sm:h-8 w-auto fill-current" xmlns="http://www.w3.org/2000/svg">
-          {/* Minimal 5-dot T / Connected Network */}
+        <svg viewBox="0 0 190 38" className="h-6 sm:h-7 w-auto fill-current" xmlns="http://www.w3.org/2000/svg">
           <circle cx="8" cy="14" r="3" fill="#D4AF37" />
           <circle cx="16" cy="14" r="3" fill="#D4AF37" />
           <circle cx="24" cy="14" r="3" fill="#D4AF37" />
@@ -144,11 +137,10 @@ export const ClientTrustLogos: React.FC<ClientTrustLogosProps> = ({ className = 
     },
   ];
 
-  // Quadruple for smooth continuous animation
   const marqueeItems = [...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos];
 
   return (
-    <section className={`w-full py-8 sm:py-10 bg-gradient-to-r from-[#071326] via-[#0B1E3C] to-[#071326]  relative shadow-inner text-white relative overflow-hidden ${className}`}>
+    <section className={`w-full py-8 sm:py-10 bg-[#071326] text-white relative overflow-hidden ${className}`}>
       <style>{`
         @keyframes clientMarqueeMotion {
           0% {
@@ -170,14 +162,17 @@ export const ClientTrustLogos: React.FC<ClientTrustLogosProps> = ({ className = 
         }
       `}</style>
 
-      {/* Header Line (No heavy box!) */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-6">
-        <div className="flex items-center justify-center gap-4">
-          <div className="w-10 sm:w-16 h-px bg-gradient-to-r from-transparent to-[#D4AF37]/80" />
+      {/* Subtle Central Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 max-w-3xl h-20 bg-[#D4AF37]/5 blur-3xl pointer-events-none" />
+
+      {/* Header Line (Seamless with zero harsh border cuts) */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-5 sm:mb-6">
+        <div className="flex items-center justify-center gap-3">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]/70" />
           <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] text-slate-400 font-heading text-center">
             EMPRESAS & GRUPOS CORPORATIVOS ASESORADOS
           </span>
-          <div className="w-10 sm:w-16 h-px bg-gradient-to-l from-transparent to-[#D4AF37]/80" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]/70" />
         </div>
       </div>
 
@@ -185,8 +180,8 @@ export const ClientTrustLogos: React.FC<ClientTrustLogosProps> = ({ className = 
       <div
         className="client-marquee-container relative w-full overflow-hidden flex items-center select-none z-10"
         style={{
-          maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+          maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
         }}
       >
         <div className="client-marquee-track gap-12 sm:gap-16 md:gap-20 py-1">
@@ -204,5 +199,3 @@ export const ClientTrustLogos: React.FC<ClientTrustLogosProps> = ({ className = 
     </section>
   );
 };
-
-

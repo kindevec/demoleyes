@@ -17,18 +17,14 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
   return (
     <section
       id="inicio"
-      className="relative min-h-[92vh] sm:min-h-screen pt-28 pb-16 md:pt-36 md:pb-24 flex flex-col justify-between overflow-hidden bg-gradient-to-b from-[#071326] via-[#0A1E3C] to-[#071326]"
+      className="relative min-h-[92vh] sm:min-h-screen pt-28 pb-12 md:pt-36 md:pb-20 flex flex-col justify-between overflow-hidden bg-[#071326]"
     >
-      {/* Multi-layered Atmospheric Lighting & Ambient Auroras */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-gradient-to-b from-[#D4AF37]/20 via-[#1E3A8A]/20 to-transparent blur-[140px] pointer-events-none" />
-      <div className="absolute top-1/3 -left-32 w-96 h-96 bg-blue-600/15 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-amber-500/12 rounded-full blur-[130px] pointer-events-none" />
-
-      {/* Subtle Architectural Grid Pattern */}
-      <div className="absolute inset-0 bg-grid-subtle opacity-60 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)]" />
+      {/* Soft Cinematic Lighting Mesh (Zero Harsh Edges) */}
+      <div className="absolute top-0 right-1/4 w-[650px] h-[450px] bg-[#D4AF37]/10 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/3 left-10 w-[500px] h-[500px] bg-[#0A66FF]/10 rounded-full blur-[180px] pointer-events-none" />
 
       {/* Cinematic Panoramic Legal Backdrop */}
-      <div className="absolute top-0 right-0 w-full lg:w-3/5 h-full opacity-40 lg:opacity-50 pointer-events-none mix-blend-luminosity overflow-hidden z-0">
+      <div className="absolute top-0 right-0 w-full lg:w-3/5 h-full opacity-35 lg:opacity-45 pointer-events-none mix-blend-luminosity overflow-hidden z-0">
         <img
           src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1920&q=80"
           alt="Dama de la Justicia - Valmont & Asociados"
@@ -38,9 +34,9 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
           height={1080}
           className="w-full h-full object-cover object-center lg:object-[65%_25%] filter brightness-95 contrast-125"
         />
-        {/* Edge gradients blending smoothly */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/80 to-transparent pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#071326] via-[#071326]/70 to-transparent pointer-events-none" />
+        {/* Deep, Soft, Perfectly Blended Fades (No Seams) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/75 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-[#071326] via-[#071326]/90 to-transparent pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
@@ -51,7 +47,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#D4AF37]/20 via-[#0B1D3A]/90 to-emerald-500/20 border border-[#D4AF37]/40 text-xs font-semibold tracking-wide shadow-lg shadow-black/40 backdrop-blur-md"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0B1D3A]/90 border border-[#D4AF37]/35 text-xs font-semibold tracking-wide shadow-lg shadow-black/40 backdrop-blur-md"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#FDE047]" />
             <span className="text-white font-medium">Firma Líder en Litigios & Corporativo</span>
@@ -79,7 +75,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
             </span>
           </motion.h1>
 
-          {/* Subtitle */}
+          {/* Subtitle with Clean Justification */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -152,12 +148,12 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
             </button>
           </motion.div>
 
-          {/* Open & Airy Credibility Metrics */}
+          {/* Open & Airy Credibility Metrics (Zero harsh border lines) */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.5 }}
-            className="grid grid-cols-3 gap-2 sm:gap-8 -mx-4 sm:mx-0 px-4 sm:px-0 py-5 sm:py-0 mt-6 sm:mt-0 border-y sm:border-y-0 sm:border-t border-slate-800/40 bg-slate-950/60 sm:bg-transparent backdrop-blur-md sm:backdrop-blur-none text-center sm:text-left"
+            className="grid grid-cols-3 gap-2 sm:gap-8 -mx-4 sm:mx-0 px-4 sm:px-0 pt-6 mt-6 text-center sm:text-left"
           >
             <div>
               <div className="font-heading font-extrabold text-3xl sm:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-[#FFF0BE] via-[#D4AF37] to-[#C59B27] tracking-tight">
@@ -168,7 +164,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
               </p>
             </div>
 
-            <div className="border-l border-slate-800/80 pl-4 sm:pl-8">
+            <div className="border-l border-slate-800/60 pl-4 sm:pl-8">
               <div className="font-heading font-extrabold text-3xl sm:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-teal-200 to-emerald-400 tracking-tight">
                 {FIRM_METRICS.favorableRatio}
               </div>
@@ -177,7 +173,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
               </p>
             </div>
 
-            <div className="border-l border-slate-800/80 pl-4 sm:pl-8">
+            <div className="border-l border-slate-800/60 pl-4 sm:pl-8">
               <div className="font-heading font-extrabold text-3xl sm:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-[#D4AF37] to-amber-500 tracking-tight">
                 {FIRM_METRICS.protectedAssets}
               </div>
@@ -203,6 +199,3 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
     </section>
   );
 };
-
-
-
