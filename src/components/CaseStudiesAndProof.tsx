@@ -5,7 +5,11 @@ import { CASE_STUDIES, TESTIMONIALS } from '../data/legalData';
 
 export const CaseStudiesAndProof: React.FC = () => {
   return (
-    <section id="casos" className="py-20 lg:py-28 bg-[#071326] text-white relative overflow-hidden border-t border-slate-800/80">
+    <section id="casos" className="py-20 lg:py-28 bg-gradient-to-b from-[#071326] via-[#0B2144] to-[#071326] text-white relative overflow-hidden border-t border-slate-800/80">
+      {/* Dynamic Background Texture & Warm Radial Glows */}
+      <div className="absolute inset-0 bg-dots-pattern opacity-30 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]" />
+      <div className="absolute top-1/4 -right-20 w-[550px] h-[550px] bg-[#D4AF37]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 -left-20 w-[500px] h-[500px] bg-blue-600/15 rounded-full blur-[140px] pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
@@ -233,4 +237,5 @@ export const CaseStudiesAndProof: React.FC = () => {
     </section>
   );
 };
+
 

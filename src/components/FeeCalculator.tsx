@@ -10,7 +10,10 @@ export const FeeCalculator: React.FC<FeeCalculatorProps> = ({ onSelectPlanForBoo
   const [selectedModelId, setSelectedModelId] = useState<string>('retainer');
 
   return (
-    <section id="honorarios" className="py-20 lg:py-28 bg-[#071326] text-white relative border-t border-slate-800/80">
+    <section id="honorarios" className="py-20 lg:py-28 bg-gradient-to-b from-[#071326] via-[#0D2447] to-[#071326] text-white relative border-t border-slate-800/80 overflow-hidden">
+      {/* Top Champagne Spotlight & Ambient Aura */}
+      <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#D4AF37]/20 via-[#B8860B]/10 to-transparent rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute inset-0 bg-dots-pattern opacity-30 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)]" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
@@ -132,4 +135,5 @@ export const FeeCalculator: React.FC<FeeCalculatorProps> = ({ onSelectPlanForBoo
     </section>
   );
 };
+
 

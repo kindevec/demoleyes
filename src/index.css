@@ -4,6 +4,7 @@
   --color-primary: #071326;
   --color-navy-dark: #071326;
   --color-navy-card: #0B1D3A;
+  --color-navy-elevated: #0F274E;
   --color-gold: #D4AF37;
   --color-gold-hover: #C59B27;
   --color-gold-light: #FDE047;
@@ -27,7 +28,7 @@
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    background-color: #071326;
+    background-color: #050E1D;
     color: #cbd5e1;
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
   }
@@ -73,6 +74,26 @@
   background: linear-gradient(135deg, #6EE7B7 0%, #D4AF37 50%, #F59E0B 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* Architectural Grid & Luxury Matrix Patterns */
+.bg-grid-subtle {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(212, 175, 55, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(212, 175, 55, 0.04) 1px, transparent 1px);
+}
+
+.bg-dots-pattern {
+  background-image: radial-gradient(rgba(212, 175, 55, 0.15) 1.2px, transparent 1.2px);
+  background-size: 32px 32px;
+}
+
+.bg-radial-mesh {
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(20, 60, 130, 0.3) 0%, transparent 45%),
+    radial-gradient(circle at 85% 60%, rgba(212, 175, 55, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 50% 90%, rgba(15, 40, 90, 0.25) 0%, transparent 50%);
 }
 
 /* Custom Sleek Scrollbar */

@@ -10,9 +10,11 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
   const [activeTab, setActiveTab] = useState<'esencia' | 'rigor' | 'gobernanza'>('esencia');
 
   return (
-    <section id="quienes-somos" className="relative bg-[#071326] text-white py-20 lg:py-28 overflow-hidden">
-      {/* Subtle background ambient light */}
-      <div className="absolute top-1/3 -left-40 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-3xl pointer-events-none" />
+    <section id="quienes-somos" className="relative bg-gradient-to-b from-[#071326] via-[#0A1E3D] to-[#071326] text-white py-20 lg:py-28 overflow-hidden border-t border-slate-800/80">
+      {/* Rich Multi-color Ambient Orbs & Atmospheric Grid */}
+      <div className="absolute inset-0 bg-grid-subtle opacity-50 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)]" />
+      <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-blue-600/15 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-[#D4AF37]/10 rounded-full blur-[130px] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -274,3 +276,4 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
     </section>
   );
 };
+

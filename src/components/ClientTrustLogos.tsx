@@ -148,7 +148,7 @@ export const ClientTrustLogos: React.FC<ClientTrustLogosProps> = ({ className = 
   const marqueeItems = [...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos];
 
   return (
-    <section className={`w-full py-8 sm:py-10 bg-[#071326] border-y border-slate-800/80 text-white relative overflow-hidden ${className}`}>
+    <section className={`w-full py-8 sm:py-10 bg-gradient-to-r from-[#071326] via-[#0B1E3C] to-[#071326] border-y border-slate-800/80 relative shadow-inner text-white relative overflow-hidden ${className}`}>
       <style>{`
         @keyframes clientMarqueeMotion {
           0% {
@@ -204,3 +204,4 @@ export const ClientTrustLogos: React.FC<ClientTrustLogosProps> = ({ className = 
     </section>
   );
 };
+

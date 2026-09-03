@@ -32,7 +32,10 @@ export const FaqAccordion: React.FC = () => {
   });
 
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-[#071326] text-white relative border-t border-slate-800/80">
+    <section id="faq" className="py-20 lg:py-28 bg-gradient-to-b from-[#071326] via-[#091C3A] to-[#071326] text-white relative border-t border-slate-800/80 overflow-hidden">
+      {/* Top Ambient Glow Accent */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-[#D4AF37]/10 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute inset-0 bg-dots-pattern opacity-25 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)]" />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -165,4 +168,5 @@ export const FaqAccordion: React.FC = () => {
     </section>
   );
 };
+
 

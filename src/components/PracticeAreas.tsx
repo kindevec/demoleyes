@@ -42,7 +42,11 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({
   });
 
   return (
-    <section id="especialidades" className="py-20 lg:py-28 bg-[#071326] text-white relative border-t border-slate-800/80">
+    <section id="especialidades" className="py-20 lg:py-28 bg-gradient-to-b from-[#071326] via-[#0A2042] to-[#071326] text-white relative border-t border-slate-800/80 overflow-hidden">
+      {/* Luxury Dot-Matrix Texture & Ambient Light Halos */}
+      <div className="absolute inset-0 bg-dots-pattern opacity-35 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]" />
+      <div className="absolute top-20 right-1/4 w-[600px] h-[400px] bg-[#D4AF37]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-20 left-10 w-[500px] h-[500px] bg-blue-600/15 rounded-full blur-[140px] pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
@@ -180,4 +184,5 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({
     </section>
   );
 };
+
 

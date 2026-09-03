@@ -17,15 +17,18 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
   return (
     <section
       id="inicio"
-      className="relative min-h-[92vh] sm:min-h-screen pt-28 pb-16 md:pt-36 md:pb-24 flex flex-col justify-between overflow-hidden bg-[#071326]"
+      className="relative min-h-[92vh] sm:min-h-screen pt-28 pb-16 md:pt-36 md:pb-24 flex flex-col justify-between overflow-hidden bg-gradient-to-b from-[#071326] via-[#0A1E3C] to-[#071326]"
     >
-      {/* Background Ambience & Lighting with Multi-color Halos */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(212,175,55,0.15),transparent_60%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_25%,rgba(11,29,58,0.85),transparent_65%)] pointer-events-none" />
-      <div className="absolute top-1/4 -right-20 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+      {/* Multi-layered Atmospheric Lighting & Ambient Auroras */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-gradient-to-b from-[#D4AF37]/20 via-[#1E3A8A]/20 to-transparent blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 -left-32 w-96 h-96 bg-blue-600/15 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-amber-500/12 rounded-full blur-[130px] pointer-events-none" />
+
+      {/* Subtle Architectural Grid Pattern */}
+      <div className="absolute inset-0 bg-grid-subtle opacity-60 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)]" />
 
       {/* Cinematic Panoramic Legal Backdrop */}
-      <div className="absolute top-0 right-0 w-full lg:w-3/5 h-full opacity-35 lg:opacity-45 pointer-events-none mix-blend-luminosity overflow-hidden z-0">
+      <div className="absolute top-0 right-0 w-full lg:w-3/5 h-full opacity-40 lg:opacity-50 pointer-events-none mix-blend-luminosity overflow-hidden z-0">
         <img
           src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1920&q=80"
           alt="Dama de la Justicia - Valmont & Asociados"
@@ -33,11 +36,11 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
           decoding="async"
           width={1920}
           height={1080}
-          className="w-full h-full object-cover object-center lg:object-[65%_25%] filter brightness-90 contrast-125"
+          className="w-full h-full object-cover object-center lg:object-[65%_25%] filter brightness-95 contrast-125"
         />
-        {/* Soft edge gradients blending seamlessly into deep navy */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/85 to-transparent pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#071326] via-[#071326]/70 to-transparent pointer-events-none" />
+        {/* Edge gradients blending smoothly */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#071326] via-[#071326]/80 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#071326] via-[#071326]/70 to-transparent pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
@@ -48,7 +51,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#D4AF37]/15 via-[#0B1D3A] to-emerald-500/15 border border-[#D4AF37]/40 text-xs font-semibold tracking-wide shadow-md"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#D4AF37]/20 via-[#0B1D3A]/90 to-emerald-500/20 border border-[#D4AF37]/40 text-xs font-semibold tracking-wide shadow-lg shadow-black/40 backdrop-blur-md"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#FDE047]" />
             <span className="text-white font-medium">Firma Líder en Litigios & Corporativo</span>
@@ -56,7 +59,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
             <span className="text-[#D4AF37] font-bold">2026</span>
           </motion.div>
 
-          {/* Deluxe Mixed-Typography Headline (Geometric Sans + Fluid Italic Serif + Multi-Color Gradient) */}
+          {/* Deluxe Mixed-Typography Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -111,7 +114,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
                     onSelectArea(chip.id);
                     scrollTo('especialidades');
                   }}
-                  className="px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/5 hover:bg-white/10 border border-slate-700/80 hover:border-[#D4AF37]/60 hover:text-[#D4AF37] text-slate-200 transition-all cursor-pointer backdrop-blur-sm"
+                  className="px-3.5 py-1.5 rounded-full text-xs font-medium bg-slate-900/60 hover:bg-slate-800/80 border border-slate-700/80 hover:border-[#D4AF37]/60 hover:text-[#D4AF37] text-slate-200 transition-all cursor-pointer backdrop-blur-md shadow-sm"
                 >
                   {chip.label}
                 </button>
@@ -119,7 +122,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
             </div>
           </motion.div>
 
-          {/* Dual Action CTAs (Kindev Standard) */}
+          {/* Dual Action CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -132,7 +135,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
                 onNavigateToBooking();
               }}
               id="hero-cta-agendar"
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-full text-xs sm:text-sm font-bold bg-[#D4AF37] hover:bg-[#C59B27] text-slate-950 shadow-lg shadow-[#D4AF37]/20 transition-all cursor-pointer active:scale-95"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-full text-xs sm:text-sm font-bold bg-[#D4AF37] hover:bg-[#C59B27] text-slate-950 shadow-lg shadow-[#D4AF37]/25 transition-all cursor-pointer active:scale-95"
             >
               <span>Solicitar Consulta Privada</span>
               <div className="w-4 h-4 rounded-full bg-slate-950/15 flex items-center justify-center">
@@ -143,7 +146,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
             <button
               onClick={() => scrollTo('casos')}
               id="hero-cta-casos"
-              className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 rounded-full text-xs sm:text-sm font-semibold bg-white/10 hover:bg-white/15 text-white border border-white/20 transition-all cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 rounded-full text-xs sm:text-sm font-semibold bg-white/10 hover:bg-white/15 text-white border border-white/20 transition-all cursor-pointer backdrop-blur-md"
             >
               <span>Ver Casos de Éxito</span>
             </button>
