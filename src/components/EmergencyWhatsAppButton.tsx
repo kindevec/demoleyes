@@ -3,7 +3,7 @@ import { WhatsAppIcon } from './WhatsAppIcon';
 
 export const EmergencyWhatsAppButton: React.FC = () => {
   const whatsappUrl = `https://wa.me/593999999999?text=${encodeURIComponent(
-    'Hola Valenzuela & Asociados, requiero asistencia legal confidencial sobre un caso corporativo o litigio.'
+    'Hola Valmont & Asociados, requiero asistencia legal confidencial sobre un caso corporativo o litigio.'
   )}`;
 
   return (
@@ -17,8 +17,8 @@ export const EmergencyWhatsAppButton: React.FC = () => {
         rel="noopener noreferrer"
         id="floating-whatsapp-btn"
         className="relative group flex items-center justify-center cursor-pointer select-none touch-manipulation"
-        aria-label="Abrir WhatsApp para consulta directa con Valenzuela & Asociados"
-        title="Contactar por WhatsApp a Valenzuela & Asociados"
+        aria-label="Abrir WhatsApp para consulta directa con Valmont & Asociados"
+        title="Contactar por WhatsApp a Valmont & Asociados"
       >
         {/* Soft Ambient Glowing Pulse Rings */}
         <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-35 animate-ping duration-1000 pointer-events-none" />
@@ -38,3 +38,4 @@ export const EmergencyWhatsAppButton: React.FC = () => {
     </aside>
   );
 };
+

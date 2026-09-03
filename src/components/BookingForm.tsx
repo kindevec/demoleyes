@@ -108,7 +108,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
             {/* Background High-Res Image */}
             <img
               src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=80"
-              alt="Sala de Reuniones Privada Valenzuela & Asociados"
+              alt="Sala de Reuniones Privada Valmont & Asociados"
               loading="lazy"
               decoding="async"
               className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 filter brightness-75 contrast-110"
@@ -384,3 +384,4 @@ export const BookingForm: React.FC<BookingFormProps> = ({
     </section>
   );
 };
+

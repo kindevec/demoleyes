@@ -163,7 +163,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateToBooking }) => {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
-                <span>consultas@valenzuela-abogados.com</span>
+                <span>consultas@Valmont-abogados.com</span>
               </div>
             </div>
 
@@ -185,7 +185,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateToBooking }) => {
         {/* Bottom Bar: Copyright & Kindev Standard */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-400 text-xs">
           <div className="flex items-center gap-2 flex-wrap justify-center sm:justify-start">
-            <span>© 2026 Valenzuela & Asociados. Todos los derechos reservados.</span>
+            <span>© 2026 Valmont & Asociados. Todos los derechos reservados.</span>
           </div>
 
           <div className="flex items-center gap-3">
@@ -215,3 +215,4 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateToBooking }) => {
     </footer>
   );
 };
+

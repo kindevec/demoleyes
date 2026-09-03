@@ -183,7 +183,7 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
             <div className="relative rounded-3xl overflow-hidden border border-slate-800 shadow-2xl aspect-[4/3] sm:aspect-[16/11] w-full group">
               <img
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
-                alt="Sede Central Valenzuela & Asociados"
+                alt="Sede Central Valmont & Asociados"
                 loading="lazy"
                 decoding="async"
                 width={1200}
@@ -265,3 +265,4 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
     </section>
   );
 };
+

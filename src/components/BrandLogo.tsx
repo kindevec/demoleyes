@@ -58,7 +58,7 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({ className = '', size = 'md
 
       <div className="flex flex-col text-left">
         <span className={`font-heading font-extrabold ${titleSizes[size]} tracking-tight text-white leading-tight`}>
-          VALENZUELA <span className="text-[#D4AF37]">&</span> ASOC.
+          VALMONT <span className="text-[#D4AF37]">&</span> ASOC.
         </span>
         <span className="text-[7.5px] sm:text-[8px] uppercase tracking-[0.25em] text-[#D4AF37] font-bold">
           FIRMA JURÍDICA DE ÉLITE
@@ -67,3 +67,4 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({ className = '', size = 'md
     </div>
   );
 };
+

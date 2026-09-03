@@ -133,7 +133,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToBooking, activeSecti
 
           {/* Official WhatsApp on Mobile */}
           <a
-            href="https://wa.me/593999999999?text=Hola%2C%20deseo%20agendar%20una%20consulta%20jur%C3%ADdica%20privada%20con%20Valenzuela%20%26%20Asociados."
+            href="https://wa.me/593999999999?text=Hola%2C%20deseo%20agendar%20una%20consulta%20jur%C3%ADdica%20privada%20con%20Valmont%20%26%20Asociados."
             target="_blank"
             rel="noopener noreferrer"
             className="flex sm:hidden items-center justify-center p-2 rounded-full bg-[#25D366] text-white hover:bg-[#20ba59] transition-colors shadow-md"
@@ -147,3 +147,4 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToBooking, activeSecti
     </header>
   );
 };
+

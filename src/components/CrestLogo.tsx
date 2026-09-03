@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Scale, Landmark } from 'lucide-react';
 
 interface CrestLogoProps {
@@ -40,11 +40,11 @@ export const CrestLogo: React.FC<CrestLogoProps> = ({
 
       <div className="flex flex-col justify-center">
         <span className={`font-display-crest font-bold tracking-[0.18em] uppercase ${textSizes[size]} text-white leading-tight`}>
-          Valenzuela <span className="text-amber-400 font-serif font-light">&</span> Asoc.
+          Valmont <span className="text-amber-400 font-serif font-light">&</span> Asoc.
         </span>
         {showSubtitle && (
           <span className={`font-sans tracking-[0.3em] uppercase text-slate-400 font-medium ${subtitleSizes[size]} mt-0.5`}>
-            Firma Jurídica de Élite
+            Firma JurÃ­dica de Ã‰lite
           </span>
         )}
       </div>
@@ -67,3 +67,4 @@ export const SectionMedallion: React.FC<{ icon?: 'scale' | 'landmark' }> = ({ ic
     </div>
   );
 };
+

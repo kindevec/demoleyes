@@ -27,7 +27,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
       <div className="absolute top-0 right-0 w-full lg:w-3/5 h-full opacity-35 lg:opacity-45 pointer-events-none mix-blend-luminosity overflow-hidden z-0">
         <img
           src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1920&q=80"
-          alt="Dama de la Justicia - Valenzuela & Asociados"
+          alt="Dama de la Justicia - Valmont & Asociados"
           fetchPriority="high"
           decoding="async"
           width={1920}
@@ -189,3 +189,4 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
     </section>
   );
 };
+

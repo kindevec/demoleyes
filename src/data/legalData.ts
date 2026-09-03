@@ -41,7 +41,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
       'Medidas Cautelares de Urgencia, Secuestro de Bienes y Recuperación de Activos'
     ],
     tag: 'Litigios',
-    leadPartner: 'Dr. Fernando Valenzuela Ramos',
+    leadPartner: 'Dr. Fernando Valmont Ramos',
     leadPartnerRole: 'Socio Fundador & Director de Litigación Estratégica',
     typicalCases: [
       'Demandas de responsabilidad civil extracontractual de cuantía superior a $1M',
@@ -149,7 +149,7 @@ export const PRACTICE_AREAS: PracticeArea[] = [
       'Permisología Municipal, Impacto Ambiental y Régimen de Propiedad Horizontal'
     ],
     tag: 'Inmobiliario',
-    leadPartner: 'Dr. Fernando Valenzuela Ramos',
+    leadPartner: 'Dr. Fernando Valmont Ramos',
     leadPartnerRole: 'Socio Fundador & Director de Litigios',
     typicalCases: [
       'Adquisición de macro-lotes para urbanización con gravámenes o litigios en curso',
@@ -167,8 +167,8 @@ export const PRACTICE_AREAS: PracticeArea[] = [
 
 export const ATTORNEYS: Attorney[] = [
   {
-    id: 'fernando-valenzuela',
-    name: 'Dr. Fernando Valenzuela Ramos',
+    id: 'fernando-valmont',
+    name: 'Dr. Fernando Valmont Ramos',
     role: 'Socio Fundador & Director de Litigios',
     specialty: 'Litigios Complejos y Arbitraje Internacional',
     education: [
@@ -281,7 +281,7 @@ export const TESTIMONIALS: Testimonial[] = [
     id: 'test-1',
     clientType: 'Grupo Financiero & Fintech',
     industry: 'Sector Banca, Pagos y Tecnología',
-    quote: 'La precisión analítica del Dr. Valenzuela y su equipo evitó un litigio de 8 cifras que amenazaba nuestra ronda de expansión internacional. Su destreza en negociación procesal y rigor probatorio son sencillamente incomparables.',
+    quote: 'La precisión analítica del Dr. Valmont y su equipo evitó un litigio de 8 cifras que amenazaba nuestra ronda de expansión internacional. Su destreza en negociación procesal y rigor probatorio son sencillamente incomparables.',
     authorTitle: 'Vicepresidente Legal & Riesgos',
     statusVerified: true,
     confidentialId: 'Expediente Confidencial V-40192',
@@ -401,3 +401,4 @@ export const FIRM_METRICS = {
   retainedCorporateClients: '120+',
   barAssociation: 'Colegio de Abogados de Pichincha & IBA'
 };
+
