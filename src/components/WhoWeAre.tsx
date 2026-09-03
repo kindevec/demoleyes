@@ -10,7 +10,7 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
   const [activeTab, setActiveTab] = useState<'esencia' | 'rigor' | 'gobernanza'>('esencia');
 
   return (
-    <section id="quienes-somos" className="relative bg-gradient-to-b from-[#071326] via-[#0A1E3D] to-[#071326] text-white py-20 lg:py-28 overflow-hidden border-t border-slate-800/80">
+    <section id="quienes-somos" className="relative bg-gradient-to-b from-[#071326] via-[#0A1E3D] to-[#071326] text-white py-20 lg:py-28 overflow-hidden ">
       {/* Rich Multi-color Ambient Orbs & Atmospheric Grid */}
       <div className="absolute inset-0 bg-grid-subtle opacity-50 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)]" />
       <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-blue-600/15 rounded-full blur-[140px] pointer-events-none" />
@@ -150,7 +150,7 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
             </AnimatePresence>
 
             {/* Feature Bullets */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-8 pt-2 border-t border-slate-800/80">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-8 pt-2 ">
               <div className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
                 <span className="text-xs text-slate-300 font-medium">Patrocinio directo por Socios Titulares</span>
@@ -276,5 +276,6 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
     </section>
   );
 };
+
 
 

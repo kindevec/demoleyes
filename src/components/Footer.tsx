@@ -18,7 +18,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateToBooking }) => {
   };
 
   return (
-    <footer className="relative w-full bg-[#071326] text-slate-300 border-t border-slate-800/80 pt-12 pb-24 md:pt-16 md:pb-12 overflow-hidden text-xs">
+    <footer className="relative w-full bg-[#071326] text-slate-300 pt-12 pb-24 md:pt-16 md:pb-12 overflow-hidden text-xs">
       {/* Top Ambient Glow Accent Line */}
       <div className="absolute top-0 right-1/2 left-1/2 h-[1px] w-2/5 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent pointer-events-none" />
 
@@ -215,4 +215,5 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateToBooking }) => {
     </footer>
   );
 };
+
 

@@ -10,7 +10,9 @@ export const FeeCalculator: React.FC<FeeCalculatorProps> = ({ onSelectPlanForBoo
   const [selectedModelId, setSelectedModelId] = useState<string>('retainer');
 
   return (
-    <section id="honorarios" className="py-20 lg:py-28 bg-gradient-to-b from-[#071326] via-[#0D2447] to-[#071326] text-white relative border-t border-slate-800/80 overflow-hidden">
+    <section id="honorarios" className="py-20 lg:py-28 bg-gradient-to-b from-[#071326] via-[#0D2447] to-[#071326] text-white relative overflow-hidden">
+      {/* Diffused Intersection Gradient Hairline */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 sm:w-1/2 h-px bg-gradient-to-r from-transparent via-slate-700/50 to-transparent pointer-events-none" />
       {/* Top Champagne Spotlight & Ambient Aura */}
       <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-[#D4AF37]/20 via-[#B8860B]/10 to-transparent rounded-full blur-[130px] pointer-events-none" />
       <div className="absolute inset-0 bg-dots-pattern opacity-30 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)]" />
@@ -140,6 +142,7 @@ export const FeeCalculator: React.FC<FeeCalculatorProps> = ({ onSelectPlanForBoo
     </section>
   );
 };
+
 
 
 

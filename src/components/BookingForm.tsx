@@ -64,7 +64,9 @@ export const BookingForm: React.FC<BookingFormProps> = ({
   };
 
   return (
-    <section id="agendar" className="py-20 lg:py-28 bg-gradient-to-b from-[#071326] via-[#0A2040] to-[#071326] text-white relative border-t border-slate-800/80 overflow-hidden">
+    <section id="agendar" className="py-20 lg:py-28 bg-gradient-to-b from-[#071326] via-[#0A2040] to-[#071326] text-white relative overflow-hidden">
+      {/* Diffused Intersection Gradient Hairline */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 sm:w-1/2 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/35 to-transparent pointer-events-none" />
       {/* Executive Studio Atmosphere & Warm Highlights */}
       <div className="absolute inset-0 bg-grid-subtle opacity-45 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[500px] bg-gradient-to-r from-blue-600/12 via-[#D4AF37]/10 to-teal-500/10 rounded-full blur-[160px] pointer-events-none" />
@@ -390,6 +392,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
     </section>
   );
 };
+
 
 
 

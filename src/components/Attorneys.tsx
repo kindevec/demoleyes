@@ -12,7 +12,9 @@ export const Attorneys: React.FC<AttorneysProps> = ({ onConsultPartner }) => {
   const [selectedAttorneyForModal, setSelectedAttorneyForModal] = useState<Attorney | null>(null);
 
   return (
-    <section id="abogados" className="py-20 lg:py-28 bg-gradient-to-b from-[#071326] via-[#0A1F3E] to-[#071326] text-white relative border-t border-slate-800/80 overflow-hidden">
+    <section id="abogados" className="py-20 lg:py-28 bg-gradient-to-b from-[#071326] via-[#0A1F3E] to-[#071326] text-white relative overflow-hidden">
+      {/* Diffused Intersection Gradient Hairline */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 sm:w-1/2 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/35 to-transparent pointer-events-none" />
       {/* Editorial Studio Lighting Behind Partners */}
       <div className="absolute inset-0 bg-grid-subtle opacity-45 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]" />
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-r from-blue-600/10 via-[#D4AF37]/12 to-indigo-600/10 rounded-full blur-[150px] pointer-events-none" />
@@ -235,6 +237,7 @@ export const Attorneys: React.FC<AttorneysProps> = ({ onConsultPartner }) => {
     </section>
   );
 };
+
 
 
 
