@@ -1,5 +1,4 @@
 ﻿import React from 'react';
-import { ShieldCheck, Building2, Landmark, Briefcase, Award } from 'lucide-react';
 
 interface ClientTrustLogosProps {
   className?: string;
@@ -8,115 +7,148 @@ interface ClientTrustLogosProps {
 export const ClientTrustLogos: React.FC<ClientTrustLogosProps> = ({ className = '' }) => {
   const clientLogos = [
     {
-      id: 'banco-corporativo',
-      name: 'Banco Corporativo Andino',
-      render: () => (
-        <div className="flex items-center gap-2">
-          <Landmark className="w-5 h-5 text-[#D4AF37]" />
-          <div className="flex flex-col text-left">
-            <span className="font-heading font-bold text-xs sm:text-sm tracking-wider text-slate-200 group-hover:text-white transition-colors">
-              BANCO CORPORATIVO
-            </span>
-            <span className="text-[8px] uppercase tracking-widest text-[#D4AF37]">
-              Fideicomisos & Crédito
-            </span>
-          </div>
-        </div>
+      id: 'pichincha',
+      name: 'Banco Pichincha',
+      svg: (
+        <svg viewBox="0 0 180 38" className="h-7 sm:h-8 w-auto fill-current" xmlns="http://www.w3.org/2000/svg">
+          {/* Bank Pichincha Style Geometric Chevron */}
+          <path d="M6 4 L22 19 L6 34 L12 34 L28 19 L12 4 Z" fill="#D4AF37" />
+          <path d="M14 4 L30 19 L14 34 L19 34 L35 19 L19 4 Z" fill="#D4AF37" opacity="0.6" />
+          <text x="42" y="24" fontFamily="system-ui, -apple-system, sans-serif" fontSize="15" fontWeight="800" letterSpacing="2" fill="currentColor">
+            PICHINCHA
+          </text>
+          <text x="43" y="32" fontFamily="system-ui, -apple-system, sans-serif" fontSize="6.5" fontWeight="600" letterSpacing="2.5" fill="#94A3B8">
+            BANCA EMPRESARIAL
+          </text>
+        </svg>
       ),
     },
     {
-      id: 'consorcio-agro',
-      name: 'Consorcio Agroexportador del Pacífico',
-      render: () => (
-        <div className="flex items-center gap-2">
-          <Building2 className="w-5 h-5 text-amber-400" />
-          <div className="flex flex-col text-left">
-            <span className="font-heading font-bold text-xs sm:text-sm tracking-wider text-slate-200 group-hover:text-white transition-colors">
-              PACIFIC AGROGROUP
-            </span>
-            <span className="text-[8px] uppercase tracking-widest text-slate-400">
-              Comercio Transfronterizo
-            </span>
-          </div>
-        </div>
+      id: 'favorita',
+      name: 'Corporación Favorita',
+      svg: (
+        <svg viewBox="0 0 190 38" className="h-7 sm:h-8 w-auto fill-current" xmlns="http://www.w3.org/2000/svg">
+          {/* Stylized Sunburst Emblem */}
+          <circle cx="18" cy="19" r="6" fill="#D4AF37" />
+          <path d="M18 6 L18 10 M18 28 L18 32 M5 19 L9 19 M27 19 L31 19 M9 10 L12 13 M24 25 L27 28 M9 28 L12 25 M24 13 L27 10" stroke="#D4AF37" strokeWidth="2.5" strokeLinecap="round" />
+          <text x="40" y="23" fontFamily="system-ui, -apple-system, sans-serif" fontSize="14" fontWeight="800" letterSpacing="1.5" fill="currentColor">
+            FAVORITA
+          </text>
+          <text x="41" y="31" fontFamily="system-ui, -apple-system, sans-serif" fontSize="6" fontWeight="600" letterSpacing="2" fill="#94A3B8">
+            CORPORACIÓN RETAIL
+          </text>
+        </svg>
       ),
     },
     {
-      id: 'fintech-latam',
-      name: 'Fintech Latam Soluciones',
-      render: () => (
-        <div className="flex items-center gap-2">
-          <ShieldCheck className="w-5 h-5 text-[#0A66FF]" />
-          <div className="flex flex-col text-left">
-            <span className="font-heading font-black text-xs sm:text-sm tracking-widest text-slate-200 group-hover:text-white transition-colors">
-              FINTECH LATAM
-            </span>
-            <span className="text-[8px] uppercase tracking-widest text-blue-400">
-              Cumplimiento & Pagos
-            </span>
-          </div>
-        </div>
+      id: 'produbanco',
+      name: 'Produbanco Grupo Promerica',
+      svg: (
+        <svg viewBox="0 0 200 38" className="h-7 sm:h-8 w-auto fill-current" xmlns="http://www.w3.org/2000/svg">
+          {/* Double Square Geometric Emblem */}
+          <rect x="6" y="8" width="14" height="14" rx="2" fill="#D4AF37" />
+          <rect x="14" y="16" width="14" height="14" rx="2" fill="#D4AF37" opacity="0.4" />
+          <text x="36" y="22" fontFamily="system-ui, -apple-system, sans-serif" fontSize="14" fontWeight="800" letterSpacing="1.2" fill="currentColor">
+            PRODUBANCO
+          </text>
+          <text x="37" y="31" fontFamily="system-ui, -apple-system, sans-serif" fontSize="6.5" fontWeight="500" letterSpacing="1.5" fill="#94A3B8">
+            GRUPO PROMERICA
+          </text>
+        </svg>
       ),
     },
     {
-      id: 'inmobiliaria-quito',
-      name: 'Fondo Inmobiliario Metropolitano',
-      render: () => (
-        <div className="flex items-center gap-2">
-          <Briefcase className="w-5 h-5 text-emerald-400" />
-          <div className="flex flex-col text-left">
-            <span className="font-heading font-bold text-xs sm:text-sm tracking-wider text-slate-200 group-hover:text-white transition-colors">
-              FIM REAL ESTATE
-            </span>
-            <span className="text-[8px] uppercase tracking-widest text-emerald-400">
-              Desarrollos Urbanos
-            </span>
-          </div>
-        </div>
+      id: 'slb',
+      name: 'SLB Energy Consorcio',
+      svg: (
+        <svg viewBox="0 0 150 38" className="h-7 sm:h-8 w-auto fill-current" xmlns="http://www.w3.org/2000/svg">
+          {/* SLB Modern Typography */}
+          <text x="6" y="26" fontFamily="system-ui, -apple-system, sans-serif" fontSize="24" fontWeight="900" letterSpacing="4" fill="currentColor">
+            SLB
+          </text>
+          <circle cx="82" cy="19" r="3" fill="#D4AF37" />
+          <text x="94" y="24" fontFamily="system-ui, -apple-system, sans-serif" fontSize="9" fontWeight="700" letterSpacing="1.5" fill="#94A3B8">
+            ENERGY
+          </text>
+        </svg>
       ),
     },
     {
-      id: 'grupo-farmaceutico',
-      name: 'Holding Farmacéutico Internacional',
-      render: () => (
-        <div className="flex items-center gap-2">
-          <Award className="w-5 h-5 text-[#D4AF37]" />
-          <div className="flex flex-col text-left">
-            <span className="font-heading font-bold text-xs sm:text-sm tracking-wider text-slate-200 group-hover:text-white transition-colors">
-              PHARMA HOLDINGS
-            </span>
-            <span className="text-[8px] uppercase tracking-widest text-amber-300">
-              Operaciones M&A
-            </span>
-          </div>
-        </div>
+      id: 'holcim',
+      name: 'Holcim Ecuador',
+      svg: (
+        <svg viewBox="0 0 170 38" className="h-7 sm:h-8 w-auto fill-current" xmlns="http://www.w3.org/2000/svg">
+          {/* Circular Continuous Loop */}
+          <circle cx="16" cy="19" r="10" fill="none" stroke="#D4AF37" strokeWidth="3" strokeDasharray="14 4" />
+          <circle cx="16" cy="19" r="4" fill="#D4AF37" />
+          <text x="36" y="23" fontFamily="system-ui, -apple-system, sans-serif" fontSize="15" fontWeight="800" letterSpacing="2.5" fill="currentColor">
+            HOLCIM
+          </text>
+          <text x="37" y="31" fontFamily="system-ui, -apple-system, sans-serif" fontSize="6.5" fontWeight="600" letterSpacing="1.5" fill="#94A3B8">
+            INFRAESTRUCTURA
+          </text>
+        </svg>
       ),
     },
     {
-      id: 'consorcio-energia',
-      name: 'Consorcio de Infraestructura & Energía',
-      render: () => (
-        <div className="flex items-center gap-2">
-          <Building2 className="w-5 h-5 text-sky-400" />
-          <div className="flex flex-col text-left">
-            <span className="font-heading font-bold text-xs sm:text-sm tracking-wider text-slate-200 group-hover:text-white transition-colors">
-              ENERGIA ANDINA
-            </span>
-            <span className="text-[8px] uppercase tracking-widest text-sky-400">
-              Contratos Públicos & Arbitraje
-            </span>
-          </div>
-        </div>
+      id: 'chubb',
+      name: 'Chubb Seguros Corporativos',
+      svg: (
+        <svg viewBox="0 0 160 38" className="h-7 sm:h-8 w-auto fill-current" xmlns="http://www.w3.org/2000/svg">
+          <text x="6" y="24" fontFamily="system-ui, -apple-system, sans-serif" fontSize="18" fontWeight="900" letterSpacing="3" fill="currentColor">
+            CHUBB
+          </text>
+          <line x1="88" y1="12" x2="88" y2="28" stroke="#D4AF37" strokeWidth="2" />
+          <text x="96" y="23" fontFamily="system-ui, -apple-system, sans-serif" fontSize="8" fontWeight="700" letterSpacing="1" fill="#94A3B8">
+            SEGUROS
+          </text>
+        </svg>
+      ),
+    },
+    {
+      id: 'pronaca',
+      name: 'PRONACA Agroindustria',
+      svg: (
+        <svg viewBox="0 0 180 38" className="h-7 sm:h-8 w-auto fill-current" xmlns="http://www.w3.org/2000/svg">
+          {/* Stylized Leaf / Grain */}
+          <path d="M8 26 C12 12, 24 8, 26 8 C26 18, 18 26, 8 26 Z" fill="#D4AF37" />
+          <path d="M8 26 L22 12" stroke="#071326" strokeWidth="1.5" />
+          <text x="34" y="23" fontFamily="system-ui, -apple-system, sans-serif" fontSize="15" fontWeight="800" letterSpacing="2" fill="currentColor">
+            PRONACA
+          </text>
+          <text x="35" y="31" fontFamily="system-ui, -apple-system, sans-serif" fontSize="6.5" fontWeight="600" letterSpacing="1.5" fill="#94A3B8">
+            AGROEXPORTACIÓN
+          </text>
+        </svg>
+      ),
+    },
+    {
+      id: 'telefonica',
+      name: 'Telefónica Empresas',
+      svg: (
+        <svg viewBox="0 0 190 38" className="h-7 sm:h-8 w-auto fill-current" xmlns="http://www.w3.org/2000/svg">
+          {/* Minimal 5-dot T / Connected Network */}
+          <circle cx="8" cy="14" r="3" fill="#D4AF37" />
+          <circle cx="16" cy="14" r="3" fill="#D4AF37" />
+          <circle cx="24" cy="14" r="3" fill="#D4AF37" />
+          <circle cx="16" cy="22" r="3" fill="#D4AF37" />
+          <circle cx="16" cy="30" r="3" fill="#D4AF37" />
+          <text x="36" y="23" fontFamily="system-ui, -apple-system, sans-serif" fontSize="13.5" fontWeight="700" letterSpacing="1" fill="currentColor">
+            TELEFÓNICA
+          </text>
+          <text x="37" y="31" fontFamily="system-ui, -apple-system, sans-serif" fontSize="6.5" fontWeight="700" letterSpacing="2" fill="#94A3B8">
+            EMPRESAS
+          </text>
+        </svg>
       ),
     },
   ];
 
-  // Quadruple for seamless loop
+  // Quadruple for smooth continuous animation
   const marqueeItems = [...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos];
 
   return (
-    <section className={`w-full py-7 sm:py-8 bg-[#071326] border-y border-slate-800/80 text-white relative overflow-hidden ${className}`}>
-      {/* CSS Keyframes for smooth infinite marquee */}
+    <section className={`w-full py-8 sm:py-10 bg-[#071326] border-y border-slate-800/80 text-white relative overflow-hidden ${className}`}>
       <style>{`
         @keyframes clientMarqueeMotion {
           0% {
@@ -130,7 +162,7 @@ export const ClientTrustLogos: React.FC<ClientTrustLogosProps> = ({ className = 
           display: flex;
           align-items: center;
           width: max-content;
-          animation: clientMarqueeMotion 60s linear infinite;
+          animation: clientMarqueeMotion 50s linear infinite;
           will-change: transform;
         }
         .client-marquee-container:hover .client-marquee-track {
@@ -138,36 +170,33 @@ export const ClientTrustLogos: React.FC<ClientTrustLogosProps> = ({ className = 
         }
       `}</style>
 
-      {/* Subtle Radial Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-20 bg-[#D4AF37]/5 blur-3xl pointer-events-none" />
-
-      {/* Header Accent */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-4 sm:mb-6">
-        <div className="flex items-center justify-center gap-3 sm:gap-4">
-          <div className="w-8 sm:w-14 h-[1.5px] bg-[#D4AF37]" />
-          <h2 className="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-widest text-[#D4AF37] font-heading text-center">
-            EMPRESAS Y FONDOS QUE CONFÍAN EN NUESTRA FIRMA
-          </h2>
-          <div className="w-8 sm:w-14 h-[1.5px] bg-[#D4AF37]" />
+      {/* Header Line (No heavy box!) */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-6">
+        <div className="flex items-center justify-center gap-4">
+          <div className="w-10 sm:w-16 h-px bg-gradient-to-r from-transparent to-[#D4AF37]/80" />
+          <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] text-slate-400 font-heading text-center">
+            EMPRESAS & GRUPOS CORPORATIVOS ASESORADOS
+          </span>
+          <div className="w-10 sm:w-16 h-px bg-gradient-to-l from-transparent to-[#D4AF37]/80" />
         </div>
       </div>
 
-      {/* Infinite Rotating Marquee Track */}
+      {/* Floating Logomarks with NO Bounding Boxes */}
       <div
         className="client-marquee-container relative w-full overflow-hidden flex items-center select-none z-10"
         style={{
-          maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+          maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
         }}
       >
-        <div className="client-marquee-track gap-10 sm:gap-14 md:gap-16 py-1">
+        <div className="client-marquee-track gap-12 sm:gap-16 md:gap-20 py-1">
           {marqueeItems.map((client, index) => (
             <div
               key={`${client.id}-${index}`}
-              className="group cursor-default py-2 px-4 rounded-xl bg-slate-900/40 hover:bg-slate-900/80 border border-slate-800/80 hover:border-[#D4AF37]/40 transition-all duration-300 flex items-center justify-center shrink-0 opacity-85 hover:opacity-100"
+              className="cursor-default flex items-center justify-center shrink-0 opacity-60 hover:opacity-100 text-slate-400 hover:text-white transition-all duration-300 transform hover:scale-105"
               title={client.name}
             >
-              {client.render()}
+              {client.svg}
             </div>
           ))}
         </div>

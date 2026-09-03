@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import { motion } from 'motion/react';
-import { Shield, ArrowUpRight, Award, ChevronDown } from 'lucide-react';
+import { Shield, ArrowUpRight, ChevronDown } from 'lucide-react';
 import { FIRM_METRICS } from '../data/legalData';
 
 interface HeroProps {
@@ -100,7 +100,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
                     onSelectArea(chip.id);
                     scrollTo('especialidades');
                   }}
-                  className="px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#0B1D3A]/90 hover:bg-[#0B1D3A] border border-slate-700/80 hover:border-[#D4AF37]/60 hover:text-[#D4AF37] text-slate-200 transition-all cursor-pointer backdrop-blur-sm shadow-xs"
+                  className="px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/5 hover:bg-white/10 border border-slate-700/80 hover:border-[#D4AF37]/60 hover:text-[#D4AF37] text-slate-200 transition-all cursor-pointer backdrop-blur-sm"
                 >
                   {chip.label}
                 </button>
@@ -138,36 +138,36 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
             </button>
           </motion.div>
 
-          {/* Credibility Stats Ribbon in Glass Cards */}
+          {/* Open & Airy Credibility Metrics (NO BOX-IN-BOX!) */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.5 }}
-            className="grid grid-cols-3 gap-3 sm:gap-4 pt-6"
+            className="grid grid-cols-3 gap-4 sm:gap-8 pt-8 border-t border-slate-800/80"
           >
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-[#0B1D3A]/60 border border-slate-700/60 backdrop-blur-md">
-              <div className="font-heading font-extrabold text-2xl sm:text-3xl text-[#D4AF37]">
+            <div>
+              <div className="font-heading font-extrabold text-3xl sm:text-4xl text-[#D4AF37] tracking-tight">
                 {FIRM_METRICS.yearsExperience}
               </div>
-              <p className="text-[10px] sm:text-xs text-slate-300 font-medium tracking-wide uppercase mt-0.5">
+              <p className="text-[10.5px] sm:text-xs text-slate-400 font-medium tracking-wider uppercase mt-1">
                 Años de Trayectoria
               </p>
             </div>
 
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-[#0B1D3A]/60 border border-slate-700/60 backdrop-blur-md">
-              <div className="font-heading font-extrabold text-2xl sm:text-3xl text-[#D4AF37]">
+            <div className="border-l border-slate-800/80 pl-4 sm:pl-8">
+              <div className="font-heading font-extrabold text-3xl sm:text-4xl text-[#D4AF37] tracking-tight">
                 {FIRM_METRICS.favorableRatio}
               </div>
-              <p className="text-[10px] sm:text-xs text-slate-300 font-medium tracking-wide uppercase mt-0.5">
+              <p className="text-[10.5px] sm:text-xs text-slate-400 font-medium tracking-wider uppercase mt-1">
                 Casos Favorables
               </p>
             </div>
 
-            <div className="p-3.5 sm:p-4 rounded-2xl bg-[#0B1D3A]/60 border border-slate-700/60 backdrop-blur-md">
-              <div className="font-heading font-extrabold text-2xl sm:text-3xl text-[#D4AF37]">
+            <div className="border-l border-slate-800/80 pl-4 sm:pl-8">
+              <div className="font-heading font-extrabold text-3xl sm:text-4xl text-[#D4AF37] tracking-tight">
                 {FIRM_METRICS.protectedAssets}
               </div>
-              <p className="text-[10px] sm:text-xs text-slate-300 font-medium tracking-wide uppercase mt-0.5">
+              <p className="text-[10.5px] sm:text-xs text-slate-400 font-medium tracking-wider uppercase mt-1">
                 Patrimonio Blindado
               </p>
             </div>

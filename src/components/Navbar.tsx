@@ -1,6 +1,7 @@
 ﻿import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Scale, Phone, ArrowUpRight, MessageSquare } from 'lucide-react';
+import { Phone, ArrowUpRight, MessageSquare } from 'lucide-react';
+import { BrandLogo } from './BrandLogo';
 
 interface NavbarProps {
   onNavigateToBooking: () => void;
@@ -71,28 +72,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToBooking, activeSecti
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         
-        {/* Brand Logo - Kindev Precision Styling */}
+        {/* Bespoke Heraldic Brand Logo (NO BOX IN BOX) */}
         <button
           onClick={() => scrollTo('inicio')}
-          className="flex items-center gap-3 focus:outline-none cursor-pointer text-left group"
+          className="focus:outline-none cursor-pointer text-left group"
         >
-          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#D4AF37] to-[#996515] p-[1px] shadow-md shadow-[#D4AF37]/15 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-200">
-            <div className="w-full h-full rounded-[11px] bg-[#071326] flex items-center justify-center">
-              <Scale className="w-4 h-4 sm:w-5 sm:h-5 text-[#D4AF37]" />
-            </div>
-          </div>
-          <div className="flex flex-col">
-            <span className="font-heading font-extrabold text-sm sm:text-base tracking-tight text-white leading-tight">
-              VALENZUELA <span className="text-[#D4AF37]">&</span> ASOC.
-            </span>
-            <span className="text-[8.5px] uppercase tracking-[0.22em] text-[#D4AF37] font-semibold">
-              Firma Jurídica de Élite
-            </span>
-          </div>
+          <BrandLogo size="md" />
         </button>
 
         {/* Center Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-7" aria-label="Navegación Principal">
+        <nav className="hidden md:flex items-center gap-8" aria-label="Navegación Principal">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
 
@@ -133,7 +122,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToBooking, activeSecti
           <button
             onClick={onNavigateToBooking}
             id="nav-cta-agendar"
-            className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold bg-[#D4AF37] hover:bg-[#C59B27] text-slate-950 shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer active:scale-95"
+            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold bg-[#D4AF37] hover:bg-[#C59B27] text-slate-950 shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer active:scale-95"
           >
             <span>Consulta Privada</span>
             <div className="w-4 h-4 rounded-full bg-slate-950/15 flex items-center justify-center">

@@ -28,8 +28,8 @@ export const FeeCalculator: React.FC<FeeCalculatorProps> = ({ onSelectPlanForBoo
           </p>
         </div>
 
-        {/* 3 Interactive Model Selection Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
+        {/* 3 Clean Model Cards (NO BOX IN BOX) */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 mb-14">
           {FEE_MODELS.map((model) => {
             const isSelected = selectedModelId === model.id;
 
@@ -37,10 +37,10 @@ export const FeeCalculator: React.FC<FeeCalculatorProps> = ({ onSelectPlanForBoo
               <div
                 key={model.id}
                 onClick={() => setSelectedModelId(model.id)}
-                className={`rounded-3xl p-7 flex flex-col justify-between transition-all duration-300 cursor-pointer relative overflow-hidden backdrop-blur-xl ${
+                className={`rounded-3xl p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 cursor-pointer relative ${
                   isSelected
-                    ? 'bg-[#0B1D3A] border-2 border-[#D4AF37] shadow-2xl shadow-[#D4AF37]/10 ring-1 ring-[#D4AF37]/30'
-                    : 'bg-[#0B1D3A]/70 hover:bg-[#0B1D3A] border border-slate-700/80 hover:border-[#D4AF37]/40 shadow-xl'
+                    ? 'bg-[#0B1D3A] border-2 border-[#D4AF37] shadow-2xl shadow-[#D4AF37]/10'
+                    : 'bg-[#0B1D3A]/50 hover:bg-[#0B1D3A]/80 border border-slate-800 hover:border-[#D4AF37]/40 shadow-xl'
                 }`}
               >
                 <div>
@@ -57,17 +57,18 @@ export const FeeCalculator: React.FC<FeeCalculatorProps> = ({ onSelectPlanForBoo
                     {model.name}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-5">
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
                     {model.description}
                   </p>
 
-                  <div className="p-3.5 rounded-2xl bg-[#071326] border border-slate-800 text-xs text-slate-400 mb-6">
-                    <strong className="text-[#D4AF37] block mb-1">Ideal para:</strong>
-                    <span>{model.idealFor}</span>
-                  </div>
+                  {/* Clean Typographic Callout (No nested box!) */}
+                  <p className="text-xs text-slate-400 mb-6 leading-relaxed">
+                    <span className="text-[#D4AF37] font-semibold">Ideal para: </span>
+                    {model.idealFor}
+                  </p>
 
                   {/* Features List */}
-                  <div className="space-y-2.5 mb-6 pt-4 border-t border-slate-800">
+                  <div className="space-y-2.5 mb-8 pt-4 border-t border-slate-800">
                     {model.features.map((feature, idx) => (
                       <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-300">
                         <Check className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
@@ -105,16 +106,14 @@ export const FeeCalculator: React.FC<FeeCalculatorProps> = ({ onSelectPlanForBoo
           })}
         </div>
 
-        {/* Ethical Guarantee Ribbon */}
-        <div className="p-5 rounded-2xl bg-[#0B1D3A]/60 border border-slate-700/60 max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-300">
+        {/* Ethical Guarantee (Clean horizontal footer divider - NO BOX IN BOX) */}
+        <div className="pt-8 border-t border-slate-800/80 max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37] shrink-0">
-              <FileSignature className="w-4 h-4" />
-            </div>
-            <div>
-              <strong className="text-white block">Contrato de Servicios Escrito</strong>
-              <span>Ningún honorario es exigible sin convenio firmado que detalle plazos y alcances.</span>
-            </div>
+            <FileSignature className="w-5 h-5 text-[#D4AF37] shrink-0" />
+            <span>
+              <strong className="text-white">Contrato de Servicios Escrito: </strong>
+              Ningún honorario es exigible sin convenio firmado que detalle plazos y alcances.
+            </span>
           </div>
           <div className="inline-flex items-center gap-1.5 text-[#D4AF37] font-medium shrink-0">
             <ShieldCheck className="w-4 h-4" />

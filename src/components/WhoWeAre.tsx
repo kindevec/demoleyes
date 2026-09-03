@@ -1,6 +1,6 @@
 ﻿import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Users, ShieldCheck, Gavel, ArrowUpRight, Landmark, CheckCircle2, Award } from 'lucide-react';
+import { ShieldCheck, ArrowUpRight, CheckCircle2, Award, Scale, BookOpen, Users } from 'lucide-react';
 
 interface WhoWeAreProps {
   onLearnMore: () => void;
@@ -10,15 +10,14 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
   const [activeTab, setActiveTab] = useState<'esencia' | 'rigor' | 'gobernanza'>('esencia');
 
   return (
-    <section id="quienes-somos" className="relative z-20 bg-[#071326] text-white py-20 lg:py-28 overflow-hidden">
-      {/* Decorative ambient lighting */}
-      <div className="absolute top-1/2 -left-48 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-blue-600/5 rounded-full blur-3xl pointer-events-none" />
+    <section id="quienes-somos" className="relative bg-[#071326] text-white py-20 lg:py-28 overflow-hidden">
+      {/* Subtle background ambient light */}
+      <div className="absolute top-1/3 -left-40 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Left Editorial Column */}
+          {/* Left Column: Narrative & Interactive Tabs (Open & Airy) */}
           <motion.div
             initial={{ opacity: 0, x: -25 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -28,7 +27,7 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
           >
             {/* Small Gold Tag */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] text-xs font-semibold tracking-wide mb-5">
-              <Landmark className="w-3.5 h-3.5 text-[#D4AF37]" />
+              <Scale className="w-3.5 h-3.5 text-[#D4AF37]" />
               <span>Institucional • Tradición y Rigor</span>
             </div>
 
@@ -37,37 +36,42 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
               <span className="text-[#D4AF37]">Resultados Comprobados.</span>
             </h2>
 
-            {/* Interactive Tabs with Kindev Pill Indicator */}
-            <div className="flex items-center gap-2 mb-6 border-b border-slate-800 pb-2">
+            {/* Seamless Underline Tabs */}
+            <div className="flex items-center gap-6 mb-6 border-b border-slate-800 pb-3">
               <button
                 onClick={() => setActiveTab('esencia')}
-                className={`text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg transition-all cursor-pointer ${
-                  activeTab === 'esencia'
-                    ? 'bg-[#D4AF37]/15 text-[#D4AF37] border border-[#D4AF37]/30'
-                    : 'text-slate-400 hover:text-white'
+                className={`text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer relative py-1 ${
+                  activeTab === 'esencia' ? 'text-[#D4AF37]' : 'text-slate-400 hover:text-white'
                 }`}
               >
-                Nuestra Esencia
+                <span>Nuestra Esencia</span>
+                {activeTab === 'esencia' && (
+                  <motion.div layoutId="tab-underline" className="absolute -bottom-3 left-0 right-0 h-0.5 bg-[#D4AF37]" />
+                )}
               </button>
+
               <button
                 onClick={() => setActiveTab('rigor')}
-                className={`text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg transition-all cursor-pointer ${
-                  activeTab === 'rigor'
-                    ? 'bg-[#D4AF37]/15 text-[#D4AF37] border border-[#D4AF37]/30'
-                    : 'text-slate-400 hover:text-white'
+                className={`text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer relative py-1 ${
+                  activeTab === 'rigor' ? 'text-[#D4AF37]' : 'text-slate-400 hover:text-white'
                 }`}
               >
-                Rigor Procesal
+                <span>Rigor Procesal</span>
+                {activeTab === 'rigor' && (
+                  <motion.div layoutId="tab-underline" className="absolute -bottom-3 left-0 right-0 h-0.5 bg-[#D4AF37]" />
+                )}
               </button>
+
               <button
                 onClick={() => setActiveTab('gobernanza')}
-                className={`text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-lg transition-all cursor-pointer ${
-                  activeTab === 'gobernanza'
-                    ? 'bg-[#D4AF37]/15 text-[#D4AF37] border border-[#D4AF37]/30'
-                    : 'text-slate-400 hover:text-white'
+                className={`text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer relative py-1 ${
+                  activeTab === 'gobernanza' ? 'text-[#D4AF37]' : 'text-slate-400 hover:text-white'
                 }`}
               >
-                Gobernanza Ética
+                <span>Gobernanza Ética</span>
+                {activeTab === 'gobernanza' && (
+                  <motion.div layoutId="tab-underline" className="absolute -bottom-3 left-0 right-0 h-0.5 bg-[#D4AF37]" />
+                )}
               </button>
             </div>
 
@@ -75,9 +79,9 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
               {activeTab === 'esencia' && (
                 <motion.div
                   key="tab-esencia"
-                  initial={{ opacity: 0, y: 8 }}
+                  initial={{ opacity: 0, y: 6 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
+                  exit={{ opacity: 0, y: -6 }}
                   transition={{ duration: 0.25 }}
                   className="space-y-3.5 text-slate-300 text-sm sm:text-base leading-relaxed mb-8"
                 >
@@ -96,9 +100,9 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
               {activeTab === 'rigor' && (
                 <motion.div
                   key="tab-rigor"
-                  initial={{ opacity: 0, y: 8 }}
+                  initial={{ opacity: 0, y: 6 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
+                  exit={{ opacity: 0, y: -6 }}
                   transition={{ duration: 0.25 }}
                   className="space-y-3.5 text-slate-300 text-sm sm:text-base leading-relaxed mb-8"
                 >
@@ -116,9 +120,9 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
               {activeTab === 'gobernanza' && (
                 <motion.div
                   key="tab-gobernanza"
-                  initial={{ opacity: 0, y: 8 }}
+                  initial={{ opacity: 0, y: 6 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
+                  exit={{ opacity: 0, y: -6 }}
                   transition={{ duration: 0.25 }}
                   className="space-y-3.5 text-slate-300 text-sm sm:text-base leading-relaxed mb-8"
                 >
@@ -134,8 +138,8 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
               )}
             </AnimatePresence>
 
-            {/* Quick Feature Bullets */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+            {/* Feature Bullets with subtle divider */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-8 pt-2 border-t border-slate-800/80">
               <div className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
                 <span className="text-xs text-slate-300 font-medium">Patrocinio directo por Socios Titulares</span>
@@ -154,7 +158,7 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
               </div>
             </div>
 
-            <div className="pt-2">
+            <div>
               <button
                 onClick={onLearnMore}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-xs font-bold bg-[#D4AF37] hover:bg-[#C59B27] text-slate-950 shadow-md hover:shadow-lg transition-all cursor-pointer active:scale-95"
@@ -167,87 +171,93 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
             </div>
           </motion.div>
 
-          {/* Right Column: Kindev Luxury Card */}
+          {/* Right Column: Editorial Visual Showcase (NO NESTED BOXES!) */}
           <motion.div
             initial={{ opacity: 0, x: 25 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-5"
+            className="lg:col-span-5 flex flex-col justify-start space-y-6"
           >
-            <div className="rounded-3xl bg-[#0B1D3A]/90 border border-slate-700/80 p-8 sm:p-9 shadow-2xl relative overflow-hidden backdrop-blur-xl">
-              <div className="space-y-6 relative z-10">
-                
-                {/* Pillar 1 */}
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-2xl bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center shrink-0 mt-1">
-                    <Users className="w-5 h-5 text-[#D4AF37]" />
-                  </div>
-                  <div>
-                    <h3 className="text-base font-heading font-bold text-white mb-1">
-                      Enfoque Estratégico en el Cliente
-                    </h3>
-                    <p className="text-slate-300 text-xs leading-relaxed">
-                      Escuchamos minuciosamente sus metas para diseñar soluciones jurídicas
-                      alineadas con su visión de negocio, reputación y continuidad comercial.
-                    </p>
-                  </div>
+            {/* High-Impact Visual Photo Card with Floating Glass Ribbon */}
+            <div className="relative rounded-3xl overflow-hidden border border-slate-800 shadow-2xl aspect-[4/3] sm:aspect-[16/11] w-full group">
+              <img
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
+                alt="Sede Central Valenzuela & Asociados"
+                loading="lazy"
+                decoding="async"
+                width={1200}
+                height={825}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90 contrast-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#071326] via-[#071326]/40 to-transparent pointer-events-none" />
+
+              {/* Floating Glass Plaque at Bottom of Photo */}
+              <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-[#071326]/85 backdrop-blur-xl border border-slate-700/80 shadow-lg">
+                <div className="flex items-center gap-2 text-[#D4AF37] mb-1">
+                  <Award className="w-4 h-4 text-[#D4AF37]" />
+                  <span className="text-[10px] font-bold uppercase tracking-widest font-heading">
+                    Trayectoria Consolidada
+                  </span>
                 </div>
-
-                <div className="h-px bg-slate-700/60" />
-
-                {/* Pillar 2 */}
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-2xl bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center shrink-0 mt-1">
-                    <ShieldCheck className="w-5 h-5 text-[#D4AF37]" />
-                  </div>
-                  <div>
-                    <h3 className="text-base font-heading font-bold text-white mb-1">
-                      Representación Jurídica de Alto Calibre
-                    </h3>
-                    <p className="text-slate-300 text-xs leading-relaxed">
-                      Defendemos con vehemencia procesal y solvencia académica sus derechos ante
-                      tribunales ordinarios y cortes arbitrales nacionales e internacionales.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="h-px bg-slate-700/60" />
-
-                {/* Pillar 3 */}
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-2xl bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center shrink-0 mt-1">
-                    <Gavel className="w-5 h-5 text-[#D4AF37]" />
-                  </div>
-                  <div>
-                    <h3 className="text-base font-heading font-bold text-white mb-1">
-                      Gestión Preventiva y Confidencialidad
-                    </h3>
-                    <p className="text-slate-300 text-xs leading-relaxed">
-                      Manejamos cada expediente con dedicación exclusiva, rigor probatorio y estricto
-                      secreto fiduciario blindado de extremo a extremo.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Inset Plaque */}
-                <div className="pt-2">
-                  <div className="rounded-2xl bg-[#071326] border border-[#D4AF37]/30 p-5 text-center shadow-inner">
-                    <div className="flex items-center justify-center gap-1.5 text-[#D4AF37] mb-1">
-                      <Award className="w-4 h-4 text-[#D4AF37]" />
-                      <span className="text-[10px] font-bold uppercase tracking-widest">Trayectoria Consolidada</span>
-                    </div>
-                    <p className="font-heading font-bold text-xl text-white">
-                      Más de 18 Años de Excelencia
-                    </p>
-                    <p className="text-xs text-[#D4AF37] font-semibold mt-0.5">
-                      Jurídica Ininterrumpida
-                    </p>
-                  </div>
-                </div>
-
+                <p className="font-heading font-extrabold text-lg text-white">
+                  Más de 18 Años de Ejercicio Impecable
+                </p>
+                <p className="text-xs text-slate-300 mt-0.5">
+                  Quito • Guayaquil • Alianzas Internacionales
+                </p>
               </div>
             </div>
+
+            {/* 3 Pillars in an Open Typographic Grid (No Cards!) */}
+            <div className="space-y-4 pt-1">
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <Users className="w-4 h-4 text-[#D4AF37]" />
+                </div>
+                <div>
+                  <h4 className="font-heading font-bold text-sm text-white">
+                    Enfoque Estratégico en el Negocio
+                  </h4>
+                  <p className="text-xs text-slate-400 leading-relaxed mt-0.5">
+                    Soluciones legales diseñadas para preservar la continuidad operativa y la reputación del cliente.
+                  </p>
+                </div>
+              </div>
+
+              <div className="h-px bg-slate-800/80" />
+
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <ShieldCheck className="w-4 h-4 text-[#D4AF37]" />
+                </div>
+                <div>
+                  <h4 className="font-heading font-bold text-sm text-white">
+                    Rigor Probatorio & Defensa Activa
+                  </h4>
+                  <p className="text-xs text-slate-400 leading-relaxed mt-0.5">
+                    Patrocinio directo con simulación previa de audiencias ante cortes ordinarias y arbitrales.
+                  </p>
+                </div>
+              </div>
+
+              <div className="h-px bg-slate-800/80" />
+
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 rounded-xl bg-[#D4AF37]/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <BookOpen className="w-4 h-4 text-[#D4AF37]" />
+                </div>
+                <div>
+                  <h4 className="font-heading font-bold text-sm text-white">
+                    Confidencialidad Fiduciaria
+                  </h4>
+                  <p className="text-xs text-slate-400 leading-relaxed mt-0.5">
+                    Custodia de expedientes y acuerdos de secreto respaldados bajo estándar ISO 27001.
+                  </p>
+                </div>
+              </div>
+            </div>
+
           </motion.div>
 
         </div>

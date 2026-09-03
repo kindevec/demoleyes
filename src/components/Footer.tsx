@@ -1,5 +1,6 @@
 ﻿import React from 'react';
-import { Scale, MapPin, Phone, Mail, Clock, ShieldCheck, ArrowUp, Linkedin, Instagram, ArrowUpRight } from 'lucide-react';
+import { MapPin, Phone, Mail, ShieldCheck, ArrowUp, Linkedin, Instagram, ArrowUpRight } from 'lucide-react';
+import { BrandLogo } from './BrandLogo';
 
 interface FooterProps {
   onNavigateToBooking: () => void;
@@ -27,21 +28,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateToBooking }) => {
           
           {/* Col 1: Brand Info (5 cols on lg) */}
           <div className="lg:col-span-4 space-y-3.5">
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#D4AF37] to-[#996515] p-[1px] shadow-md shadow-[#D4AF37]/15 flex items-center justify-center shrink-0">
-                <div className="w-full h-full rounded-[11px] bg-[#071326] flex items-center justify-center">
-                  <Scale className="w-4 h-4 text-[#D4AF37]" />
-                </div>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-heading font-extrabold text-base tracking-tight text-white leading-tight">
-                  VALENZUELA <span className="text-[#D4AF37]">&</span> ASOC.
-                </span>
-                <span className="text-[8.5px] uppercase tracking-[0.22em] text-[#D4AF37] font-semibold">
-                  Firma Jurídica de Élite
-                </span>
-              </div>
-            </div>
+            <BrandLogo size="md" />
 
             <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
               Asesoría jurídica de alta especialización en litigios de cuantía, estructuración M&A, defensa penal económica y resguardo patrimonial fiduciario en Ecuador.
@@ -87,7 +74,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateToBooking }) => {
           {/* Col 2: Áreas de Práctica (3 cols on lg) */}
           <div className="lg:col-span-3 space-y-2">
             <div className="font-heading font-bold text-xs uppercase tracking-wider text-white flex items-center gap-1.5 mb-2">
-              <Scale className="w-3.5 h-3.5 text-[#D4AF37]" />
               <span>Áreas de Práctica</span>
             </div>
             <ul className="space-y-1.5 text-xs text-slate-400">

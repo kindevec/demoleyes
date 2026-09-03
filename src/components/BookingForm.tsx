@@ -1,6 +1,6 @@
 ﻿import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ShieldCheck, CalendarCheck, CheckCircle2, Lock, ArrowUpRight, MessageSquare, AlertCircle, Sparkles } from 'lucide-react';
+import { ShieldCheck, CheckCircle2, Lock, ArrowUpRight, MessageSquare, AlertCircle, Sparkles } from 'lucide-react';
 import { PRACTICE_AREAS } from '../data/legalData';
 
 interface BookingFormProps {
@@ -21,7 +21,6 @@ export const BookingForm: React.FC<BookingFormProps> = ({
   const [notes, setNotes] = useState(preselectedNotes || '');
   const [preferredDate, setPreferredDate] = useState('');
   const [preferredTime, setPreferredTime] = useState('09:00');
-  const [urgency, setUrgency] = useState('normal');
   const [honeypot, setHoneypot] = useState('');
 
   const [submitted, setSubmitted] = useState(false);
@@ -43,7 +42,6 @@ export const BookingForm: React.FC<BookingFormProps> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Honeypot check
     if (honeypot.trim() !== '') {
       return;
     }
@@ -66,9 +64,9 @@ export const BookingForm: React.FC<BookingFormProps> = ({
 
   return (
     <section id="agendar" className="py-20 lg:py-28 bg-[#071326] text-white relative border-t border-slate-800/80">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Header */}
+        {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] text-xs font-semibold tracking-wide mb-4">
             <Lock className="w-3.5 h-3.5 text-[#D4AF37]" />
@@ -88,7 +86,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
           <div className="mb-6 p-4 rounded-2xl bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-between gap-4">
             <div className="flex items-center gap-2.5 text-xs text-[#D4AF37]">
               <Sparkles className="w-4 h-4 shrink-0 text-[#D4AF37]" />
-              <span>Se han cargado parámetros de consulta previa en el formulario.</span>
+              <span>Se han precargado parámetros de consulta previa en el formulario.</span>
             </div>
             {onClearPreselection && (
               <button
@@ -101,8 +99,8 @@ export const BookingForm: React.FC<BookingFormProps> = ({
           </div>
         )}
 
-        {/* Main Form Container */}
-        <div className="rounded-3xl bg-[#0B1D3A]/95 border border-slate-700/80 p-7 sm:p-10 shadow-2xl backdrop-blur-xl">
+        {/* Form Container (Clean single card - No nested boxes!) */}
+        <div className="rounded-3xl bg-[#0B1D3A]/60 border border-slate-800 p-7 sm:p-10 shadow-xl backdrop-blur-xl">
           <AnimatePresence mode="wait">
             {!submitted ? (
               <motion.form
@@ -113,7 +111,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                 onSubmit={handleSubmit}
                 className="space-y-6"
               >
-                {/* Honeypot field (hidden from genuine users) */}
+                {/* Honeypot field */}
                 <input
                   type="text"
                   name="user_verification_token"
@@ -133,10 +131,9 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                 )}
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  {/* Nombre */}
                   <div className="space-y-1.5">
                     <label className="text-xs font-semibold text-slate-300 block">
-                      Nombre y Apellidos completos *
+                      Nombre y Apellidos *
                     </label>
                     <input
                       type="text"
@@ -144,14 +141,13 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                       placeholder="Ej. Ing. Carlos Morales"
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-[#071326] border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
+                      className="w-full px-4 py-3 rounded-2xl bg-[#071326] border border-slate-700/80 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
                     />
                   </div>
 
-                  {/* Correo Electrónico */}
                   <div className="space-y-1.5">
                     <label className="text-xs font-semibold text-slate-300 block">
-                      Correo Corporativo / Personal *
+                      Correo Corporativo *
                     </label>
                     <input
                       type="email"
@@ -159,13 +155,12 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                       placeholder="ejemplo@empresa.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-[#071326] border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
+                      className="w-full px-4 py-3 rounded-2xl bg-[#071326] border border-slate-700/80 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  {/* Teléfono */}
                   <div className="space-y-1.5">
                     <label className="text-xs font-semibold text-slate-300 block">
                       Teléfono Móvil (WhatsApp) *
@@ -176,19 +171,18 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                       placeholder="+593 99 999 9999"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-[#071326] border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
+                      className="w-full px-4 py-3 rounded-2xl bg-[#071326] border border-slate-700/80 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
                     />
                   </div>
 
-                  {/* Área Legal */}
                   <div className="space-y-1.5">
                     <label className="text-xs font-semibold text-slate-300 block">
-                      Materia o Especialidad Requerida
+                      Materia o Especialidad
                     </label>
                     <select
                       value={area}
                       onChange={(e) => setArea(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-[#071326] border border-slate-800 text-sm text-white focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
+                      className="w-full px-4 py-3 rounded-2xl bg-[#071326] border border-slate-700/80 text-sm text-white focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
                     >
                       {PRACTICE_AREAS.map((pa) => (
                         <option key={pa.id} value={pa.id} className="bg-[#071326] text-white">
@@ -199,28 +193,27 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                   </div>
                 </div>
 
-                {/* Fecha y Hora Deseada */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="space-y-1.5">
                     <label className="text-xs font-semibold text-slate-300 block">
-                      Fecha Tentativa para la Sesión
+                      Fecha Tentativa
                     </label>
                     <input
                       type="date"
                       value={preferredDate}
                       onChange={(e) => setPreferredDate(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-[#071326] border border-slate-800 text-sm text-white focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
+                      className="w-full px-4 py-3 rounded-2xl bg-[#071326] border border-slate-700/80 text-sm text-white focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
                     />
                   </div>
 
                   <div className="space-y-1.5">
                     <label className="text-xs font-semibold text-slate-300 block">
-                      Franja Horaria Preferida
+                      Franja Horaria
                     </label>
                     <select
                       value={preferredTime}
                       onChange={(e) => setPreferredTime(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-[#071326] border border-slate-800 text-sm text-white focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
+                      className="w-full px-4 py-3 rounded-2xl bg-[#071326] border border-slate-700/80 text-sm text-white focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
                     >
                       <option value="09:00" className="bg-[#071326]">09:00 - 10:30 (Mañana)</option>
                       <option value="11:00" className="bg-[#071326]">11:00 - 12:30 (Media Mañana)</option>
@@ -230,26 +223,24 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                   </div>
                 </div>
 
-                {/* Breve descripción o notas */}
                 <div className="space-y-1.5">
                   <label className="text-xs font-semibold text-slate-300 block">
-                    Resumen Preliminar del Caso o Asunto
+                    Resumen Preliminar del Asunto
                   </label>
                   <textarea
                     rows={3}
-                    placeholder="Detalle brevemente las circunstancias de hecho, partes involucradas y si existe alguna citación con plazo perentorio..."
+                    placeholder="Detalle brevemente hechos, partes y si existe alguna citación con plazo perentorio..."
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-[#071326] border border-slate-800 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all resize-none"
+                    className="w-full px-4 py-3 rounded-2xl bg-[#071326] border border-slate-700/80 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all resize-none"
                   />
                 </div>
 
-                {/* Privacy and Secrecy Guarantee */}
-                <div className="p-3.5 rounded-xl bg-[#071326] border border-slate-800 flex items-start gap-2.5 text-xs text-slate-400">
-                  <ShieldCheck className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
+                {/* Direct Notice (No box-in-box!) */}
+                <div className="flex items-center gap-2 text-xs text-slate-400 pt-1">
+                  <ShieldCheck className="w-4 h-4 text-[#D4AF37] shrink-0" />
                   <span>
-                    La información provista queda protegida automáticamente bajo secreto profesional
-                    estricto según el Art. 11 del Código de Ética del Abogado.
+                    Información amparada bajo secreto profesional legal (Art. 11 del Código de Ética).
                   </span>
                 </div>
 
@@ -313,7 +304,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                     className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs tracking-wide transition-all shadow-md flex items-center justify-center gap-2"
                   >
                     <MessageSquare className="w-4 h-4" />
-                    <span>Confirmar Inmediatamente vía WhatsApp</span>
+                    <span>Confirmar vía WhatsApp</span>
                   </a>
 
                   <button
