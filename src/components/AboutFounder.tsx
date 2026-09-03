@@ -41,31 +41,46 @@ export const AboutFounder: React.FC<AboutFounderProps> = ({ onNavigateToBooking 
                 <div className="absolute bottom-0 inset-x-0 h-1/2 bg-gradient-to-t from-[#051122] to-transparent pointer-events-none" />
               </div>
 
-              {/* Authoritative Executive Portrait */}
-              <div className="relative z-10 w-full rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80"
-                  alt="Dr. Fernando Valmont Ramos - Socio Director"
-                  loading="lazy"
-                  decoding="async"
-                  width={800}
-                  height={900}
-                  className="w-full h-auto max-h-[420px] sm:max-h-[480px] object-cover object-top filter brightness-95 contrast-110 drop-shadow-2xl"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#071326] via-transparent to-transparent pointer-events-none" />
+              {/* Cutout Silhouette of Lawyer with Zero Background */}
+              <div className="relative w-full flex flex-col items-center">
+                
+                {/* Lawyer Transparent Silhouette */}
+                <picture className="w-full h-auto block relative z-20 flex justify-center">
+                  <source srcSet="/abogado_sinfondo.avif" type="image/avif" />
+                  <source srcSet="/abogado_sinfondo.webp" type="image/webp" />
+                  <img
+                    src="/abogado_sinfondo.webp"
+                    alt="Dr. Fernando Valmont Ramos - Socio Director"
+                    width={896}
+                    height={1200}
+                    className="w-auto max-h-[380px] sm:max-h-[440px] lg:max-h-[470px] object-contain object-bottom drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)] filter contrast-105 block -mb-4 pointer-events-none select-none"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
 
-                {/* Floating Bottom Seal */}
-                <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-[#071326]/90 backdrop-blur-md border border-[#D4AF37]/30 flex items-center justify-between">
-                  <div>
-                    <span className="text-[10px] font-mono text-[#D4AF37] font-bold block uppercase tracking-wider">
-                      Matrícula CAP 17-2008-412
-                    </span>
-                    <span className="text-xs text-white font-bold">Quito • Guayaquil</span>
+                {/* Architectural Illuminated Pedestal / Base Platform */}
+                <div className="relative z-25 w-full flex flex-col items-center">
+                  {/* Glowing 3D Base Ellipse */}
+                  <div className="relative w-[85%] sm:w-[90%] h-12 rounded-[50%] bg-gradient-to-b from-[#D4AF37]/60 via-[#0B2347] to-[#061426] border-t-2 border-[#D4AF37] shadow-[0_0_35px_rgba(212,175,55,0.4)] flex items-center justify-center">
+                    <div className="absolute inset-x-8 top-0.5 h-1.5 bg-[#FFF4C2] rounded-full blur-[1px] opacity-80" />
+                    <div className="absolute -top-5 w-3/4 h-8 bg-[#D4AF37]/25 blur-xl pointer-events-none" />
                   </div>
-                  <div className="w-8 h-8 rounded-lg bg-[#D4AF37]/15 flex items-center justify-center text-[#D4AF37]">
-                    <Scale className="w-4 h-4" />
+
+                  {/* Metallic Plaque on the Pedestal */}
+                  <div className="relative -mt-4 px-5 py-2 rounded-full bg-[#071326]/95 border border-[#D4AF37]/50 shadow-xl flex items-center gap-3 backdrop-blur-md z-30">
+                    <div className="w-6 h-6 rounded-full bg-[#D4AF37]/20 flex items-center justify-center text-[#D4AF37]">
+                      <Scale className="w-3.5 h-3.5" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-mono text-[#D4AF37] font-bold block uppercase tracking-wider leading-none">
+                        Matrícula CAP 17-2008-412
+                      </span>
+                      <span className="text-[11px] text-white font-bold leading-tight">Quito • Guayaquil</span>
+                    </div>
                   </div>
                 </div>
+
               </div>
 
             </div>
@@ -167,3 +182,4 @@ export const AboutFounder: React.FC<AboutFounderProps> = ({ onNavigateToBooking 
     </section>
   );
 };
+
