@@ -154,11 +154,8 @@ export const ClientTrustLogos: React.FC<ClientTrustLogosProps> = ({ className = 
           display: flex;
           align-items: center;
           width: max-content;
-          animation: clientMarqueeMotion 50s linear infinite;
+          animation: clientMarqueeMotion 75s linear infinite;
           will-change: transform;
-        }
-        .client-marquee-container:hover .client-marquee-track {
-          animation-play-state: paused;
         }
       `}</style>
 
@@ -188,7 +185,7 @@ export const ClientTrustLogos: React.FC<ClientTrustLogosProps> = ({ className = 
           {marqueeItems.map((client, index) => (
             <div
               key={`${client.id}-${index}`}
-              className="cursor-default flex items-center justify-center shrink-0 opacity-60 hover:opacity-100 text-slate-400 hover:text-white transition-all duration-300 transform hover:scale-105"
+              className="cursor-default flex items-center justify-center shrink-0 opacity-65 text-slate-400 hover:text-slate-300 transition-colors"
               title={client.name}
             >
               {client.svg}
@@ -199,3 +196,4 @@ export const ClientTrustLogos: React.FC<ClientTrustLogosProps> = ({ className = 
     </section>
   );
 };
+
