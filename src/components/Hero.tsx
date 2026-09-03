@@ -32,19 +32,20 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
       <div className="absolute top-0 right-1/4 w-[750px] h-[550px] bg-[#0A66FF]/15 rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute top-1/3 -left-20 w-[550px] h-[550px] bg-[#D4AF37]/10 rounded-full blur-[170px] pointer-events-none" />
 
-      {/* Skyscraper Panoramic Architectural Backdrop */}
-      <div className="absolute top-0 right-0 w-full lg:w-3/5 h-full opacity-40 lg:opacity-55 pointer-events-none mix-blend-luminosity overflow-hidden z-0">
+      {/* Skyscraper Panoramic Architectural Backdrop (100% Full Width - No Vertical Cutoff) */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-0">
         <img
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=85"
+          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2560&q=85"
           alt="Torres Corporativas y Rascacielos - Valmont & Asociados"
           fetchPriority="high"
           decoding="async"
-          width={1920}
-          height={1080}
-          className="w-full h-full object-cover object-center lg:object-[70%_25%] filter brightness-95 contrast-125"
+          width={2560}
+          height={1440}
+          className="w-full h-full object-cover object-center lg:object-[65%_30%] filter brightness-75 contrast-125 opacity-35 lg:opacity-45"
         />
-        {/* Soft edge blend */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#051329] via-[#051329]/80 to-transparent pointer-events-none" />
+        {/* Full-width seamless ambient gradient overlays: ensures pristine text contrast on the left and zero vertical seams */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#051329] via-[#051329]/85 to-[#051329]/25 pointer-events-none" />
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#051329] to-transparent pointer-events-none" />
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#071326] via-[#071326]/90 to-transparent pointer-events-none" />
       </div>
 
@@ -363,3 +364,4 @@ export const Hero: React.FC<HeroProps> = ({ onSelectArea, onNavigateToBooking })
     </section>
   );
 };
+
