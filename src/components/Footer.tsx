@@ -128,8 +128,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateToBooking }) => {
                 </button>
               </li>
               <li>
-                <button onClick={() => scrollTo('honorarios')} className="hover:text-[#D4AF37] transition-colors cursor-pointer text-left">
-                  Honorarios
+                <button onClick={() => scrollTo('sobre-mi')} className="hover:text-[#D4AF37] transition-colors cursor-pointer text-left">
+                  Sobre Mí
                 </button>
               </li>
               <li>
@@ -215,6 +215,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateToBooking }) => {
     </footer>
   );
 };
+
 
 
 

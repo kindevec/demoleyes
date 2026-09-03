@@ -7,7 +7,6 @@ import { AboutFounder } from './components/AboutFounder';
 import { PracticeAreas } from './components/PracticeAreas';
 import { AreaDetailModal } from './components/AreaDetailModal';
 import { CaseDiagnosticWizard } from './components/CaseDiagnosticWizard';
-import { FeeCalculator } from './components/FeeCalculator';
 import { Attorneys } from './components/Attorneys';
 import { CaseStudiesAndProof } from './components/CaseStudiesAndProof';
 import { BookingForm } from './components/BookingForm';
@@ -31,7 +30,6 @@ export default function App() {
         'sobre-mi',
         'especialidades',
         'diagnostico',
-        'honorarios',
         'abogados',
         'casos',
         'agendar',
@@ -124,9 +122,6 @@ export default function App() {
         {/* 5. Evaluador de Viabilidad (Diagnostic Wizard) */}
         <CaseDiagnosticWizard onApplyDiagnosisToForm={handleApplyDiagnosis} />
 
-        {/* 6. Modelos de Honorarios (Fee Calculator) */}
-        <FeeCalculator onSelectPlanForBooking={handleSelectPlanForBooking} />
-
         {/* 7. Socios y Abogados Principales */}
         <Attorneys onConsultPartner={handleConsultPartner} />
 
@@ -166,4 +161,5 @@ export default function App() {
     </div>
   );
 }
+
 

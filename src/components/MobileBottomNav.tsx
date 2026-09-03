@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import { Home, Scale, Building2, Calculator, CalendarCheck } from 'lucide-react';
+import { Home, Scale, Building2, User, CalendarCheck } from 'lucide-react';
 import { TubelightNavBar, TubelightNavItem } from './ui/tubelight-navbar';
 
 interface MobileBottomNavProps {
@@ -19,22 +19,22 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
       onClick: () => onNavigateToSection('inicio'),
     },
     {
-      name: 'Áreas',
-      id: 'especialidades',
-      icon: Scale,
-      onClick: () => onNavigateToSection('especialidades'),
-    },
-    {
       name: 'La Firma',
       id: 'quienes-somos',
       icon: Building2,
       onClick: () => onNavigateToSection('quienes-somos'),
     },
     {
-      name: 'Honorarios',
-      id: 'honorarios',
-      icon: Calculator,
-      onClick: () => onNavigateToSection('honorarios'),
+      name: 'Sobre Mí',
+      id: 'sobre-mi',
+      icon: User,
+      onClick: () => onNavigateToSection('sobre-mi'),
+    },
+    {
+      name: 'Áreas',
+      id: 'especialidades',
+      icon: Scale,
+      onClick: () => onNavigateToSection('especialidades'),
     },
     {
       name: 'Agendar',
@@ -49,15 +49,15 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
     switch (activeSection) {
       case 'inicio':
         return 'Inicio';
-      case 'especialidades':
-      case 'diagnostico':
-        return 'Áreas';
       case 'quienes-somos':
       case 'abogados':
         return 'La Firma';
-      case 'honorarios':
+      case 'sobre-mi':
+        return 'Sobre Mí';
+      case 'especialidades':
+      case 'diagnostico':
       case 'casos':
-        return 'Honorarios';
+        return 'Áreas';
       case 'agendar':
       case 'faq':
         return 'Agendar';
@@ -75,5 +75,3 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
     </div>
   );
 };
-
-export default MobileBottomNav;

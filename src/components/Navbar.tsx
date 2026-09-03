@@ -43,7 +43,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToBooking, activeSecti
     { id: 'quienes-somos', label: 'La Firma' },
     { id: 'sobre-mi', label: 'Sobre Mí' },
     { id: 'especialidades', label: 'Áreas' },
-    { id: 'honorarios', label: 'Honorarios' },
     { id: 'casos', label: 'Casos' },
   ];
 
@@ -148,5 +147,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateToBooking, activeSecti
     </header>
   );
 };
+
 
 
