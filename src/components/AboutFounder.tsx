@@ -46,10 +46,10 @@ export const AboutFounder: React.FC<AboutFounderProps> = ({ onNavigateToBooking 
                 
                 {/* Lawyer Transparent Silhouette */}
                 <picture className="w-full h-auto block relative z-20 flex justify-center">
-                  <source srcSet="/abogado_sinfondo.avif" type="image/avif" />
-                  <source srcSet="/abogado_sinfondo.webp" type="image/webp" />
+                  <source srcSet="/valmont_fundador_sinfondo.avif" type="image/avif" />
+                  <source srcSet="/valmont_fundador_sinfondo.webp" type="image/webp" />
                   <img
-                    src="/abogado_sinfondo.webp"
+                    src="/valmont_fundador_sinfondo.webp"
                     alt="Dr. Fernando Valmont Ramos - Socio Director"
                     width={896}
                     height={1200}
@@ -182,4 +182,5 @@ export const AboutFounder: React.FC<AboutFounderProps> = ({ onNavigateToBooking 
     </section>
   );
 };
+
 
