@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   Lock,
@@ -12,7 +12,8 @@ import {
   Clock,
   Send,
   Loader2,
-  AlertCircle
+  FileCheck,
+  X
 } from 'lucide-react';
 import { PRACTICE_AREAS } from '../data/legalData';
 
@@ -46,15 +47,23 @@ export const BookingForm: React.FC<BookingFormProps> = ({
     if (preselectedArea) {
       setFormData((prev) => ({ ...prev, area: preselectedArea }));
     }
+  }, [preselectedArea]);
+
+  useEffect(() => {
     if (preselectedNotes) {
-      setFormData((prev) => ({
-        ...prev,
-        description: prev.description
-          ? `${prev.description}\n\n${preselectedNotes}`
-          : preselectedNotes
-      }));
+      setFormData((prev) => {
+        if (!prev.description.includes(preselectedNotes)) {
+          return {
+            ...prev,
+            description: prev.description
+              ? `${prev.description}\n\n${preselectedNotes}`
+              : preselectedNotes
+          };
+        }
+        return prev;
+      });
     }
-  }, [preselectedArea, preselectedNotes]);
+  }, [preselectedNotes]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -66,14 +75,14 @@ export const BookingForm: React.FC<BookingFormProps> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Spam bot check
+    // Anti-spam bot check
     if (formData.honeypot) {
       console.warn('Spam submission detected.');
       return;
     }
 
-    if (!formData.fullName || !formData.phone || !formData.email) {
-      alert('Por favor complete los campos obligatorios para coordinar su sesión.');
+    if (!formData.fullName.trim() || !formData.phone.trim() || !formData.email.trim()) {
+      alert('Por favor complete los campos obligatorios para coordinar su sesión confidencial.');
       return;
     }
 
@@ -90,7 +99,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
       setTimeout(() => {
         setToastMessage(null);
       }, 7000);
-    }, 1500);
+    }, 1200);
   };
 
   const handleResetForm = () => {
@@ -108,24 +117,28 @@ export const BookingForm: React.FC<BookingFormProps> = ({
   };
 
   return (
-    <section id="agendar" className="py-24 bg-[#070B19] text-white relative">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="agendar" className="py-24 bg-[#070B19] text-white relative overflow-hidden">
+      {/* Decorative ambient radial glows */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Toast Notification Container */}
+        {/* Toast Notification */}
         <AnimatePresence>
           {toastMessage && (
             <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="fixed top-20 right-4 sm:right-8 z-50 max-w-md bg-emerald-950 border border-emerald-500/50 text-emerald-200 px-5 py-4 rounded-sm shadow-2xl flex items-center gap-3 backdrop-blur-md"
+              initial={{ opacity: 0, y: -20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -20, scale: 0.95 }}
+              className="fixed top-24 right-4 sm:right-8 z-50 max-w-md bg-[#040711]/95 border border-emerald-500/50 text-emerald-200 px-5 py-4 rounded-sm shadow-2xl flex items-center gap-3 backdrop-blur-xl"
             >
               <CheckCircle2 className="w-6 h-6 text-emerald-400 shrink-0" />
               <div>
                 <p className="font-bold text-xs uppercase tracking-wider text-emerald-300">
                   Agendamiento Registrado
                 </p>
-                <p className="text-xs text-emerald-100">{toastMessage}</p>
+                <p className="text-xs text-emerald-100 mt-0.5">{toastMessage}</p>
               </div>
             </motion.div>
           )}
@@ -133,7 +146,6 @@ export const BookingForm: React.FC<BookingFormProps> = ({
 
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold tracking-wider uppercase mb-4">
             <Lock className="w-3.5 h-3.5 text-amber-400" />
             <span>Secreto Profesional y Confidencialidad Garantizada</span>
@@ -143,14 +155,14 @@ export const BookingForm: React.FC<BookingFormProps> = ({
             Agendar Consulta Jurídica Privada
           </h2>
           <div className="w-16 h-0.5 bg-amber-500/60 mx-auto mb-4" />
-          <p className="text-slate-300 text-sm sm:text-base">
+          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
             Coordine una sesión de análisis preliminar con uno de nuestros socios directores. La
-            información compartida está protegida por ley procesal y secreto profesional inquebrantable.
+            información compartida está blindada por ley procesal y secreto profesional inquebrantable.
           </p>
         </div>
 
-        {/* Card Form */}
-        <div className="rounded-sm bg-slate-900/80 border border-amber-500/30 p-8 sm:p-12 shadow-2xl backdrop-blur-md relative">
+        {/* Form Card */}
+        <div className="rounded-sm bg-slate-900/80 border border-amber-500/30 p-6 sm:p-12 shadow-2xl backdrop-blur-md relative">
           
           {submitted ? (
             <motion.div
@@ -158,26 +170,26 @@ export const BookingForm: React.FC<BookingFormProps> = ({
               animate={{ opacity: 1, scale: 1 }}
               className="text-center py-10 space-y-6"
             >
-              <div className="w-16 h-16 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center mx-auto text-amber-400">
-                <CheckCircle2 className="w-8 h-8 text-amber-400" />
+              <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center mx-auto text-emerald-400 shadow-lg shadow-emerald-950/50">
+                <CheckCircle2 className="w-9 h-9 text-emerald-400" />
               </div>
 
               <div>
                 <h3 className="font-serif-luxury text-3xl font-bold text-white mb-2">
                   Solicitud Cifrada y Radicada
                 </h3>
-                <p className="text-slate-300 text-sm max-w-md mx-auto mb-6">
+                <p className="text-slate-300 text-sm max-w-md mx-auto mb-6 leading-relaxed">
                   Su requerimiento ha ingresado con máxima prioridad a la secretaría del despacho. Un
                   socio director revisará los antecedentes y se pondrá en contacto en menos de 2 horas
                   hábiles.
                 </p>
               </div>
 
-              <div className="inline-block p-4 rounded bg-slate-950 border border-amber-500/30 font-mono text-center">
-                <span className="text-xs text-slate-400 block uppercase tracking-widest mb-1">
+              <div className="inline-block p-5 rounded-sm bg-slate-950 border border-amber-500/40 font-mono text-center shadow-inner">
+                <span className="text-[11px] text-slate-400 block uppercase tracking-widest mb-1.5">
                   Expediente de Radicación Confidencial:
                 </span>
-                <span className="text-xl font-bold text-amber-400">{referenceCode}</span>
+                <span className="text-2xl font-bold text-amber-400 tracking-wider">{referenceCode}</span>
               </div>
 
               <div className="pt-4 flex flex-col sm:flex-row justify-center gap-4">
@@ -185,7 +197,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                   href={`https://wa.me/593999999999?text=Hola%2C%20acabo%20de%20agendar%20en%20l%C3%ADnea%20mi%20consulta%20con%20folio%20${referenceCode}.%20Deseo%20confirmar%20recepci%C3%B3n.`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3 rounded-sm bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-md"
+                  className="px-7 py-3.5 rounded-sm bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-lg shadow-emerald-950/60 hover:scale-[1.01]"
                 >
                   Confirmar por WhatsApp Inmediato
                 </a>
@@ -193,7 +205,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                 <button
                   type="button"
                   onClick={handleResetForm}
-                  className="px-6 py-3 rounded-sm bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium uppercase tracking-wider transition-colors border border-white/10"
+                  className="px-6 py-3.5 rounded-sm bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium uppercase tracking-wider transition-colors border border-white/10 cursor-pointer"
                 >
                   Agendar Otro Requerimiento
                 </button>
@@ -202,7 +214,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               
-              {/* Anti-spam Honeypot field (hidden from real users) */}
+              {/* Anti-spam Honeypot field */}
               <div style={{ display: 'none' }} aria-hidden="true">
                 <label htmlFor="website_hp">No llenar este campo</label>
                 <input
@@ -215,6 +227,33 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                   autoComplete="off"
                 />
               </div>
+
+              {/* Preselected Diagnosis Banner */}
+              {preselectedNotes && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-3.5 rounded bg-amber-500/10 border border-amber-500/30 flex items-center justify-between gap-3 text-xs text-amber-200"
+                >
+                  <div className="flex items-center gap-2">
+                    <FileCheck className="w-4 h-4 text-amber-400 shrink-0" />
+                    <span>Datos del diagnóstico transferidos automáticamente al formulario.</span>
+                  </div>
+                  {onClearPreselection && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        onClearPreselection();
+                        setFormData((prev) => ({ ...prev, description: '' }));
+                      }}
+                      className="p-1 text-amber-400 hover:text-white rounded hover:bg-white/10 cursor-pointer transition-colors"
+                      title="Quitar diagnóstico"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
+                  )}
+                </motion.div>
+              )}
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {/* Nombre Completo */}
@@ -234,7 +273,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                       placeholder="Dr. / Ing. / Lic. / Empresa S.A."
                       value={formData.fullName}
                       onChange={handleChange}
-                      className="w-full pl-10 pr-4 py-3 bg-slate-950/80 border border-slate-700 rounded-sm text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-colors"
+                      className="w-full pl-10 pr-4 py-3 bg-[#050813] border border-slate-700/80 rounded-sm text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all"
                     />
                   </div>
                 </div>
@@ -256,7 +295,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                       placeholder="+593 99 999 9999"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full pl-10 pr-4 py-3 bg-slate-950/80 border border-slate-700 rounded-sm text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-colors"
+                      className="w-full pl-10 pr-4 py-3 bg-[#050813] border border-slate-700/80 rounded-sm text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all"
                     />
                   </div>
                 </div>
@@ -280,7 +319,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                       placeholder="nombre@empresa.com"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full pl-10 pr-4 py-3 bg-slate-950/80 border border-slate-700 rounded-sm text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-colors"
+                      className="w-full pl-10 pr-4 py-3 bg-[#050813] border border-slate-700/80 rounded-sm text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all"
                     />
                   </div>
                 </div>
@@ -290,26 +329,31 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                   <label htmlFor="area" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
                     Especialidad Jurídica <span className="text-amber-400">*</span>
                   </label>
-                  <select
-                    id="area"
-                    name="area"
-                    value={formData.area}
-                    onChange={handleChange}
-                    className="w-full px-3.5 py-3 bg-slate-950/80 border border-slate-700 rounded-sm text-sm text-white focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-colors"
-                  >
-                    {PRACTICE_AREAS.map((pa) => (
-                      <option key={pa.id} value={pa.id} className="bg-slate-900 text-white">
-                        {pa.title}
-                      </option>
-                    ))}
-                  </select>
+                  <div className="relative">
+                    <select
+                      id="area"
+                      name="area"
+                      value={formData.area}
+                      onChange={handleChange}
+                      className="w-full px-3.5 py-3 bg-[#050813] border border-slate-700/80 rounded-sm text-sm text-white focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all appearance-none cursor-pointer"
+                    >
+                      {PRACTICE_AREAS.map((pa) => (
+                        <option key={pa.id} value={pa.id} className="bg-slate-900 text-white">
+                          {pa.title}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-amber-400 text-xs">
+                      ▼
+                    </div>
+                  </div>
                 </div>
               </div>
 
               {/* Fecha Preferida */}
               <div>
                 <label htmlFor="date" className="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
-                  Fecha Preferida para Consulta (Tentativa)
+                  Fecha Preferida para la Sesión (Tentativa)
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
@@ -321,7 +365,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                     name="date"
                     value={formData.date}
                     onChange={handleChange}
-                    className="w-full pl-10 pr-4 py-3 bg-slate-950/80 border border-slate-700 rounded-sm text-sm text-white focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-colors"
+                    className="w-full pl-10 pr-4 py-3 bg-[#050813] border border-slate-700/80 rounded-sm text-sm text-white focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all"
                   />
                 </div>
               </div>
@@ -335,18 +379,18 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                   id="description"
                   name="description"
                   rows={4}
-                  placeholder="Describa brevemente la controversia, transacción o consulta legal..."
+                  placeholder="Describa brevemente la controversia, transacción o consulta legal a evaluar..."
                   value={formData.description}
                   onChange={handleChange}
-                  className="w-full p-3.5 bg-slate-950/80 border border-slate-700 rounded-sm text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-colors"
+                  className="w-full p-3.5 bg-[#050813] border border-slate-700/80 rounded-sm text-sm text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 transition-all"
                 />
               </div>
 
               {/* Confidentiality Notice */}
-              <div className="p-3.5 bg-slate-950/60 rounded border border-white/10 flex items-start gap-3">
-                <ShieldCheck className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  Garantía de confidencialidad: El envío de este formulario genera una relación
+              <div className="p-4 bg-slate-950/70 rounded-sm border border-white/10 flex items-start gap-3">
+                <ShieldCheck className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  <strong className="text-white">Garantía de confidencialidad absoluta:</strong> El envío de este formulario genera una relación
                   precontractual blindada bajo secreto profesional inquebrantable (Código de Ética Profesional
                   y leyes procesales vigentes).
                 </p>
