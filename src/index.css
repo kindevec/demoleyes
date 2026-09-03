@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-display: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #070B19;
+    color: #e2e8f0;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-serif-luxury {
+    font-family: var(--font-serif);
+  }
+
+  .font-display-crest {
+    font-family: var(--font-display);
+    letter-spacing: 0.08em;
+  }
+}
+
+/* Diagonal slant transitions matching reference image */
+.slant-cut-top {
+  clip-path: polygon(0 4vw, 100% 0, 100% 100%, 0 100%);
+}
+
+.slant-cut-bottom {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4vw), 0 100%);
+}
+
+.slant-cut-both {
+  clip-path: polygon(0 3.5vw, 100% 0, 100% calc(100% - 3.5vw), 0 100%);
+}
+
+/* Gold foil & metallic gradients */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #F3E7C4 0%, #D4AF37 50%, #AA7C11 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #DFBE6F 0%, #C5A880 50%, #9E7D46 100%);
+}
+
+.gold-border-glow {
+  box-shadow: 0 0 25px -5px rgba(212, 175, 55, 0.25);
+}
+
+/* Safe area padding for mobile bottom bar */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 1rem);
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Valenzuela & Asociados | Firma Jurídica",
+  "description": "Firma jurídica de élite especializada en derecho corporativo, litigios complejos, defensa penal económica y protección patrimonial.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
