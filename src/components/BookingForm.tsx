@@ -122,7 +122,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
 
             {/* Top Badge on Photo */}
             <div className="relative z-10 p-6 sm:p-8">
-              <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-slate-950/80 backdrop-blur-md text-[#D4AF37] border border-[#D4AF37]/30 inline-block mb-3">
+              <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#FDE047] font-heading inline-block mb-2">
                 Sede Matriz • Sala Ejecutiva
               </span>
               <h3 className="font-heading font-extrabold text-2xl text-white leading-snug">
@@ -158,7 +158,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
           </div>
 
           {/* Right Column: Sleek Booking Form */}
-          <div className="lg:col-span-7 -mx-4 sm:mx-0 rounded-none sm:rounded-3xl bg-[#0B1D3A]/70 sm:bg-[#0B1D3A]/60 border-y sm:border border-slate-800 p-5 sm:p-9 shadow-xl backdrop-blur-xl flex flex-col justify-center">
+          <div className="lg:col-span-7 -mx-4 sm:mx-0 rounded-none sm:rounded-3xl bg-[#091D3C]/70 border-y sm:border border-slate-800/80 p-5 sm:p-9 shadow-xl backdrop-blur-xl flex flex-col justify-center">
             <AnimatePresence mode="wait">
               {!submitted ? (
                 <motion.form
@@ -199,7 +199,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                         placeholder="Ej. Ing. Carlos Morales"
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
-                        className="w-full px-4 py-3 rounded-2xl bg-[#071326] border border-slate-700/80 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-slate-700/80 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
                       />
                     </div>
 
@@ -213,7 +213,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                         placeholder="ejemplo@empresa.com"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full px-4 py-3 rounded-2xl bg-[#071326] border border-slate-700/80 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-slate-700/80 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
                       />
                     </div>
                   </div>
@@ -229,7 +229,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                         placeholder="+593 99 999 9999"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
-                        className="w-full px-4 py-3 rounded-2xl bg-[#071326] border border-slate-700/80 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-slate-700/80 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
                       />
                     </div>
 
@@ -240,7 +240,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                       <select
                         value={area}
                         onChange={(e) => setArea(e.target.value)}
-                        className="w-full px-4 py-3 rounded-2xl bg-[#071326] border border-slate-700/80 text-sm text-white focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-slate-700/80 text-sm text-white focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
                       >
                         {PRACTICE_AREAS.map((pa) => (
                           <option key={pa.id} value={pa.id} className="bg-[#071326] text-white">
@@ -260,7 +260,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                         type="date"
                         value={preferredDate}
                         onChange={(e) => setPreferredDate(e.target.value)}
-                        className="w-full px-4 py-3 rounded-2xl bg-[#071326] border border-slate-700/80 text-sm text-white focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-slate-700/80 text-sm text-white focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
                       />
                     </div>
 
@@ -271,7 +271,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                       <select
                         value={preferredTime}
                         onChange={(e) => setPreferredTime(e.target.value)}
-                        className="w-full px-4 py-3 rounded-2xl bg-[#071326] border border-slate-700/80 text-sm text-white focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-slate-700/80 text-sm text-white focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all"
                       >
                         <option value="09:00" className="bg-[#071326]">09:00 - 10:30 (Mañana)</option>
                         <option value="11:00" className="bg-[#071326]">11:00 - 12:30 (Media Mañana)</option>
@@ -290,7 +290,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                       placeholder="Detalle brevemente hechos, partes y si existe alguna citación con plazo perentorio..."
                       value={notes}
                       onChange={(e) => setNotes(e.target.value)}
-                      className="w-full px-4 py-3 rounded-2xl bg-[#071326] border border-slate-700/80 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all resize-none"
+                      className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-slate-700/80 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37]/30 transition-all resize-none"
                     />
                   </div>
 
@@ -389,6 +389,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
     </section>
   );
 };
+
 
 
 

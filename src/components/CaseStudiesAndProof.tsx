@@ -56,10 +56,10 @@ export const CaseStudiesAndProof: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B1D3A] via-[#0B1D3A]/50 to-transparent pointer-events-none" />
 
                 <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none">
-                  <span className="text-[10px] font-bold tracking-wider uppercase px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-[#D4AF37] border border-[#D4AF37]/30">
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#FDE047] drop-shadow-md font-heading">
                     {caseStudy.tag}
                   </span>
-                  <span className="text-xs text-white font-mono font-bold px-2.5 py-1 rounded-full bg-slate-950/80 backdrop-blur-md">
+                  <span className="text-xs text-slate-200 font-mono font-bold drop-shadow-md">
                     PRE-0{idx + 1} • {caseStudy.year}
                   </span>
                 </div>
@@ -236,6 +236,7 @@ export const CaseStudiesAndProof: React.FC = () => {
     </section>
   );
 };
+
 
 
 

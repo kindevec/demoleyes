@@ -101,10 +101,10 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.35 }}
-                  className={`w-[86vw] sm:w-auto shrink-0 md:shrink snap-center rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300 group shadow-xl ${
+                  className={`w-[86vw] sm:w-auto shrink-0 md:shrink snap-center rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300 group ${
                     isSelected
-                      ? 'bg-[#0B1D3A] border-2 border-[#D4AF37] ring-2 ring-[#D4AF37]/20'
-                      : 'bg-[#0B1D3A]/60 hover:bg-[#0B1D3A] border border-slate-800 hover:border-[#D4AF37]/40'
+                      ? 'bg-[#0A1E3C] border-2 border-[#D4AF37] shadow-2xl shadow-[#D4AF37]/15'
+                      : 'bg-[#091D3C]/70 hover:bg-[#091D3C] border border-slate-800/80 hover:border-[#D4AF37]/50 shadow-lg'
                   }`}
                 >
                   {/* High-Resolution Photo Header */}
@@ -120,13 +120,13 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0B1D3A] via-[#0B1D3A]/40 to-transparent pointer-events-none" />
 
-                    {/* Floating Pill Badge & Icon */}
+                    {/* Floating Clean Tag & Icon (Zero Box-in-Box) */}
                     <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none">
-                      <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-slate-950/80 backdrop-blur-md text-[#D4AF37] border border-[#D4AF37]/30">
+                      <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#FDE047] drop-shadow-md font-heading">
                         {area.tag}
                       </span>
-                      <div className="w-8 h-8 rounded-xl bg-slate-950/80 backdrop-blur-md border border-slate-700/80 flex items-center justify-center text-[#D4AF37]">
-                        {iconMap[area.iconName] || <Scale className="w-4 h-4" />}
+                      <div className="text-[#D4AF37] drop-shadow-md">
+                        {iconMap[area.iconName] || <Scale className="w-5 h-5" />}
                       </div>
                     </div>
                   </div>
@@ -188,6 +188,7 @@ export const PracticeAreas: React.FC<PracticeAreasProps> = ({
     </section>
   );
 };
+
 
 
 

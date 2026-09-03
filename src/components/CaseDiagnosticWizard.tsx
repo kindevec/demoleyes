@@ -74,7 +74,7 @@ export const CaseDiagnosticWizard: React.FC<CaseDiagnosticWizardProps> = ({ onAp
         </div>
 
         {/* Wizard Card Container */}
-        <div className="rounded-3xl bg-[#0B1D3A]/90 border border-slate-700/80 p-6 sm:p-10 shadow-2xl backdrop-blur-xl">
+        <div className="rounded-3xl bg-[#091D3C]/70 border border-slate-800/80 p-6 sm:p-10 shadow-2xl backdrop-blur-xl max-w-4xl mx-auto">
           <AnimatePresence mode="wait">
             
             {/* Step 1: Materia */}
@@ -108,7 +108,7 @@ export const CaseDiagnosticWizard: React.FC<CaseDiagnosticWizardProps> = ({ onAp
                     <button
                       key={item.id}
                       onClick={() => handleNextToStep2(item.id)}
-                      className="p-4 rounded-2xl bg-[#071326] hover:bg-slate-900 border border-slate-800 hover:border-[#D4AF37]/50 text-left transition-all flex items-center justify-between group cursor-pointer"
+                      className="p-4 rounded-xl bg-white/[0.03] hover:bg-white/[0.07] border border-white/10 hover:border-[#D4AF37]/60 text-left transition-all flex items-center justify-between group cursor-pointer"
                     >
                       <span className="text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-white">
                         {item.label}
@@ -156,7 +156,7 @@ export const CaseDiagnosticWizard: React.FC<CaseDiagnosticWizardProps> = ({ onAp
                     <button
                       key={item.id}
                       onClick={() => handleNextToStep3(item.id)}
-                      className="w-full p-4 rounded-2xl bg-[#071326] hover:bg-slate-900 border border-slate-800 hover:border-[#D4AF37]/50 text-left transition-all flex items-center justify-between group cursor-pointer"
+                      className="w-full p-4 rounded-xl bg-white/[0.03] hover:bg-white/[0.07] border border-white/10 hover:border-[#D4AF37]/60 text-left transition-all flex items-center justify-between group cursor-pointer"
                     >
                       <span className="text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-white">
                         {item.label}
@@ -204,7 +204,7 @@ export const CaseDiagnosticWizard: React.FC<CaseDiagnosticWizardProps> = ({ onAp
                     <button
                       key={item.id}
                       onClick={() => handleCompleteDiagnosis(item.id)}
-                      className="w-full p-4 rounded-2xl bg-[#071326] hover:bg-slate-900 border border-slate-800 hover:border-[#D4AF37]/50 text-left transition-all flex items-center justify-between group cursor-pointer"
+                      className="w-full p-4 rounded-xl bg-white/[0.03] hover:bg-white/[0.07] border border-white/10 hover:border-[#D4AF37]/60 text-left transition-all flex items-center justify-between group cursor-pointer"
                     >
                       <span className="text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-white">
                         {item.label}
@@ -280,6 +280,7 @@ export const CaseDiagnosticWizard: React.FC<CaseDiagnosticWizardProps> = ({ onAp
     </section>
   );
 };
+
 
 
 

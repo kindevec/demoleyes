@@ -95,26 +95,26 @@ export const FaqAccordion: React.FC = () => {
               return (
                 <div
                   key={faq.id}
-                  className="-mx-4 sm:mx-0 rounded-none sm:rounded-2xl bg-[#0B1D3A]/70 sm:bg-[#0B1D3A]/80 border-y sm:border border-slate-800/80 hover:border-[#D4AF37]/30 transition-colors overflow-hidden"
+                  className="border-b border-slate-800/80 transition-colors"
                 >
                   <button
                     type="button"
                     onClick={() => toggleItem(faq.id)}
-                    className="w-full px-6 py-4 sm:py-5 flex items-center justify-between text-left gap-4 cursor-pointer focus:outline-none"
+                    className="w-full py-5 flex items-center justify-between text-left gap-4 cursor-pointer focus:outline-none group"
                     aria-expanded={isOpen}
                   >
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3.5">
                       <span className="text-xs font-mono font-bold text-[#D4AF37] shrink-0">
                         {faq.id.replace('faq-', '0')}.
                       </span>
-                      <span className="font-heading font-semibold text-base sm:text-lg text-white">
+                      <span className="font-heading font-semibold text-base sm:text-lg text-white group-hover:text-[#D4AF37] transition-colors">
                         {faq.question}
                       </span>
                     </div>
 
                     <div
-                      className={`w-7 h-7 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#D4AF37] transition-transform duration-200 shrink-0 ${
-                        isOpen ? 'rotate-180 bg-[#D4AF37]/15 border-[#D4AF37]/40' : ''
+                      className={`w-7 h-7 rounded-full bg-white/5 flex items-center justify-center text-[#D4AF37] transition-transform duration-200 shrink-0 ${
+                        isOpen ? 'rotate-180 bg-[#D4AF37]/15' : ''
                       }`}
                     >
                       <ChevronDown className="w-4 h-4" />
@@ -130,7 +130,7 @@ export const FaqAccordion: React.FC = () => {
                         transition={{ duration: 0.25, ease: 'easeInOut' }}
                         className="overflow-hidden"
                       >
-                        <div className="px-6 pb-5 pt-1 border-t border-slate-800 text-slate-300 text-xs sm:text-sm leading-relaxed text-justify-clean">
+                        <div className="pb-5 pl-7 pr-4 text-slate-300 text-xs sm:text-sm leading-relaxed text-justify-clean">
                           <p>{faq.answer}</p>
                         </div>
                       </motion.div>
@@ -167,6 +167,7 @@ export const FaqAccordion: React.FC = () => {
     </section>
   );
 };
+
 
 
 

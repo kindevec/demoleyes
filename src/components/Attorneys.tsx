@@ -59,7 +59,7 @@ export const Attorneys: React.FC<AttorneysProps> = ({ onConsultPartner }) => {
                   
                   {/* Experience Badge */}
                   <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between">
-                    <span className="text-[10px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full bg-[#071326]/90 backdrop-blur-md text-[#D4AF37] border border-[#D4AF37]/30">
+                    <span className="text-[11px] font-extrabold tracking-wider uppercase text-[#FDE047] drop-shadow-md font-heading">
                       {attorney.experience}
                     </span>
                   </div>
@@ -96,8 +96,8 @@ export const Attorneys: React.FC<AttorneysProps> = ({ onConsultPartner }) => {
                   </div>
 
                   {/* Official Bar Number */}
-                  <div className="text-[11px] text-slate-400 font-mono bg-[#071326] p-2 rounded-xl border border-slate-800 flex items-center gap-2">
-                    <Scale className="w-3 h-3 text-[#D4AF37] shrink-0" />
+                  <div className="text-[11px] text-slate-400 font-mono flex items-center gap-1.5 pt-2">
+                    <Scale className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
                     <span>{attorney.barNumber}</span>
                   </div>
                 </div>
@@ -234,6 +234,7 @@ export const Attorneys: React.FC<AttorneysProps> = ({ onConsultPartner }) => {
     </section>
   );
 };
+
 
 
 

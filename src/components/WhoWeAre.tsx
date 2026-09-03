@@ -125,22 +125,22 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
             </div>
 
             {/* Checkmark Guarantees in 2 Columns */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-6">
-              <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 pt-6 border-t border-slate-200/80 mt-6">
+              <div className="flex items-center gap-2 text-xs text-slate-800 font-semibold">
                 <CheckCircle2 className="w-4 h-4 text-[#B8860B] shrink-0" />
-                <span className="text-xs text-slate-800 font-semibold">Patrocinio directo por Socios Titulares</span>
+                <span>Patrocinio directo por Socios Titulares</span>
               </div>
-              <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+              <div className="flex items-center gap-2 text-xs text-slate-800 font-semibold">
                 <CheckCircle2 className="w-4 h-4 text-[#B8860B] shrink-0" />
-                <span className="text-xs text-slate-800 font-semibold">Protocolos de secreto cifrado ISO 27001</span>
+                <span>Protocolos de secreto cifrado ISO 27001</span>
               </div>
-              <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+              <div className="flex items-center gap-2 text-xs text-slate-800 font-semibold">
                 <CheckCircle2 className="w-4 h-4 text-[#B8860B] shrink-0" />
-                <span className="text-xs text-slate-800 font-semibold">Corresponsalía en EE.UU., Madrid y Bogotá</span>
+                <span>Corresponsalía en EE.UU., Madrid y Bogotá</span>
               </div>
-              <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+              <div className="flex items-center gap-2 text-xs text-slate-800 font-semibold">
                 <CheckCircle2 className="w-4 h-4 text-[#B8860B] shrink-0" />
-                <span className="text-xs text-slate-800 font-semibold">Transparencia tarifaria formal por contrato</span>
+                <span>Transparencia tarifaria formal por contrato</span>
               </div>
             </div>
           </div>
@@ -148,40 +148,40 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
         </div>
 
         {/* 3 Pillars in Modern Crisp Editorial Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
-          <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-10 h-10 rounded-2xl bg-[#071326] text-[#D4AF37] flex items-center justify-center mb-4 shadow-sm">
-              <Users className="w-5 h-5" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-10 border-t border-slate-200">
+          <div className="space-y-2">
+            <div className="flex items-center gap-2.5 mb-2">
+              <Users className="w-5 h-5 text-[#B8860B]" />
+              <h4 className="font-heading font-extrabold text-base text-[#071326]">
+                Enfoque Estratégico en el Negocio
+              </h4>
             </div>
-            <h4 className="font-heading font-extrabold text-base text-[#071326] mb-2">
-              Enfoque Estratégico en el Negocio
-            </h4>
             <p className="text-xs text-slate-600 leading-relaxed text-justify-clean">
               Diseñamos soluciones jurídicas para preservar la rentabilidad, la continuidad operativa
               y la reputación del cliente frente a cualquier contingencia judicial o regulatoria.
             </p>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-10 h-10 rounded-2xl bg-[#071326] text-[#D4AF37] flex items-center justify-center mb-4 shadow-sm">
-              <ShieldCheck className="w-5 h-5" />
+          <div className="space-y-2 md:border-l border-slate-200 md:pl-8">
+            <div className="flex items-center gap-2.5 mb-2">
+              <ShieldCheck className="w-5 h-5 text-[#B8860B]" />
+              <h4 className="font-heading font-extrabold text-base text-[#071326]">
+                Rigor Probatorio & Defensa Activa
+              </h4>
             </div>
-            <h4 className="font-heading font-extrabold text-base text-[#071326] mb-2">
-              Rigor Probatorio & Defensa Activa
-            </h4>
             <p className="text-xs text-slate-600 leading-relaxed text-justify-clean">
               Patrocinio directo con simulación de audiencias, peritajes forenses contables y análisis
               exhaustivo de precedentes ante cortes ordinarias y tribunales arbitrales.
             </p>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-10 h-10 rounded-2xl bg-[#071326] text-[#D4AF37] flex items-center justify-center mb-4 shadow-sm">
-              <BookOpen className="w-5 h-5" />
+          <div className="space-y-2 md:border-l border-slate-200 md:pl-8">
+            <div className="flex items-center gap-2.5 mb-2">
+              <BookOpen className="w-5 h-5 text-[#B8860B]" />
+              <h4 className="font-heading font-extrabold text-base text-[#071326]">
+                Confidencialidad Fiduciaria
+              </h4>
             </div>
-            <h4 className="font-heading font-extrabold text-base text-[#071326] mb-2">
-              Confidencialidad Fiduciaria
-            </h4>
             <p className="text-xs text-slate-600 leading-relaxed text-justify-clean">
               Custodia de expedientes y acuerdos de secreto respaldados bajo estándar ISO 27001, con
               miembros activos en la International Bar Association (IBA).
@@ -206,3 +206,4 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ onLearnMore }) => {
     </section>
   );
 };
+
