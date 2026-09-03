@@ -3,6 +3,7 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ClientTrustLogos } from './components/ClientTrustLogos';
 import { WhoWeAre } from './components/WhoWeAre';
+import { AboutFounder } from './components/AboutFounder';
 import { PracticeAreas } from './components/PracticeAreas';
 import { AreaDetailModal } from './components/AreaDetailModal';
 import { CaseDiagnosticWizard } from './components/CaseDiagnosticWizard';
@@ -27,6 +28,7 @@ export default function App() {
       const sections = [
         'inicio',
         'quienes-somos',
+        'sobre-mi',
         'especialidades',
         'diagnostico',
         'honorarios',
@@ -107,7 +109,10 @@ export default function App() {
         <ClientTrustLogos />
 
         {/* 3. La Firma (Who We Are) */}
-        <WhoWeAre onLearnMore={() => scrollTo('abogados')} />
+        <WhoWeAre onLearnMore={() => scrollTo('sobre-mi')} />
+
+        {/* 3.5 Sobre Mí (Founder Showcase - SmartLegal Standard) */}
+        <AboutFounder onNavigateToBooking={() => scrollTo('agendar')} />
 
         {/* 4. Especialidades (Practice Areas) */}
         <PracticeAreas
@@ -161,3 +166,4 @@ export default function App() {
     </div>
   );
 }
+
